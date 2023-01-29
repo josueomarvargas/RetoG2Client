@@ -7,94 +7,111 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Gonzalo
  */
-@Entity
-@Table(name = "USUARIOS", schema = "nutrivago")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING)
-@XmlRootElement
+
+@XmlRootElement(name="usuario")
 public class Usuario implements Serializable{
         
     
-    @Id
-    private String dni;
 
-    private String nombreAcceso;
+    private SimpleStringProperty dni;
 
-    private String contraseña;
+    private SimpleStringProperty nombreAcceso;
 
-    private String nombre;
+    private SimpleStringProperty contraseña;
 
-    private String apellido;
+    private SimpleStringProperty nombre;
 
-    private String email;
-    @Temporal(TemporalType.DATE)
+    private SimpleStringProperty apellido;
+
+    private SimpleStringProperty email;
     private Date fechaNac;
+    private SimpleObjectProperty<Tipo> tipo;
+    
 
+    public Usuario() {
+        this.dni= new SimpleStringProperty();
+        this.nombreAcceso= new SimpleStringProperty();
+        this.contraseña= new SimpleStringProperty();
+        this.nombre= new SimpleStringProperty();
+        this.apellido= new SimpleStringProperty();
+        this.email= new SimpleStringProperty();
+        this.tipo= new SimpleObjectProperty<>();
+    }
+
+    public Usuario(String nombreAcceso, String contraseña, String nombre, String apellido, String email, Tipo tipo) {
+      this.nombreAcceso= new SimpleStringProperty(nombreAcceso);
+        this.contraseña= new SimpleStringProperty(contraseña);
+        this.nombre= new SimpleStringProperty(nombre);
+        this.apellido= new SimpleStringProperty(apellido);
+        this.email= new SimpleStringProperty(email);
+        this.tipo= new SimpleObjectProperty<>(tipo);
+    }
+    
+
+    @XmlElement(name="dni")
 
     public String getDni() {
-        return dni;
+        return this.dni.get();
     }
 
     public void setDni(String dni) {
-        this.dni = dni;
+        this.dni.set(dni);
     }
+    @XmlElement(name="nombre acesso")
 
     public String getNombreAcceso() {
-        return nombreAcceso;
+        return this.nombreAcceso.get();
     }
 
     public void setNombreAcceso(String nombreAcceso) {
-        this.nombreAcceso = nombreAcceso;
+        this.nombreAcceso.set(nombreAcceso);
     }
+    @XmlElement(name="contraseña")
 
     public String getContraseña() {
-        return contraseña;
+        return this.contraseña.get();
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contraseña.set(contraseña);
     }
+    @XmlElement(name="nombre")
 
     public String getNombre() {
-        return nombre;
+        return this.nombre.get();
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre.set(nombre);
     }
+    @XmlElement(name="apellido")
 
     public String getApellido() {
-        return apellido;
+        return this.apellido.get();
     }
 
     public void setApellido(String apellido) {
-        this.apellido = apellido;
+        this.apellido.set(apellido);
     }
+    @XmlElement(name="email")
 
     public String getEmail() {
-        return email;
+        return this.email.get();
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email.set(email);
     }
+    @XmlElement(name="fecha Nacimiento")
 
     public Date getFechaNac() {
         return fechaNac;
@@ -103,11 +120,18 @@ public class Usuario implements Serializable{
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
+    @XmlElement(name="tipo")
 
-
-    public Usuario() {
-        super();
+    public Tipo getTipo() {
+        return this.tipo.get();
     }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo.set(tipo);
+    }
+    
+
+
     
     @Override
     public int hashCode() {

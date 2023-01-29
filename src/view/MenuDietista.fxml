@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ControladorMenuDietista">
+   <children>
+      <MenuBar fx:id="mnBAdmin" id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;" VBox.vgrow="NEVER">
+         <menus>
+            <Menu id="MnCuenta" mnemonicParsing="false" text="CUENTA">
+               <items>
+                  <MenuItem fx:id="mnITusDatos" id="mnITusDatos" mnemonicParsing="false" text="VER TUS DATOS" />
+                  <MenuItem fx:id="mnICerrarSesion" id="mnICerrarSesion" mnemonicParsing="false" text="CERRAR SESION" />
+               </items>
+            </Menu>
+            <Menu id="SbMnClientes" mnemonicParsing="false" text="CLIENTES">
+               <items>
+                  <MenuItem id="mnIVerClientes" mnemonicParsing="false" text="VER CLIENTES" />
+               </items>
+            </Menu>
+            <Menu id="MnReceta" mnemonicParsing="false" text="RECETAS">
+               <items>
+                  <MenuItem fx:id="mnIVerRecetas" id="mnIVerRecetas" mnemonicParsing="false" text="VER RECETAS" />
+                  <MenuItem fx:id="mnBCrearRecetas" id="mnBCrearRecetas" mnemonicParsing="false" text="CREAR RECETAS" />
+               </items>
+            </Menu>
+            <Menu fx:id="mnAlimentos" id="MnAlimentos" mnemonicParsing="false" text="ALIMENTOS">
+               <items>
+                  <MenuItem fx:id="mnIVerAlimentos" id="mnIVerAlimentos" mnemonicParsing="false" text="VER ALIMENTOS" />
+                  <MenuItem fx:id="mnBCrearAlimentos" id="mnBCrearAlimentos" mnemonicParsing="false" text="CREAR ALIMENTOS" />
+               </items>
+            </Menu>
+            <Menu id="MnDietas" mnemonicParsing="false" text="DIETAS">
+               <items>
+                  <MenuItem fx:id="mnIVerDietas" id="mnIVerDietas" mnemonicParsing="false" text="VER DIETAS" />
+                  <MenuItem fx:id="mnBCrearDietas" id="mnBCrearDietas" mnemonicParsing="false" text="CREAR DIETAS" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane id="principalPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #000000;">
+         <children>
+            <ImageView fitHeight="512.0" fitWidth="520.0" layoutX="163.0" layoutY="128.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imagenSignIn.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="512.0" fitWidth="520.0" layoutX="650.0" layoutY="128.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imagenSignIn.jpg" />
+               </image>
+            </ImageView>
+            <Label id="descNutri" layoutX="381.0" layoutY="382.0" prefHeight="46.0" prefWidth="258.0" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

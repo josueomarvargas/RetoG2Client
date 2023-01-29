@@ -6,13 +6,11 @@
 package entities;
 
 import java.io.Serializable;
-import javax.persistence.Embeddable;
 
 /**
  *
  * @author Gonzalo
  */
-@Embeddable
 public class AlimRecID implements Serializable{
     
     private String idAlim;

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ControladorCambiarContrasenia">
+   <children>
+       <MenuBar fx:id="MnBAdmin" id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;" VBox.vgrow="NEVER">
+         <menus>
+            <Menu id="MnCuenta" mnemonicParsing="false" text="CUENTA">
+               <items>
+                  <MenuItem fx:id="mnITusDatos" id="mnITusDatos" mnemonicParsing="false" text="VER TUS DATOS" />
+                  <MenuItem fx:id="mnICerrarSesion" id="mnICerrarSesion" mnemonicParsing="false" text="CERRAR SESION" />
+               </items>
+            </Menu>
+            <Menu id="SbMnClientes" mnemonicParsing="false" text="CLIENTES">
+               <items>
+                  <MenuItem id="mnIVerClientes" mnemonicParsing="false" text="VER CLIENTES" />
+               </items>
+            </Menu>
+            <Menu id="MnReceta" mnemonicParsing="false" text="RECETAS">
+               <items>
+                  <MenuItem fx:id="mnIVerRecetas" id="mnIVerRecetas" mnemonicParsing="false" text="VER RECETAS" />
+                  <MenuItem fx:id="mnBCrearRecetas" id="mnBCrearRecetas" mnemonicParsing="false" text="CREAR RECETAS" />
+               </items>
+            </Menu>
+            <Menu id="MnAlimentos" mnemonicParsing="false" text="ALIMENTOS">
+               <items>
+                  <MenuItem fx:id="mnIVerAlimentos" id="mnIVerAlimentos" mnemonicParsing="false" text="VER ALIMENTOS" />
+                  <MenuItem fx:id="mnBCrearAlimentos" id="mnBCrearAlimentos" mnemonicParsing="false" text="CREAR ALIMENTOS" />
+               </items>
+            </Menu>
+            <Menu id="MnDietas" mnemonicParsing="false" text="DIETAS">
+               <items>
+                  <MenuItem fx:id="mnIVerDietas" id="mnIVerDietas" mnemonicParsing="false" text="VER DIETAS" />
+                  <MenuItem fx:id="mnBCrearDietas" id="mnBCrearDietas" mnemonicParsing="false" text="CREAR DIETAS" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane id="principalPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #000000;">
+         <children>
+            <ImageView fitHeight="512.0" fitWidth="520.0" layoutX="163.0" layoutY="128.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imagenSignIn.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="512.0" fitWidth="520.0" layoutX="650.0" layoutY="128.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imagenSignIn.jpg" />
+               </image>
+            </ImageView>
+            <Label id="descNutri" layoutX="381.0" layoutY="382.0" prefHeight="46.0" prefWidth="258.0" textFill="WHITE" />
+            <AnchorPane id="filtroPanel" layoutX="358.0" layoutY="199.0" prefHeight="370.0" prefWidth="650.0" style="-fx-background-color: #f5d400;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label id="antiguaContraseñaLabel" layoutX="241.0" layoutY="66.0" text="Antigua Contraseña:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField id="antiguaContraseñaText" layoutX="230.0" layoutY="96.0" prefHeight="30.0" prefWidth="185.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label id="contraseñaLabel" layoutX="241.0" layoutY="126.0" text="Nueva Contraseña:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <PasswordField id="nuevaContraseñaText" layoutX="230.0" layoutY="158.0" prefHeight="30.0" prefWidth="185.0" />
+                  <Label id="confContraseñaLabel" layoutX="241.0" layoutY="186.0" text="Confirmar Nueva Contraseña:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <PasswordField id="confNuevaContraseñaText" layoutX="230.0" layoutY="216.0" prefHeight="30.0" prefWidth="185.0" />
+                  <Button id="cambiarContraseñaBoton" layoutX="225.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #b0850e;" text="Cambiar Contraseña">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Button id="volverBoton" layoutX="1086.0" layoutY="551.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #f5d400;" text="Volver">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
