@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a8aae89-c27f-4cec-9181-9a9743425050">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="Table Dataset 1" uuid="54a27563-d107-48b6-953a-1abb41825df1"/>
+	<field name="Nombre" class="java.lang.String"/>
+	<field name="Tipo" class="java.lang.String"/>
+	<field name="Tiempo" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="156" y="0" width="274" height="56" uuid="07a2eff9-53a0-4947-91bd-a4ea5d4f628e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="48"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Dieta Report]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="43" y="2" width="100" height="20" uuid="2c7c04dd-a7fe-49b2-86c7-811d681ae3b2"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="2" width="100" height="20" uuid="d60bbd76-d402-4cce-ad85-95debf3d8b3c"/>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="2" width="100" height="20" uuid="78794bcc-871d-47da-bedd-74b1914db78a"/>
+				<text><![CDATA[Tiempo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="399" splitType="Stretch">
+			<textField>
+				<reportElement x="43" y="27" width="100" height="20" uuid="90538cf1-c370-46cc-81d9-7e64e99ebdf9"/>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="27" width="100" height="20" uuid="e06c943e-4266-4dd9-bb42-161ba64755ec"/>
+				<textFieldExpression><![CDATA[$F{Tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="27" width="100" height="20" uuid="de632615-ec2d-47e3-8531-86c65695fcdd"/>
+				<textFieldExpression><![CDATA[$F{Tiempo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="114" splitType="Stretch"/>
+	</summary>
+</jasperReport>

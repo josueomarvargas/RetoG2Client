@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="TablaDietas" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Controler_TablaDietas">
+    <children>
+        <MenuBar id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;">
+            <menus>
+                <Menu id="MnCuenta" mnemonicParsing="false" text="CUENTA">
+                    <items>
+                        <MenuItem id="MnITusDatos" mnemonicParsing="false" text="VER TUS DATOS" />
+                        <MenuItem id="MnICerrarSesion" mnemonicParsing="false" text="CERRAR SESION" />
+                    </items>
+                </Menu>
+                <Menu id="SbMnDietistas" mnemonicParsing="false" text="DIETISTAS">
+                    <items>
+                        <MenuItem id="MnIVerDietistas" mnemonicParsing="false" text="VER DIETISTAS" />
+                        <MenuItem id="MnBCrearDietistas" mnemonicParsing="false" text="CREAR DIETISTAS" />
+                    </items>
+                </Menu>
+                <Menu id="SbMnClientes" mnemonicParsing="false" text="CLIENTES">
+                    <items>
+                        <MenuItem id="MnIVerClientes" mnemonicParsing="false" text="VER CLIENTES" />
+                        <MenuItem id="MnICrearClientes" mnemonicParsing="false" text="CREAR CLIENTES" />
+                    </items>
+                </Menu>
+                <Menu id="MnReceta" mnemonicParsing="false" text="RECETAS" />
+                <Menu id="MnAlimentos" mnemonicParsing="false" text="ALIMENTOS" />
+                <Menu id="MnDietas" mnemonicParsing="false" text="DIETAS" />
+            </menus>
+            <effect>
+                <Lighting>
+                    <bumpInput>
+                        <Shadow />
+                    </bumpInput>
+                    <light>
+                        <!--<Light.Distant color="GOLD" />-->
+                    </light>
+                </Lighting>
+            </effect>
+        </MenuBar>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="768.0" minWidth="1366.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
+            <children>
+                <ImageView id="IVTablaDieta1" fitHeight="512.0" fitWidth="520.0" layoutX="173.0" layoutY="138.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../2DAM/Reto%20Multi%202/GithubReto2Client/RetoG2Client/img/imagenSignIn.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView id="IVTablaDieta2" fitHeight="512.0" fitWidth="520.0" layoutX="660.0" layoutY="138.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../2DAM/Reto%20Multi%202/GithubReto2Client/RetoG2Client/img/imagenSignIn.jpg" />
+                    </image>
+                </ImageView>
+                <TableView fx:id="tbViewDieta" layoutX="48.0" layoutY="143.0" prefHeight="467.0" prefWidth="719.0">
+                    <columns>
+                        <!--<TableColumn fx:id="tbColumnId" prefWidth="125.86662292480469" text="ID" />-->
+                        <TableColumn fx:id="tbColumnNombre" prefWidth="155.7333984375" text="Nombre" />
+                        <!--<TableColumn fx:id="tbColumnObjetivo" prefWidth="142.39987182617188" text="Objetivo" />-->
+                        <TableColumn fx:id="tbColumnTipo" prefWidth="150.40008544921875" text="Tipo" />
+                        <TableColumn fx:id="tbColumnTiempo" minWidth="0.0" prefWidth="154.66656494140625" text="Tiempo" />
+                    </columns>
+                </TableView>
+                <AnchorPane id="AnchorPFiltros" layoutX="810.0" layoutY="182.0" prefHeight="414.0" prefWidth="518.0" style="-fx-background-color: #f5d400;">
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="GOLD" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </AnchorPane>
+                <TextField fx:id="txtFieldNombre" layoutX="834.0" layoutY="266.0" style="-fx-background-color: #f5d400;">
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </TextField>
+                <TextField fx:id="txtFieldTiempoMin" layoutX="1162.0" layoutY="264.0" style="-fx-background-color: #f5d400;">
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </TextField>
+                <TextField fx:id="txtFieldTiempoMax" layoutX="1162.0" layoutY="317.0" style="-fx-background-color: #f5d400;">
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </TextField>
+                <RadioButton fx:id="rButtonVegetariana" layoutX="863.0" layoutY="400.0" mnemonicParsing="false" text="Vegetariana" textFill="#000000d1" />
+                <RadioButton fx:id="rButtonVegana" layoutX="863.0" layoutY="430.0" mnemonicParsing="false" text="Vegana" textFill="#000000d1" />
+                <RadioButton fx:id="rButtonOmnivora" layoutX="863.0" layoutY="460.0" mnemonicParsing="false" text="Omnivoro" textFill="#000000d1" />
+                <RadioButton fx:id="rButtonSubirPeso" layoutX="1122.0" layoutY="400.0" mnemonicParsing="false" text="Subir Peso" textFill="#000000d1" AnchorPane.bottomAnchor="350.4" AnchorPane.leftAnchor="1122.0" AnchorPane.rightAnchor="156.4000000000001" AnchorPane.topAnchor="400.0" />
+                <RadioButton fx:id="rButtonBajarPeso" layoutX="1122.0" layoutY="430.0" mnemonicParsing="false" text="Bajar Peso" textFill="#000000d1" />
+                <Label id="LblFiltroObjetivo" layoutX="1109.0" layoutY="347.0" prefHeight="46.0" prefWidth="141.0" text="OBJETIVO:" textFill="#000000d1">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <Label id="LblDietaTabla" layoutX="147.0" layoutY="66.0" prefHeight="70.0" prefWidth="167.0" text="DIETAS" textFill="#645d00">
+                    <font>
+                        <Font size="48.0" />
+                    </font>
+                </Label>
+                <Label id="LblFiltroTipo" layoutX="852.0" layoutY="347.0" prefHeight="46.0" prefWidth="75.0" text="TIPO:" textFill="#000000d1">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <Label id="LblBFiltroNombre" layoutX="845.0" layoutY="211.0" prefHeight="46.0" prefWidth="131.0" text="NOMBRE:" textFill="#000000d1">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <Label id="LblFiltroTiempo" layoutX="1182.0" layoutY="208.0" text="TIEMPO:" textFill="#000000d1">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <Label id="LblTiepoMin" layoutX="1058.0" layoutY="259.0" text="MINIMO" textFill="#000000d1">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label id="LblTiempoMax" layoutX="1066.0" layoutY="314.0" text="MAXIMO" textFill="#000000d1">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button id="BtnDietFilt" fx:id="btnFiltrar" layoutX="848.0" layoutY="526.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="FILTRAR">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </Button>
+                <Button id="BtnResetearFiltro" fx:id="btnResetear" layoutX="1145.0" layoutY="523.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="RESETEAR">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </Button>
+                <Button id="BtnDietCrear" fx:id="btnCrear" layoutX="856.0" layoutY="628.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="CREAR">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </Button>
+                <Button id="BtnDietBorrar" fx:id="btnBorrar" disable="true" layoutX="1003.0" layoutY="626.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="BORRAR">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </Button>
+                <Button id="BtnDietMod" fx:id="btnModificar" disable="true" layoutX="1145.0" layoutY="625.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="MODIFICAR">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </Button>
+                <Button id="BtnDietInforme" fx:id="btnInforme" layoutX="846.0" layoutY="686.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="INFORME">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </Button>
+                <Button id="BtnVolverDietaFilt" fx:id="btnVolver" layoutX="1164.0" layoutY="689.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="VOLVER">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
+                                <!--<Light.Distant color="#e8d888" />-->
+                            </light>
+                        </Lighting>
+                    </effect>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
