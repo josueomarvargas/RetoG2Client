@@ -9,6 +9,7 @@ import entities.Alimento;
 import entities.TipoAlimento;
 import entities.Usuario;
 import exceptions.AlimentoInterfaceException;
+import exceptions.CrearAlimentoException;
 import exceptions.ExisteIdException;
 import exceptions.ExisteNombreException;
 import exceptions.InicionSesionNAcessoYContraseñaException;
@@ -21,6 +22,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -143,6 +145,7 @@ public class ControladorDatosAlimento {
             verAlimentos(usuario);
         });
         mnICerrarSesion.setOnAction(this::hadleMenuCerrarSesion);
+
     }
 
     public void initStage(Parent root, Alimento alimento, Usuario usuario) {
@@ -163,6 +166,7 @@ public class ControladorDatosAlimento {
         proteinasText.setText(alimento.getProteinas().toString());
         carbohidratosText.setText(alimento.getCarbohidratos().toString());
         tipoComboBox.getSelectionModel().select(alimento.getTIPO());
+    
         stage1.show();
         volverBoton.setOnAction((event) -> {
             volver(usuario, event);
@@ -237,9 +241,12 @@ public class ControladorDatosAlimento {
             if (alimento != null) {
                 throw new ExisteNombreException("Error");
             }
+              if (idText.getText().equalsIgnoreCase("")||nombreText.getText().equalsIgnoreCase("") || caloriasText.getText().equalsIgnoreCase("")||grasasText.getText().equalsIgnoreCase("")||
+                      proteinasText.getText().equalsIgnoreCase("")||carbohidratosText.getText().equalsIgnoreCase("")||tipoComboBox.getValue()==null) {
+                throw new CrearAlimentoException("Llena todos los campos");
+            }
 
             alimento = crearAlimento1();
-
             alimentoInterface.crearAlimento(alimento);
             Node source = (Node) event.getSource();
             Stage stage1 = (Stage) source.getScene().getWindow();
@@ -259,11 +266,14 @@ public class ControladorDatosAlimento {
         } catch (ExisteNombreException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Nombre Alimento ya Existe", ButtonType.OK);
             alert.show();
-        }
+        } catch (CrearAlimentoException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Llena todos los campos con sus Valores Correspondientes", ButtonType.OK);
+            alert.show();        }
 
     }
 
     private Alimento crearAlimento1() throws AlimentoInterfaceException {
+      
         Alimento alimento = new Alimento();
         Date fechaAhora = Date.from(Instant.now());
         alimento.setIdAlimento(idText.getText());

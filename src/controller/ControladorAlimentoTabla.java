@@ -14,10 +14,14 @@ import exceptions.UsuarioNullException;
 import factoria.AlimentoFactoria;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,15 +38,19 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import logic.AlimentoImplementacion;
 import logic.AlimentoInterface;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -50,7 +58,6 @@ import logic.AlimentoInterface;
  */
 public class ControladorAlimentoTabla {
 
-    @FXML
     private Stage stage;
     @FXML
     MenuBar MnBAdmin;
@@ -58,8 +65,6 @@ public class ControladorAlimentoTabla {
     private MenuItem mnITusDatos;
     @FXML
     private MenuItem mnICerrarSesion;
-    @FXML
-    private MenuItem mnIVerClientes;
     @FXML
     private MenuItem mnIVerRecetas;
     @FXML
@@ -72,8 +77,6 @@ public class ControladorAlimentoTabla {
     private MenuItem mnIVerDietas;
     @FXML
     private MenuItem mnBCrearDietas;
-    @FXML
-    private AnchorPane filtroPanel;
     @FXML
     private AnchorPane filtroPanel2;
     @FXML
@@ -115,6 +118,8 @@ public class ControladorAlimentoTabla {
     private ComboBox filtrarCBox;
     private ObservableList<Alimento> datosAlimento;
     private AlimentoInterface alimentosInter;
+    @FXML
+    private Button ayudaBoton;
 
     public Stage getStage() {
         return stage;
@@ -147,6 +152,7 @@ public class ControladorAlimentoTabla {
             //anadirBoton.setOnAction(this::hadleBotonAnadir);
             //modificarBoton.setOnAction(this::hadleBotonModificar);
             //filtrarBoton.setOnAction(this::hadleBotonFiltrar);
+            // informeBoton.setOnAction(this::hadleBotonInforme);
 
         } catch (AlimentoInterfaceException ex) {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
@@ -173,6 +179,7 @@ public class ControladorAlimentoTabla {
             anadirComboBoxTipo2();
 
             stage1.show();
+
             mnITusDatos.setOnAction((event) -> {
                 misDatos(usuario);
             });
@@ -191,8 +198,11 @@ public class ControladorAlimentoTabla {
             modificarBoton.setOnAction((event) -> {
                 botonModificar(usuario, event);
             });
+            ayudaBoton.setOnAction((event) -> {
+                ayuda(usuario, event);
+            });
             filtrarBoton.setOnAction(this::hadleBotonFiltrar);
-
+            informeBoton.setOnAction(this::hadleBotonInforme);
         } catch (AlimentoInterfaceException ex) {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -209,7 +219,6 @@ public class ControladorAlimentoTabla {
 
     }
 
-    @FXML
     private void hadleMenuCerrarSesion(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
@@ -234,7 +243,6 @@ public class ControladorAlimentoTabla {
         }
     }
 
-    @FXML
     public void hadleBotonVolver(ActionEvent event) {
         try {
             Node source = (Node) event.getSource();
@@ -252,7 +260,31 @@ public class ControladorAlimentoTabla {
 
     }
 
-    @FXML
+    public void hadleBotonInforme(ActionEvent event) {
+
+        try {
+            JasperReport report
+                    = JasperCompileManager.compileReport("src\\informes\\AlimentoReport.jrxml");
+            //Data for the report: a collection of UserBean passed as a JRDataSource
+            //implementation 
+
+            JRBeanCollectionDataSource dataItems
+                    = new JRBeanCollectionDataSource((Collection<Alimento>) this.tablaAlimento.getItems());
+//Map of parameter to be passed to the report
+            Map<String, Object> parameters = new HashMap<>();
+            //Fill report with data
+            JasperPrint jasperPrint = JasperFillManager.fillReport(report, parameters, dataItems);
+            //Create and show the report window. The second parameter false value makes 
+            //report window not to close app.
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint, false);
+            jasperViewer.setVisible(true);
+            // jasperViewer.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     public void hadleBotonAnadir(ActionEvent event) {
         try {
 
@@ -294,14 +326,11 @@ public class ControladorAlimentoTabla {
 
     }
 
-    @FXML
     public void hadleBotonFiltrar(ActionEvent event) {
         try {
             AlimentoInterface alimentoInterface;
-
             alimentoInterface = AlimentoFactoria.createAlimentoManager(AlimentoFactoria.REST_WEB_CLIENT_TYPE);
-
-            if (nombreText.getText().equalsIgnoreCase("") && menorText.getText().equalsIgnoreCase("") && mayorText.getText().equalsIgnoreCase("") && minText.getText().equalsIgnoreCase("") && maxText.getText().equalsIgnoreCase("") && tipoComboBox.getValue().toString().equalsIgnoreCase("")) {
+            if (nombreText.getText().equalsIgnoreCase("") && menorText.getText().equalsIgnoreCase("") && mayorText.getText().equalsIgnoreCase("") && minText.getText().equalsIgnoreCase("") && maxText.getText().equalsIgnoreCase("") && tipoComboBox.getValue() == null) {
                 colum1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
                 colum2.setCellValueFactory(new PropertyValueFactory<>("calorias"));
                 colum3.setCellValueFactory(new PropertyValueFactory<>("grasasTotales"));
@@ -460,6 +489,22 @@ public class ControladorAlimentoTabla {
             controlador.initStage(root, usuario);
         } catch (IOException ex) {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void ayuda(Usuario usuario, ActionEvent event) {
+        try {
+            Node source = (Node) event.getSource();
+            Stage stage1 = (Stage) source.getScene().getWindow();
+            stage1.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Ayuda.fxml"));
+            Parent root = loader.load();
+            ControladorAyuda controlador = loader.getController();
+            controlador.setStage(stage);
+            controlador.initStage(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

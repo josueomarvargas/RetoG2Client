@@ -32,19 +32,19 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField id="introCorreoText" layoutX="175.0" layoutY="150.0" prefHeight="30.0" prefWidth="300.0">
+            <TextField fx:id="introCorreoText" id="introCorreoText" layoutX="175.0" layoutY="150.0" prefHeight="30.0" prefWidth="300.0">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button id="enviarBoton" layoutX="225.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #b0850e;" text="Enviar">
+            <Button  fx:id="enviarBoton" id="enviarBoton" layoutX="225.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #b0850e;" text="Enviar">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <Button id="volverBoton" layoutX="1086.0" layoutY="551.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #f5d400;" text="Volver">
+      <Button fx:id="volverBoton" id="volverBoton" layoutX="1086.0" layoutY="551.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #f5d400;" text="Volver">
          <font>
             <Font size="18.0" />
          </font>

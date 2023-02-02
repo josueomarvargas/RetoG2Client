@@ -72,31 +72,31 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField id="antiguaContraseñaText" layoutX="230.0" layoutY="96.0" prefHeight="30.0" prefWidth="185.0">
+                  <PasswordField fx:id="antiguaContraseñaText" layoutX="230.0" layoutY="96.0" prefHeight="30.0" prefWidth="185.0">
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </TextField>
+                  </PasswordField>
                   <Label id="contraseñaLabel" layoutX="241.0" layoutY="126.0" text="Nueva Contraseña:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <PasswordField id="nuevaContraseñaText" layoutX="230.0" layoutY="158.0" prefHeight="30.0" prefWidth="185.0" />
+                  <PasswordField fx:id="nuevaContraseñaText" layoutX="230.0" layoutY="158.0" prefHeight="30.0" prefWidth="185.0" />
                   <Label id="confContraseñaLabel" layoutX="241.0" layoutY="186.0" text="Confirmar Nueva Contraseña:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <PasswordField id="confNuevaContraseñaText" layoutX="230.0" layoutY="216.0" prefHeight="30.0" prefWidth="185.0" />
-                  <Button id="cambiarContraseñaBoton" layoutX="225.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #b0850e;" text="Cambiar Contraseña">
+                  <PasswordField fx:id="confNuevaContraseñaText" layoutX="230.0" layoutY="216.0" prefHeight="30.0" prefWidth="185.0" />
+                  <Button fx:id="cambiarContraseniaBoton" layoutX="225.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #b0850e;" text="Cambiar Contraseña">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <Button id="volverBoton" layoutX="1086.0" layoutY="551.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #f5d400;" text="Volver">
+            <Button fx:id="volverBoton" layoutX="1086.0" layoutY="551.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #f5d400;" text="Volver">
                <font>
                   <Font size="18.0" />
                </font>

@@ -13,6 +13,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.GenericType;
 
@@ -41,6 +43,8 @@ public class UsuarioImplementacion implements UsuarioInterface {
                     "UsersManager: Exception creating user, {0}",
                     ex.getMessage());
             throw new UsuarioInterfaceException("Error creating user:\n" + ex.getMessage());
+        } catch (AlimentoInterfaceException ex) {
+            Logger.getLogger(UsuarioImplementacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -54,6 +58,8 @@ public class UsuarioImplementacion implements UsuarioInterface {
                     "AlimentoInterface: Exception deleting alimento, {0}",
                     ex.getMessage());
             throw new UsuarioInterfaceException("Error deleting user:\n" + ex.getMessage());
+        } catch (AlimentoInterfaceException ex) {
+            Logger.getLogger(UsuarioImplementacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -67,6 +73,8 @@ public class UsuarioImplementacion implements UsuarioInterface {
                     "AlimentoInterface: Exception updating user, {0}",
                     ex.getMessage());
             throw new UsuarioInterfaceException("Error updating user:\n" + ex.getMessage());
+        } catch (AlimentoInterfaceException ex) {
+            Logger.getLogger(UsuarioImplementacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -82,6 +90,8 @@ public class UsuarioImplementacion implements UsuarioInterface {
                     "Usuario: Exception finding all usuarios, {0}",
                     ex.getMessage());
             throw new UsuarioInterfaceException("Error finding all usuarios:\n" + ex.getMessage());
+        } catch (AlimentoInterfaceException ex) {
+            Logger.getLogger(UsuarioImplementacion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return usuarios;
     }
@@ -89,18 +99,48 @@ public class UsuarioImplementacion implements UsuarioInterface {
     @Override
     public Collection<Usuario> getInicioSesion(String nombreAcceso, String contrasenia) throws UsuarioInterfaceException {
         List<Usuario> usuarios = null;
-        try {
+
             LOGGER.info("UsuarioInterface: Finding all usuarios from REST service (XML).");
+        try {
             usuarios = webClient.getInicioSesion_XML(new GenericType<List<Usuario>>() {
             }, nombreAcceso, contrasenia);
-        } catch (WebApplicationException ex) {
-            LOGGER.log(Level.SEVERE,
-                    "Usuario: Exception finding all usuarios, {0}",
-                    ex.getMessage());
-            throw new UsuarioInterfaceException("Error finding all usuarios:\n" + ex.getMessage());
+        } catch (AlimentoInterfaceException ex) {
+            Logger.getLogger(UsuarioImplementacion.class.getName()).log(Level.SEVERE, null, ex);
         }
+    
         return usuarios;
 
+    }
+
+    @Override
+    public void getUsuarioPorEmail(String correo) throws UsuarioInterfaceException {
+        try {
+            Usuario usuario = new Usuario();
+            webClient.getUsuarioPorEmail_XML(usuario, correo);
+        } catch (WebApplicationException ex) {
+            LOGGER.log(Level.SEVERE,
+                    "AlimentoInterface: Exception updating user, {0}",
+                    ex.getMessage());
+            throw new UsuarioInterfaceException("Error updating user:\n" + ex.getMessage());
+        } catch (AlimentoInterfaceException ex) {
+            Logger.getLogger(UsuarioImplementacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public Usuario getUsuarioPorDni(String dni) throws UsuarioInterfaceException {
+        Usuario usuario = null;
+        try {
+            LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
+            usuario = webClient.getUsuarioPorDni_XML(Usuario.class, dni);
+        } catch (WebApplicationException ex) {
+            LOGGER.log(Level.SEVERE,
+                    "Alimento: Exception finding all alimentos, {0}",
+                    ex.getMessage());
+        } catch (AlimentoInterfaceException ex) {
+            Logger.getLogger(UsuarioImplementacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usuario;
     }
 
 }

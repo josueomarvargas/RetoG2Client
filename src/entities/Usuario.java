@@ -16,103 +16,95 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Gonzalo
  */
+@XmlRootElement(name = "usuario")
+public class Usuario implements Serializable {
 
-@XmlRootElement(name="usuario")
-public class Usuario implements Serializable{
-        
-    
+    private String dni;
 
-    private SimpleStringProperty dni;
+    private String nombreAcceso;
 
-    private SimpleStringProperty nombreAcceso;
+    private String contraseña;
 
-    private SimpleStringProperty contraseña;
+    private String nombre;
 
-    private SimpleStringProperty nombre;
+    private String apellido;
 
-    private SimpleStringProperty apellido;
-
-    private SimpleStringProperty email;
+    private String email;
     private Date fechaNac;
-    private SimpleObjectProperty<Tipo> tipo;
-    
+    private Tipo tipo;
 
     public Usuario() {
-        this.dni= new SimpleStringProperty();
-        this.nombreAcceso= new SimpleStringProperty();
-        this.contraseña= new SimpleStringProperty();
-        this.nombre= new SimpleStringProperty();
-        this.apellido= new SimpleStringProperty();
-        this.email= new SimpleStringProperty();
-        this.tipo= new SimpleObjectProperty<>();
+        super();
     }
 
-    public Usuario(String nombreAcceso, String contraseña, String nombre, String apellido, String email, Tipo tipo) {
-      this.nombreAcceso= new SimpleStringProperty(nombreAcceso);
-        this.contraseña= new SimpleStringProperty(contraseña);
-        this.nombre= new SimpleStringProperty(nombre);
-        this.apellido= new SimpleStringProperty(apellido);
-        this.email= new SimpleStringProperty(email);
-        this.tipo= new SimpleObjectProperty<>(tipo);
+    public Usuario(String dni, String nombreAcceso, String contraseña, String nombre, String apellido, String email, Date fechaNac, Tipo tipo) {
+        this.dni = dni;
+        this.nombreAcceso = nombreAcceso;
+        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.fechaNac = fechaNac;
+        this.tipo = tipo;
     }
-    
 
-    @XmlElement(name="dni")
-
+    @XmlElement(name = "dni")
     public String getDni() {
-        return this.dni.get();
+        return dni;
     }
 
     public void setDni(String dni) {
-        this.dni.set(dni);
+        this.dni = dni;
     }
-    @XmlElement(name="nombre acesso")
 
+    @XmlElement(name = "nombreAcceso")
     public String getNombreAcceso() {
-        return this.nombreAcceso.get();
+        return nombreAcceso;
     }
 
     public void setNombreAcceso(String nombreAcceso) {
-        this.nombreAcceso.set(nombreAcceso);
+        this.nombreAcceso = nombreAcceso;
     }
-    @XmlElement(name="contraseña")
 
+    @XmlElement(name = "contrasenia")
     public String getContraseña() {
-        return this.contraseña.get();
+        return contraseña;
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña.set(contraseña);
+        this.contraseña = contraseña;
     }
-    @XmlElement(name="nombre")
+
+    @XmlElement(name = "nombre")
 
     public String getNombre() {
-        return this.nombre.get();
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        this.nombre.set(nombre);
+        this.nombre = nombre;
     }
-    @XmlElement(name="apellido")
+
+    @XmlElement(name = "apellido")
 
     public String getApellido() {
-        return this.apellido.get();
+        return apellido;
     }
 
     public void setApellido(String apellido) {
-        this.apellido.set(apellido);
+        this.apellido = apellido;
     }
-    @XmlElement(name="email")
 
+    @XmlElement(name = "email")
     public String getEmail() {
-        return this.email.get();
+        return email;
     }
 
     public void setEmail(String email) {
-        this.email.set(email);
+        this.email = email;
     }
-    @XmlElement(name="fecha Nacimiento")
 
+    @XmlElement(name = "fechaNac")
     public Date getFechaNac() {
         return fechaNac;
     }
@@ -120,19 +112,17 @@ public class Usuario implements Serializable{
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
-    @XmlElement(name="tipo")
+
+    @XmlElement(name = "tipo")
 
     public Tipo getTipo() {
-        return this.tipo.get();
+        return tipo;
     }
 
     public void setTipo(Tipo tipo) {
-        this.tipo.set(tipo);
+        this.tipo = tipo;
     }
-    
 
-
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -152,7 +142,7 @@ public class Usuario implements Serializable{
         }
         return true;
     }
-    
+
     @Override
     public String toString() {
         return "Entities.NewEntity[ id=" + dni + " ]";

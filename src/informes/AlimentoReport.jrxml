@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7e9ff3d6-35e7-46dc-8df3-1a18fa5d295b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="calorias" class="java.lang.Float"/>
+	<field name="grasasTotales" class="java.lang.Float"/>
+	<field name="proteinas" class="java.lang.Float"/>
+	<field name="carbohidratos" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="259" y="24" width="100" height="20" uuid="31a4ce83-fd46-4acb-84c7-f8f23d01085d"/>
+				<textFieldExpression><![CDATA["Alimento"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="41" width="100" height="20" uuid="207489c5-0dc0-451d-9730-dd18c96ff392"/>
+				<textFieldExpression><![CDATA["Nombre"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="41" width="100" height="20" uuid="4a9d9649-f1ae-48e3-9d0d-85392fa275d1"/>
+				<textFieldExpression><![CDATA["Calorias"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="41" width="100" height="20" uuid="2e712765-a31c-429e-9830-8cd89ac544bd"/>
+				<textFieldExpression><![CDATA["GrasasTotales"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="41" width="100" height="20" uuid="a8b1443d-95ff-4987-a73b-3126d9a9ba99"/>
+				<textFieldExpression><![CDATA["Proteinas"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="41" width="100" height="20" uuid="2fd98efc-910c-4215-a042-64ffe12313be"/>
+				<textFieldExpression><![CDATA["'Carbohidratos"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="27" width="100" height="20" uuid="42022f54-fab7-4953-8754-ddd2447032ae"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="27" width="100" height="20" uuid="1867ccd5-0db8-483c-b2f0-cc58e3a16232"/>
+				<textFieldExpression><![CDATA[$F{calorias}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="27" width="100" height="20" uuid="d716828e-e570-4949-af96-af0024fd09c4"/>
+				<textFieldExpression><![CDATA[$F{grasasTotales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="27" width="100" height="20" uuid="7cc41585-5cda-4531-b17a-11e190d7e556"/>
+				<textFieldExpression><![CDATA[$F{proteinas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="27" width="100" height="20" uuid="7ab8556f-ce4f-41f1-8b76-b2a15f83ee93"/>
+				<textFieldExpression><![CDATA[$F{carbohidratos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

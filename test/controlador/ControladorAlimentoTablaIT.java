@@ -11,6 +11,7 @@ import entities.Alimento;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Menu;
@@ -24,6 +25,8 @@ import javafx.stage.Stage;
 import logic.AlimentoInterface;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -61,6 +64,8 @@ public class ControladorAlimentoTablaIT extends ApplicationTest {
 
     /* @Test
     public void test1_BotonesHabilitados() {
+             clickOn("#nombreAccesoText");
+
         write("JON987");
         clickOn("#passText");
         write("abcd*1234");
@@ -76,7 +81,8 @@ public class ControladorAlimentoTablaIT extends ApplicationTest {
      
         @Test
     public void test2_ErrorModificarFilaNoSeleccionada() {
-                write("JON987");
+                  clickOn("#nombreAccesoText");
+       write("JON987");
         clickOn("#passText");
         write("abcd*1234");
         clickOn("#entrarBoton");
@@ -90,18 +96,23 @@ public class ControladorAlimentoTablaIT extends ApplicationTest {
      
     @Test
     public void test2_ModificarFilaSeleccionada() {
-        write("JON987");
+                 clickOn("#nombreAccesoText");
+write("JON987");
         clickOn("#passText");
         write("abcd*1234");
         clickOn("#entrarBoton");
         clickOn("ALIMENTOS");
         clickOn("VER ALIMENTOS");
-        clickOn("#tablaAlimento");
+        clickOn("#filtrarBoton");
+        Node row = lookup(".table-row-cell").nth(0).query();
+        clickOn(row);
         clickOn("#modificarBoton");
     }
+    
         @Test
-    public void test3_AñadirAlimento() {
-        write("JON987");
+    public void test3_AnadirAlimento() {
+                 clickOn("#nombreAccesoText");
+write("JON987");
         clickOn("#passText");
         write("abcd*1234");
         clickOn("#entrarBoton");
@@ -109,10 +120,11 @@ public class ControladorAlimentoTablaIT extends ApplicationTest {
         clickOn("VER ALIMENTOS");
         clickOn("#anadirBoton");
     }
-   */
+  
             @Test
     public void test4_volverAlimento() {
-        write("JON987");
+                 clickOn("#nombreAccesoText");
+write("JON987");
         clickOn("#passText");
         write("abcd*1234");
         clickOn("#entrarBoton");
@@ -120,4 +132,152 @@ public class ControladorAlimentoTablaIT extends ApplicationTest {
         clickOn("VER ALIMENTOS");
         clickOn("#volverBoton");
     }
+     
+    @Test
+    public void test5_FiltrarNombre() {
+                clickOn("#nombreAccesoText");
+ write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#nombreText");
+        write("bollo");
+        clickOn("#filtrarBoton");
+        Node row = lookup(".table-row-cell").nth(0).query();
+        assertNotNull("Row is null: table has not that row. ", row);
+        clickOn(row);
+    }
+    @Test
+    public void test6_FiltrarNombreVacio() {
+                clickOn("#nombreAccesoText");
+ write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#nombreText");
+        write("bollo65");
+        clickOn("#filtrarBoton");
+        Node row = lookup(".table-row-cell").nth(0).query();
+        assertNotNull(row);
+        clickOn(row); 
+    }
+   
+        @Test
+    public void test6_FiltrarMenor() {
+                 clickOn("#nombreAccesoText");
+write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#menorText");
+        write("11");
+        clickOn("#filtrarBoton");
+        Node row = lookup(".table-row-cell").nth(0).query();
+        assertNotNull("Row is null: table has not that row. ", row);
+        clickOn(row);
+    }
+            @Test
+    public void test7_FiltrarMayor() {
+                 clickOn("#nombreAccesoText");
+write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#mayorText");
+        write("11");
+        clickOn("#filtrarBoton");
+        Node row = lookup(".table-row-cell").nth(0).query();
+        assertNotNull("Row is null: table has not that row. ", row);
+        clickOn(row);
+    }
+                @Test
+    public void test8_FiltrarEntre() {
+                 clickOn("#nombreAccesoText");
+write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#minText");
+        write("8");
+        clickOn("#maxText");
+        write("11");
+        clickOn("#filtrarBoton");
+        Node row = lookup(".table-row-cell").nth(0).query();
+        assertNotNull("Row is null: table has not that row. ", row);
+        clickOn(row);
+    }
+                @Test
+    public void test9_FiltrarEntreAlReves() {
+                 clickOn("#nombreAccesoText");
+write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#minText");
+        write("11");
+        clickOn("#maxText");
+        write("8");
+        clickOn("#filtrarBoton");
+        Node row = lookup(".table-row-cell").nth(0).query();
+        assertNotNull("Row is null: table has not that row. ", row);
+        clickOn(row);
+    }
+                @Test
+    public void test11_FiltrarTipo() {
+                 clickOn("#nombreAccesoText");
+write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#tipoComboBox");
+        clickOn("CEREAL");
+        clickOn("#filtrarBoton");
+        Node row = lookup(".table-row-cell").nth(0).query();
+        assertNotNull("Row is null: table has not that row. ", row);
+        clickOn(row);
+    }
+   
+                @Test
+    public void test12_FiltrarTipoFitro() {
+                 clickOn("#nombreAccesoText");
+write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#filtrarCBox");
+        clickOn("Grasas Totales");
+        clickOn("#menorText");
+         write("12");
+        clickOn("#filtrarBoton");
+
+    } */
+    @Test
+    public void test13_FiltrarSinValores() {
+        clickOn("#nombreAccesoText");
+        write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#filtrarBoton");
+
+    }
+
 }

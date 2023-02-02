@@ -171,6 +171,11 @@
                     </font>
                 </Button>
                 <ComboBox id="filtrarCBox" fx:id="filtrarCBox" layoutX="859.0" layoutY="211.0" prefWidth="150.0" style="-fx-background-color: #f5d400;" />
+            <Button id="ayudaBoton" fx:id="ayudaBoton" layoutX="950.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Ayuda">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>

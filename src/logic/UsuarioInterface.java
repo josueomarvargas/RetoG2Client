@@ -31,5 +31,8 @@ public interface UsuarioInterface {
     public void modificarUsuario(Usuario usuario) throws UsuarioInterfaceException ;
     public Collection<Usuario> getUsuarioTodos() throws UsuarioInterfaceException;
     public Collection<Usuario> getInicioSesion(String nombreAcceso, String contrasenia) throws UsuarioInterfaceException;
+    public void getUsuarioPorEmail(String correo) throws UsuarioInterfaceException;
+    public Usuario getUsuarioPorDni(String dni)throws UsuarioInterfaceException;
+    
 
 }

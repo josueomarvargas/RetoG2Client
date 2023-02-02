@@ -4,10 +4,9 @@
  */
 package aplicacion;
 
-import controller.ControladorAlimentoTabla;
-import controller.ControladorDatosAlimento;
 import controller.ControladorInicioSesion;
-import controller.ControladorMenuDietista;
+import exceptions.AlimentoInterfaceException;
+import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +21,7 @@ public class Principal extends Application {
 
 //Creation of the Main window
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws AlimentoInterfaceException, IOException {
         //Link the fxml file to the loader and upload it to root 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/InicioSesion.fxml"));
         Parent root = loader.load();

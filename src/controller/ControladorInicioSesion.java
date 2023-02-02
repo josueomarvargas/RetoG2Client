@@ -1,5 +1,6 @@
 package controller;
 
+import cifrado.Cifrado;
 import entities.Alimento;
 import entities.Dietista;
 import entities.Tipo;
@@ -7,11 +8,15 @@ import entities.TipoAlimento;
 import entities.Usuario;
 import exceptions.InicionSesionNAcessoYContraseñaException;
 import exceptions.UsuarioInterfaceException;
+import factoria.UsuarioFactoria;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -95,12 +100,15 @@ public class ControladorInicioSesion {
 
     @FXML
     private void hadleButtonEntrar(ActionEvent event) {
-
         try {
             try {
+                Cifrado cifrado = new Cifrado();
 
-                usuariosInter = new UsuarioImplementacion();
-                datosUsuario = FXCollections.observableArrayList(usuariosInter.getInicioSesion(nombreAccesoText.getText(), passText.getText()));
+                String contrasenia = cifrado.cifrarTexto1(passText.getText());
+                usuariosInter = UsuarioFactoria.createUsuarioManager(UsuarioFactoria.REST_WEB_CLIENT_TYPE);
+
+                datosUsuario = FXCollections.observableArrayList(usuariosInter.getInicioSesion(nombreAccesoText.getText(), contrasenia));
+
                 if (!datosUsuario.isEmpty()) {
 
                     if (datosUsuario.get(0).getTipo().equals(Tipo.ADMIN)) {
@@ -108,7 +116,6 @@ public class ControladorInicioSesion {
                         Node source = (Node) event.getSource();
                         Stage stage1 = (Stage) source.getScene().getWindow();
                         stage1.close();
-                        datosUsuario.get(0).setNombreAcceso(nombreAccesoText.getText());
                         datosUsuario.get(0).setContraseña(passText.getText());
 
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuDietista.fxml"));
@@ -127,7 +134,8 @@ public class ControladorInicioSesion {
 
                 }
             } catch (UsuarioInterfaceException | IOException ex) {
-                Logger.getLogger(ControladorInicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Encienda el Servidor", ButtonType.OK);
+                alert.show();
             }
         } catch (InicionSesionNAcessoYContraseñaException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Nombre de Acceso o Contraseña erroneos", ButtonType.OK);
@@ -138,9 +146,13 @@ public class ControladorInicioSesion {
     @FXML
     private void hadleButtonRegistrar(ActionEvent event) {
         try {
+            Node source = (Node) event.getSource();
+            Stage stage2 = (Stage) source.getScene().getWindow();
+            stage2.close();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DatosDietista.fxml"));
-            ControladorDatosDietista controlador = new ControladorDatosDietista();
             Parent root = loader.load();
+            ControladorDatosDietista controlador = loader.getController();
+
             controlador.setStage(stage);
             controlador.initStage(root);
         } catch (IOException ex) {
@@ -151,6 +163,9 @@ public class ControladorInicioSesion {
     @FXML
     private void hadleButtonRecuContrasenia(ActionEvent event) {
         try {
+            Node source = (Node) event.getSource();
+            Stage stage1 = (Stage) source.getScene().getWindow();
+            stage1.close();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/RecupContrasenia.fxml"));
             Parent root = loader.load();
 
@@ -180,10 +195,6 @@ public class ControladorInicioSesion {
             }
         });
 
-    }
-
-    void initStage(Parent root1, Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
