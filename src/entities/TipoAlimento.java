@@ -10,5 +10,40 @@ package entities;
  * @author Gonzalo
  */
 public enum TipoAlimento {
-    CARNE, CEREAL,LEGUMBRE, HORTALIZA, FRUTA, LECHE_DEREVADOS, MANTECA_ACEITE
+
+    /**
+     *
+     */
+    CARNE,
+
+    /**
+     *
+     */
+    CEREAL,
+
+    /**
+     *
+     */
+    LEGUMBRE,
+
+    /**
+     *
+     */
+    HORTALIZA,
+
+    /**
+     *
+     */
+    FRUTA,
+
+    /**
+     *
+     */
+    LECHE_DEREVADOS,
+
+    /**
+     *
+     */
+    MANTECA_ACEITE
+    
 }

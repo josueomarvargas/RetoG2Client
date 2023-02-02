@@ -29,53 +29,114 @@ public class DietistaResfullClient {
     private Client client;
     private static final String BASE_URI = "http://localhost:8080/RetoG2Serv/webresources";
 
+    /**
+     *
+     */
     public DietistaResfullClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("entities.dietista");
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @throws ClientErrorException
+     */
     public void actualizarDietista_XML(Object requestEntity) throws ClientErrorException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_XML).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @throws ClientErrorException
+     */
     public void actualizarDietista_JSON(Object requestEntity) throws ClientErrorException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
     }
 
+    /**
+     *
+     * @param dni
+     * @throws ClientErrorException
+     */
     public void eliminarDietista(String dni) throws ClientErrorException {
         webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{dni})).request().delete();
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @throws ClientErrorException
+     */
     public void crearDietista_XML(Object requestEntity) throws ClientErrorException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_XML).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @throws ClientErrorException
+     */
     public void crearDietista_JSON(Object requestEntity) throws ClientErrorException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
     }
 
+    /**
+     *
+     * @param <T>
+     * @param responseType
+     * @param dni
+     * @return
+     * @throws ClientErrorException
+     */
     public <T> T getDietistaPorDni_XML(Class<T> responseType, String dni) throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path(java.text.MessageFormat.format("{0}", new Object[]{dni}));
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
 
+    /**
+     *
+     * @param <T>
+     * @param responseType
+     * @param dni
+     * @return
+     * @throws ClientErrorException
+     */
     public <T> T getDietistaPorDni_JSON(Class<T> responseType, String dni) throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path(java.text.MessageFormat.format("{0}", new Object[]{dni}));
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
+    /**
+     *
+     * @param <T>
+     * @param responseType
+     * @return
+     * @throws ClientErrorException
+     */
     public <T> T getDietistaTodos_XML(GenericType<T> responseType) throws ClientErrorException {
         WebTarget resource = webTarget;
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
 
+    /**
+     *
+     * @param <T>
+     * @param responseType
+     * @return
+     * @throws ClientErrorException
+     */
     public <T> T getDietistaTodos_JSON(Class<T> responseType) throws ClientErrorException {
         WebTarget resource = webTarget;
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
+    /**
+     *
+     */
     public void close() {
         client.close();
     }

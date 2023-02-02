@@ -28,10 +28,18 @@ public class UsuarioImplementacion implements UsuarioInterface {
 
     private static final Logger LOGGER = Logger.getLogger("javafxapplicationud3example");
 
+    /**
+     *
+     */
     public UsuarioImplementacion() {
         this.webClient = new UsuarioResfullClient();
     }
 
+    /**
+     *
+     * @param usuario
+     * @throws UsuarioInterfaceException
+     */
     @Override
     public void crearUsuario(Usuario usuario) throws UsuarioInterfaceException {
         try {
@@ -78,6 +86,11 @@ public class UsuarioImplementacion implements UsuarioInterface {
         }
     }
 
+    /**
+     *
+     * @return
+     * @throws UsuarioInterfaceException
+     */
     @Override
     public Collection<Usuario> getUsuarioTodos() throws UsuarioInterfaceException {
         List<Usuario> usuarios = null;
@@ -96,6 +109,13 @@ public class UsuarioImplementacion implements UsuarioInterface {
         return usuarios;
     }
 
+    /**
+     *
+     * @param nombreAcceso
+     * @param contrasenia
+     * @return
+     * @throws UsuarioInterfaceException
+     */
     @Override
     public Collection<Usuario> getInicioSesion(String nombreAcceso, String contrasenia) throws UsuarioInterfaceException {
         List<Usuario> usuarios = null;
@@ -112,6 +132,11 @@ public class UsuarioImplementacion implements UsuarioInterface {
 
     }
 
+    /**
+     *
+     * @param correo
+     * @throws UsuarioInterfaceException
+     */
     @Override
     public void getUsuarioPorEmail(String correo) throws UsuarioInterfaceException {
         try {
@@ -127,6 +152,12 @@ public class UsuarioImplementacion implements UsuarioInterface {
         }
     }
 
+    /**
+     *
+     * @param dni
+     * @return
+     * @throws UsuarioInterfaceException
+     */
     @Override
     public Usuario getUsuarioPorDni(String dni) throws UsuarioInterfaceException {
         Usuario usuario = null;

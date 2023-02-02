@@ -62,14 +62,26 @@ public class ControladorInicioSesion {
     private UsuarioInterface usuariosInter;
     private Usuario usuario;
 
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void initStage(Parent root) {
         /**
          * La ventana al iniciarse ● Título de ventana: Nutrivago. ● La ventana

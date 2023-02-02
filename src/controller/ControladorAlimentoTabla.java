@@ -10,6 +10,7 @@ import entities.Alimento;
 import entities.TipoAlimento;
 import entities.Usuario;
 import exceptions.AlimentoInterfaceException;
+import exceptions.SoloNumerosException;
 import exceptions.UsuarioNullException;
 import factoria.AlimentoFactoria;
 import java.io.IOException;
@@ -21,6 +22,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -121,14 +124,26 @@ public class ControladorAlimentoTabla {
     @FXML
     private Button ayudaBoton;
 
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void initStage(Parent root) {
         try {
             Stage stage1 = new Stage();
@@ -160,6 +175,11 @@ public class ControladorAlimentoTabla {
 
     }
 
+    /**
+     *
+     * @param root
+     * @param usuario
+     */
     public void initStage(Parent root, Usuario usuario) {
         try {
             Stage stage1 = new Stage();
@@ -200,6 +220,12 @@ public class ControladorAlimentoTabla {
             });
             ayudaBoton.setOnAction((event) -> {
                 ayuda(usuario, event);
+            });
+            mnIVerDietas.setOnAction((event) -> {
+                verDietas(usuario, event);
+            });
+            mnBCrearDietas.setOnAction((event) -> {
+                crearDietas(usuario, event);
             });
             filtrarBoton.setOnAction(this::hadleBotonFiltrar);
             informeBoton.setOnAction(this::hadleBotonInforme);
@@ -243,6 +269,10 @@ public class ControladorAlimentoTabla {
         }
     }
 
+    /**
+     *
+     * @param event
+     */
     public void hadleBotonVolver(ActionEvent event) {
         try {
             Node source = (Node) event.getSource();
@@ -260,6 +290,10 @@ public class ControladorAlimentoTabla {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     public void hadleBotonInforme(ActionEvent event) {
 
         try {
@@ -285,6 +319,10 @@ public class ControladorAlimentoTabla {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     public void hadleBotonAnadir(ActionEvent event) {
         try {
 
@@ -326,6 +364,10 @@ public class ControladorAlimentoTabla {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     public void hadleBotonFiltrar(ActionEvent event) {
         try {
             AlimentoInterface alimentoInterface;
@@ -354,11 +396,19 @@ public class ControladorAlimentoTabla {
                         alimentos.add(alimento);
                         datosAlimento = FXCollections.observableArrayList(alimentos);
                     } else if (!menorText.getText().equalsIgnoreCase("")) {
-
+                        if (!onlyNumbers(menorText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorProteinasMinimo(menorText.getText()));
                     } else if (!mayorText.getText().equalsIgnoreCase("")) {
+                        if (!onlyNumbers(mayorText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorProteinasSuperior(mayorText.getText()));
                     } else if (!minText.getText().equalsIgnoreCase("") && !maxText.getText().equalsIgnoreCase("")) {
+                        if (!onlyNumbers(minText.getText()) && !onlyNumbers(maxText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorProteinasEntre(maxText.getText(), minText.getText()));
                     } else {
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorTipo(tipoComboBox.getValue().toString()));
@@ -370,11 +420,19 @@ public class ControladorAlimentoTabla {
                         alimentos.add(alimento);
                         datosAlimento = FXCollections.observableArrayList(alimentos);
                     } else if (!menorText.getText().equalsIgnoreCase("")) {
-
+                        if (!onlyNumbers(menorText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorCaloriasMinimo(menorText.getText()));
                     } else if (!mayorText.getText().equalsIgnoreCase("")) {
+                        if (!onlyNumbers(mayorText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorCaloriasSuperior(mayorText.getText()));
                     } else if (!minText.getText().equalsIgnoreCase("") && !maxText.getText().equalsIgnoreCase("")) {
+                        if (!onlyNumbers(minText.getText()) && !onlyNumbers(maxText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorCaloriasEntre(maxText.getText(), minText.getText()));
                     } else {
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorTipo(tipoComboBox.getValue().toString()));
@@ -386,11 +444,19 @@ public class ControladorAlimentoTabla {
                         alimentos.add(alimento);
                         datosAlimento = FXCollections.observableArrayList(alimentos);
                     } else if (!menorText.getText().equalsIgnoreCase("")) {
-
+                        if (!onlyNumbers(menorText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorGrasasMinimo(menorText.getText()));
                     } else if (!mayorText.getText().equalsIgnoreCase("")) {
+                        if (!onlyNumbers(mayorText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorGrasasSuperior(mayorText.getText()));
                     } else if (!minText.getText().equalsIgnoreCase("") && !maxText.getText().equalsIgnoreCase("")) {
+                        if (!onlyNumbers(minText.getText()) && !onlyNumbers(maxText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorGrasasEntre(maxText.getText(), minText.getText()));
                     } else {
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorTipo(tipoComboBox.getValue().toString()));
@@ -402,11 +468,19 @@ public class ControladorAlimentoTabla {
                         alimentos.add(alimento);
                         datosAlimento = FXCollections.observableArrayList(alimentos);
                     } else if (!menorText.getText().equalsIgnoreCase("")) {
-
+                        if (!onlyNumbers(menorText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorCarbohidratosMinimo(menorText.getText()));
                     } else if (!mayorText.getText().equalsIgnoreCase("")) {
+                        if (!onlyNumbers(mayorText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorCarbohidratosSuperior(mayorText.getText()));
                     } else if (!minText.getText().equalsIgnoreCase("") && !maxText.getText().equalsIgnoreCase("")) {
+                        if (!onlyNumbers(minText.getText()) && !onlyNumbers(maxText.getText())) {
+                            throw new SoloNumerosException("Error");
+                        }
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorCarbohidratosEntre(maxText.getText(), minText.getText()));
                     } else {
                         datosAlimento = FXCollections.observableArrayList(alimentoInterface.getAlimentoPorTipo(tipoComboBox.getValue().toString()));
@@ -420,6 +494,9 @@ public class ControladorAlimentoTabla {
 
         } catch (AlimentoInterfaceException ex) {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SoloNumerosException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Mayor, menor  y entre valores numericos", ButtonType.OK);
+            alert.show();
         }
     }
 
@@ -494,9 +571,7 @@ public class ControladorAlimentoTabla {
 
     private void ayuda(Usuario usuario, ActionEvent event) {
         try {
-            Node source = (Node) event.getSource();
-            Stage stage1 = (Stage) source.getScene().getWindow();
-            stage1.close();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Ayuda.fxml"));
             Parent root = loader.load();
             ControladorAyuda controlador = loader.getController();
@@ -506,6 +581,48 @@ public class ControladorAlimentoTabla {
         } catch (IOException ex) {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void verDietas(Usuario usuario, ActionEvent event) {
+        try {
+            Stage stage1 = (Stage) MnBAdmin.getScene().getWindow();
+            stage1.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TablaDietas.fxml"));
+            Parent root = loader.load();
+            Controler_TablaDietas controlador = loader.getController();
+            controlador.setStage(stage);
+            controlador.initStage(root, usuario);
+        } catch (IOException ex) {
+            Logger.getLogger(Controller_MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void crearDietas(Usuario usuario, ActionEvent event) {
+        try {
+            Stage stage1 = (Stage) MnBAdmin.getScene().getWindow();
+            stage1.close();
+            Stage mainstage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CrearModificarDieta.fxml"));
+            Parent root = loader.load();
+            Controller_CrearModificarDieta controlador = loader.getController();
+            controlador.setStage(mainstage);
+            controlador.initStage(root, usuario);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Controler_TablaDietas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    /**
+     *
+     * @param input
+     * @return
+     */
+    public static boolean onlyNumbers(String input) {
+        Pattern pattern = Pattern.compile("^[0-9]+$");
+        Matcher matcher = pattern.matcher(input);
+        return matcher.matches();
     }
 
 }

@@ -16,18 +16,34 @@ public class CltDietID implements Serializable{
     private String idClt;
     private String idDiet;
 
+    /**
+     *
+     * @return
+     */
     public String getIdClte() {
         return idClt;
     }
 
+    /**
+     *
+     * @param idClte
+     */
     public void setIdClte(String idClte) {
         this.idClt = idClte;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getIdDiet() {
         return idDiet;
     }
 
+    /**
+     *
+     * @param idDiet
+     */
     public void setIdDiet(String idDiet) {
         this.idDiet = idDiet;
     }

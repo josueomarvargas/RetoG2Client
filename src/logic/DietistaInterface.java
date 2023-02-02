@@ -14,6 +14,12 @@ import java.util.Collection;
  * @author josue
  */
 public interface DietistaInterface {
+
+    /**
+     *
+     * @param usuario
+     * @throws UsuarioInterfaceException
+     */
     public void crearDietista(Usuario usuario) throws UsuarioInterfaceException;
 
     /**
@@ -26,6 +32,7 @@ public interface DietistaInterface {
     /**
      *
      * @param usuario
+     * @throws exceptions.UsuarioInterfaceException
      * @throws UpdateException
      */
     public void modificarDietista(Usuario usuario) throws UsuarioInterfaceException ;

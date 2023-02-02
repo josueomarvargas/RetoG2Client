@@ -30,27 +30,24 @@ import javax.crypto.Cipher;
  * @author josue
  */
 public class Cifrado {
-    private static final String CLAVEPUBLICA= ResourceBundle.getBundle("cifrado.clavePublica").getString("clave");
 
+    private static final String CLAVEPUBLICA = ResourceBundle.getBundle("cifrado.clavePublica").getString("clave");
 
     //private static final ResourceBundle configFile = ResourceBundle.getBundle("clave.properties");
     private static byte[] salt = "esta es la salt!".getBytes();
     private byte[] iv;
     private static String clave = "abcd1234";
 
-
-   
-
     /**
      * Retorna el contenido de un fichero
      *
-     * @param path Path del fichero
      * @return El texto del fichero
+     * @throws java.io.IOException
+     * @throws java.security.NoSuchAlgorithmException
+     * @throws java.security.spec.InvalidKeySpecException
      */
-
-  
     public static PublicKey leerClavePublica() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
-        byte[] clavePu= hexStringToByteArray(CLAVEPUBLICA);
+        byte[] clavePu = hexStringToByteArray(CLAVEPUBLICA);
         X509EncodedKeySpec publicSpec = new X509EncodedKeySpec(clavePu);
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         return keyFactory.generatePublic(publicSpec);
@@ -67,6 +64,8 @@ public class Cifrado {
      * catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
      * Logger.getLogger(Cifrado.class.getName()).log(Level.SEVERE, null, ex); }
      * return pvKey; }
+     * @param s
+     * @return 
      */
     public static byte[] hexStringToByteArray(String s) {
         int len = s.length();
@@ -92,13 +91,16 @@ public class Cifrado {
         return ret;
     }
 
-
-    public String  cifrarTexto1(String mensaje) {
+    /**
+     *
+     * @param mensaje
+     * @return
+     */
+    public String cifrarTexto1(String mensaje) {
         byte[] encodedMessage = null;
         try {
 
             //Generamos una instancia de KeyFactory para el algoritmo RSA
-
             //Ciframos el mensaje con el algoritmo RSA modo ECB y padding PKCS1Padding
             Cipher cipher = Cipher.getInstance("RSA");
             cipher.init(Cipher.ENCRYPT_MODE, leerClavePublica());
@@ -110,8 +112,11 @@ public class Cifrado {
         return byteArrayToHexString(encodedMessage);
     }
 
-
-
+    /**
+     *
+     * @param bytes
+     * @return
+     */
     public static String byteArrayToHexString(byte[] bytes) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bytes) {
@@ -120,6 +125,4 @@ public class Cifrado {
         return sb.toString();
     }
 
-
 }
-

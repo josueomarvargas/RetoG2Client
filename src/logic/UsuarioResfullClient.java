@@ -32,66 +32,150 @@ public class UsuarioResfullClient {
     private Client client;
     private static final String BASE_URI = "http://localhost:8080/RetoG2Serv/webresources";
 
+    /**
+     *
+     */
     public UsuarioResfullClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("entities.usuario");
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @throws AlimentoInterfaceException
+     */
     public void crearUsuario_XML(Object requestEntity) throws AlimentoInterfaceException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_XML).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @throws AlimentoInterfaceException
+     */
     public void crearUsuario_JSON(Object requestEntity) throws AlimentoInterfaceException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
     }
 
+    /**
+     *
+     * @param <T>
+     * @param responseType
+     * @param nombreAcceso
+     * @param contrasenia
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     public <T> T getInicioSesion_XML(GenericType<T> responseType, String nombreAcceso, String contrasenia) throws AlimentoInterfaceException{
         WebTarget resource = webTarget;
         resource = resource.path(java.text.MessageFormat.format("{0}/{1}", new Object[]{nombreAcceso, contrasenia}));
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
 
+    /**
+     *
+     * @param <T>
+     * @param responseType
+     * @param nombreAcceso
+     * @param contrasenia
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     public <T> T getInicioSesion_JSON(Class<T> responseType, String nombreAcceso, String contrasenia) throws AlimentoInterfaceException {
         WebTarget resource = webTarget;
         resource = resource.path(java.text.MessageFormat.format("{0}/{1}", new Object[]{nombreAcceso, contrasenia}));
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
+    /**
+     *
+     * @param <T>
+     * @param responseType
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     public <T> T getUsuarioTodos_XML(GenericType<T> responseType) throws AlimentoInterfaceException {
         WebTarget resource = webTarget;
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
 
+    /**
+     *
+     * @param <T>
+     * @param responseType
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     public <T> T getUsuarioTodos_JSON(Class<T> responseType) throws AlimentoInterfaceException {
         WebTarget resource = webTarget;
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @param correo
+     * @throws AlimentoInterfaceException
+     */
     public void getUsuarioPorEmail_XML(Object requestEntity, String correo) throws AlimentoInterfaceException {
         webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{correo})).request(javax.ws.rs.core.MediaType.APPLICATION_XML).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @param correo
+     * @throws AlimentoInterfaceException
+     */
     public void getUsuarioPorEmail_JSON(Object requestEntity, String correo) throws AlimentoInterfaceException {
         webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{correo})).request(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @throws AlimentoInterfaceException
+     */
     public void actualizarUsuario_XML(Object requestEntity) throws AlimentoInterfaceException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_XML).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
+    /**
+     *
+     * @param requestEntity
+     * @throws AlimentoInterfaceException
+     */
     public void actualizarUsuario_JSON(Object requestEntity) throws AlimentoInterfaceException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
     }
 
+    /**
+     *
+     * @param dni
+     * @throws AlimentoInterfaceException
+     */
     public void eliminarUsuario(String dni) throws AlimentoInterfaceException {
         webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{dni})).request().delete();
     }
-        public <T> T getUsuarioPorDni_XML(Class<T> responseType, String dni) throws AlimentoInterfaceException {
+
+    /**
+     *
+     * @param <T>
+     * @param responseType
+     * @param dni
+     * @return
+     * @throws AlimentoInterfaceException
+     */
+    public <T> T getUsuarioPorDni_XML(Class<T> responseType, String dni) throws AlimentoInterfaceException {
         WebTarget resource = webTarget;
         resource = resource.path(java.text.MessageFormat.format("{0}", new Object[]{dni}));
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
 
+    /**
+     *
+     */
     public void close() {
         client.close();
     }

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Controller_MenuAdmin">
+  <children>
+    <MenuBar id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;" VBox.vgrow="NEVER">
+         <menus>
+            <Menu id="MnCuentaAdmin" mnemonicParsing="false" text="CUENTA">
+               <items>
+                  <MenuItem id="MnITusDatosAdmin" fx:id="mnITusDatosAdmin" mnemonicParsing="false" text="VER TUS DATOS" />
+                  <MenuItem fx:id="mnICerrarSesionAdmin" mnemonicParsing="false" text="CERRAR SESION" />
+               </items>
+            </Menu>
+            <Menu id="MnDietistasAdmin" mnemonicParsing="false" text="DIETISTAS">
+              <items>
+                <MenuItem fx:id="mnIVerDietistasAdmin" mnemonicParsing="false" text="VER DIETISTAS" />
+                  <MenuItem fx:id="mnICrearDietistasAdmin" mnemonicParsing="false" text="CREAR DIETISTAS" />
+              </items>
+            </Menu>
+            <Menu id="MnClientesAdmin" mnemonicParsing="false" text="CLIENTES">
+              <items>
+                <MenuItem fx:id="mnIVerClientesAdmin" mnemonicParsing="false" text="VER CLIENTES" />
+                  <MenuItem fx:id="mnICrearClientesAdmin" mnemonicParsing="false" text="CREAR CLIENTES" />
+              </items>
+            </Menu>
+            <Menu id="MnRecetasAdmin" mnemonicParsing="false" text="RECETAS">
+               <items>
+                  <MenuItem fx:id="mnIVerRecetasAdmin" mnemonicParsing="false" text="VER RECETAS" />
+               </items></Menu>
+            <Menu id="MnAlimentosAdmin" mnemonicParsing="false" text="ALIMENTOS">
+               <items>
+                  <MenuItem fx:id="mnIVerAlimentos" mnemonicParsing="false" text="VER ALIMENTOS" />
+               </items></Menu>
+            <Menu id="MnDietasAdmin" mnemonicParsing="false" text="DIETAS">
+               <items>
+                  <MenuItem id="MIVerDietasAdmin" fx:id="mnIVerDietasAdmin" mnemonicParsing="false" text="VER DIETAS" />
+               </items></Menu>
+         </menus>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <!--<Light.Distant color="GOLD" />-->
+               </light>
+            </Lighting>
+         </effect>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="768.0" minWidth="1366.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView id="IV2" fitHeight="512.0" fitWidth="520.0" layoutX="650.0" layoutY="128.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../2DAM/Reto%20Multi%202/GithubReto2Client/RetoG2Client/img/imagenSignIn.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="IV1" fitHeight="512.0" fitWidth="520.0" layoutX="163.0" layoutY="128.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../2DAM/Reto%20Multi%202/GithubReto2Client/RetoG2Client/img/imagenSignIn.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+  </children>
+</VBox>

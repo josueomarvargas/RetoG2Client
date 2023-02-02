@@ -53,6 +53,19 @@ public class Alimento implements Serializable {
 
     }
 
+    /**
+     *
+     * @param idAlimento
+     * @param TIPO
+     * @param nombre
+     * @param calorias
+     * @param grasasTotales
+     * @param proteinas
+     * @param carbohidratos
+     * @param fechaInsert
+     * @param dietista
+     * @param listaAlimentoReceta
+     */
     public Alimento(String idAlimento, TipoAlimento TIPO, String nombre, Float calorias, Float grasasTotales, Float proteinas, Float carbohidratos, Date fechaInsert, SimpleObjectProperty<Dietista> dietista, Collection<AlimentoReceta> listaAlimentoReceta) {
         this.idAlimento = idAlimento;
         this.TIPO = TIPO;
@@ -67,101 +80,179 @@ public class Alimento implements Serializable {
     }
 
 //Getters y Setters
+
+    /**
+     *
+     * @return
+     */
     @XmlElement(name = "idAlimento")
     public String getIdAlimento() {
         return idAlimento;
     }
 
+    /**
+     *
+     * @param idAlimento
+     */
     public void setIdAlimento(String idAlimento) {
         this.idAlimento = idAlimento;
     }
 
-
+    /**
+     *
+     * @return
+     */
     @XmlElement(name = "TIPO")
 
     public TipoAlimento getTIPO() {
         return TIPO;
     }
 
-
-
+    /**
+     *
+     * @param TIPO
+     */
     public void setTIPO(TipoAlimento TIPO) {
         this.TIPO = TIPO;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlElement(name = "nombre")
 
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlElement(name = "calorias")
 
     public Float getCalorias() {
         return calorias;
     }
 
+    /**
+     *
+     * @param calorias
+     */
     public void setCalorias(Float calorias) {
         this.calorias = calorias;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlElement(name = "grasasTotales")
 
     public Float getGrasasTotales() {
         return grasasTotales;
     }
 
+    /**
+     *
+     * @param grasasTotales
+     */
     public void setGrasasTotales(Float grasasTotales) {
         this.grasasTotales = grasasTotales;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlElement(name = "proteinas")
 
     public Float getProteinas() {
         return proteinas;
     }
 
+    /**
+     *
+     * @param proteinas
+     */
     public void setProteinas(Float proteinas) {
         this.proteinas = proteinas;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlElement(name = "carbohidratos")
 
     public Float getCarbohidratos() {
         return carbohidratos;
     }
 
+    /**
+     *
+     * @param carbohidratos
+     */
     public void setCarbohidratos(Float carbohidratos) {
         this.carbohidratos = carbohidratos;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlElement(name = "FechaInsert")
     public Date getFechaInsert() {
         return fechaInsert;
     }
 
+    /**
+     *
+     * @param fechaInsert
+     */
     public void setFechaInsert(Date fechaInsert) {
         this.fechaInsert = fechaInsert;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlElement(name = "dietista")
 
     public SimpleObjectProperty<Dietista> getDietista() {
         return dietista;
     }
 
+    /**
+     *
+     * @param dietista
+     */
     public void setDietista(SimpleObjectProperty<Dietista> dietista) {
         this.dietista = dietista;
     }
 
+    /**
+     *
+     * @return
+     */
     public Collection<AlimentoReceta> getListaAlimentoReceta() {
         return listaAlimentoReceta;
     }
 
+    /**
+     *
+     * @param listaAlimentoReceta
+     */
     public void setListaAlimentoReceta(Collection<AlimentoReceta> listaAlimentoReceta) {
         this.listaAlimentoReceta = listaAlimentoReceta;
     }

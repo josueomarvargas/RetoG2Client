@@ -10,6 +10,20 @@ package entities;
  * @author josue
  */
 public enum Tipo {
-    DIETISTA, CLIENTE, ADMIN
+
+    /**
+     *
+     */
+    DIETISTA,
+
+    /**
+     *
+     */
+    CLIENTE,
+
+    /**
+     *
+     */
+    ADMIN
     
 }

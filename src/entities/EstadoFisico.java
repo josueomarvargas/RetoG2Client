@@ -10,5 +10,24 @@ package entities;
  * @author Gonzalo
  */
 public enum EstadoFisico {
-    OBESIDAD, SOBREPESO, SALUDABLE, BAJOPESO
+
+    /**
+     *
+     */
+    OBESIDAD,
+
+    /**
+     *
+     */
+    SOBREPESO,
+
+    /**
+     *
+     */
+    SALUDABLE,
+
+    /**
+     *
+     */
+    BAJOPESO
 }

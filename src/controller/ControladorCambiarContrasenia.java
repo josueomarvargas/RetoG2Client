@@ -72,14 +72,26 @@ public class ControladorCambiarContrasenia {
     @FXML
     private Button volverBoton;
 
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void initStage(Parent root) {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
@@ -94,7 +106,7 @@ public class ControladorCambiarContrasenia {
         stage1.setScene(scene);
         stage1.setResizable(false);
         stage1.show();
-        
+
         volverBoton.setOnAction((event) -> {
             volver(usuario, event);
         });
@@ -103,14 +115,20 @@ public class ControladorCambiarContrasenia {
                 cambiarContrasenia(usuario, event);
             } catch (ContraseniaDesigualException ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Error, Contraseña antigua incorrecta", ButtonType.OK);
-            alert.show();
+                alert.show();
             } catch (ContraseniaDesigualException1 ex) {
-         Alert alert = new Alert(Alert.AlertType.ERROR, "Error, Contraseña nueva no coincide", ButtonType.OK);
-            alert.show();            }
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Error, Contraseña nueva no coincide", ButtonType.OK);
+                alert.show();
+            }
         });
 
     }
 
+    /**
+     *
+     * @param usuario
+     * @param event
+     */
     public void volver(Usuario usuario, ActionEvent event) {
 
         try {

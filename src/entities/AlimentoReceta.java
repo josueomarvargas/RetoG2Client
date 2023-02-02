@@ -22,38 +22,75 @@ public class AlimentoReceta implements Serializable{
     private Alimento alimento;
     private Integer cantidad;    
 //Constructor
+
+    /**
+     *
+     */
     public AlimentoReceta() {
         super();
     }
 //Getters y Setters
+
+    /**
+     *
+     * @return
+     */
     public AlimRecID getIdAlimentoReceta() {
         return idAlimentoReceta;
     }
 
+    /**
+     *
+     * @param idAlimentoReceta
+     */
     public void setIdAlimentoReceta(AlimRecID idAlimentoReceta) {
         this.idAlimentoReceta = idAlimentoReceta;
     }
 
+    /**
+     *
+     * @return
+     */
     public Receta getReceta() {
         return receta;
     }
 
+    /**
+     *
+     * @param receta
+     */
     public void setReceta(Receta receta) {
         this.receta = receta;
     }
 
+    /**
+     *
+     * @return
+     */
     public Alimento getAlimento() {
         return alimento;
     }
 
+    /**
+     *
+     * @param alimento
+     */
     public void setAlimento(Alimento alimento) {
         this.alimento = alimento;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getCantidad() {
         return cantidad;
     }
 
+    /**
+     *
+     * @param cantidad
+     */
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }

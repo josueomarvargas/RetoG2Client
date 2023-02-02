@@ -20,6 +20,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javax.ws.rs.WebApplicationException;
@@ -35,15 +36,26 @@ public class ControladorAyuda {
 
     private WebView webView;
 
-
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void initStage(Parent root) {
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -53,7 +65,6 @@ public class ControladorAyuda {
         stage.setMinHeight(600);
         stage.setOnShowing(this::handleWindowShowing);
         stage.show();
-
     }
 
     private void handleWindowShowing(WindowEvent event) {
@@ -61,8 +72,5 @@ public class ControladorAyuda {
         //Load help page.
         webEngine.load(getClass().getResource("/view/ayuda.html").toExternalForm());
     }
-
-
-
 
 }

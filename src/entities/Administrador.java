@@ -18,7 +18,11 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement
 public class Administrador extends Usuario {
-        public Administrador() {
+
+    /**
+     *
+     */
+    public Administrador() {
         super();
     }
     /**
@@ -33,20 +37,35 @@ public class Administrador extends Usuario {
 
     private Collection<Cliente> listaClientes;
 
-
+    /**
+     *
+     * @return
+     */
     public Collection<Dietista> getListaDietistas() {
         return listaDietistas;
     }
 
+    /**
+     *
+     * @param listaDietistas
+     */
     public void setListaDietistas(Collection<Dietista> listaDietistas) {
         this.listaDietistas = listaDietistas;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Cliente> getListaClientes() {
         return listaClientes;
     }
 
+    /**
+     *
+     * @param listaClientes
+     */
     public void setListaClientes(Collection<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
     }

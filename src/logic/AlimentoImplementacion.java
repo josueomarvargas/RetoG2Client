@@ -25,10 +25,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
     private final AlimentoResfullClient webClient;
     private static final Logger LOGGER = Logger.getLogger("javafxapplicationud3example");
 
+    /**
+     *
+     */
     public AlimentoImplementacion() {
         this.webClient = new AlimentoResfullClient();
     }
 
+    /**
+     *
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAllAlimento() throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -46,6 +54,11 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     }
 
+    /**
+     *
+     * @param alimento
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public void crearAlimento(Alimento alimento) throws AlimentoInterfaceException {
         try {
@@ -60,6 +73,11 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
     }
 
+    /**
+     *
+     * @param alimento
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public void actualizarAlimento(Alimento alimento) throws AlimentoInterfaceException {
         try {
@@ -73,6 +91,11 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
     }
 
+    /**
+     *
+     * @param idAlimento
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public void eliminarAlimento(String idAlimento) throws AlimentoInterfaceException {
         try {
@@ -86,6 +109,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
     }
 
+    /**
+     *
+     * @param idAlimento
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Alimento getAlimentoPorId(String idAlimento) throws AlimentoInterfaceException {
         Alimento alimento = null;
@@ -101,6 +130,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         return alimento;
     }
 
+    /**
+     *
+     * @param nombreAlimento
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Alimento getAlimentoPorNombre(String nombreAlimento) throws AlimentoInterfaceException {
         List<Alimento> alimento = null;
@@ -120,6 +155,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         return null;
     }
 
+    /**
+     *
+     * @param tipo
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorTipo(String tipo) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -136,6 +177,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         return alimentos;  
     }
 
+    /**
+     *
+     * @param superior
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorCarbohidratosSuperior(String superior) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -151,6 +198,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param superior
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorCaloriasSuperior(String superior) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -166,6 +219,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param superior
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorProteinasSuperior(String superior) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -181,6 +240,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param superior
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorGrasasSuperior(String superior) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -196,6 +261,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param menor
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorCarbohidratosMinimo(String menor) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -211,6 +282,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param menor
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorCaloriasMinimo(String menor) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -226,6 +303,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param menor
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorProteinasMinimo(String menor) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -241,6 +324,12 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param menor
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorGrasasMinimo(String menor) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -256,6 +345,13 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param min
+     * @param max
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorCaloriasEntre(String min, String max) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -271,6 +367,13 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param min
+     * @param max
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorProteinasEntre(String min, String max) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -286,6 +389,13 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param min
+     * @param max
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorGrasasEntre(String min, String max) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;
@@ -301,6 +411,13 @@ public class AlimentoImplementacion implements AlimentoInterface {
         }
         return alimentos;    }
 
+    /**
+     *
+     * @param min
+     * @param max
+     * @return
+     * @throws AlimentoInterfaceException
+     */
     @Override
     public Collection<Alimento> getAlimentoPorCarbohidratosEntre(String min, String max) throws AlimentoInterfaceException {
         List<Alimento> alimentos = null;

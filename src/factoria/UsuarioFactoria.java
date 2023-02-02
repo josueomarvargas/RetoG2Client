@@ -18,10 +18,22 @@ import logic.UsuarioInterface;
  */
 public interface UsuarioFactoria {
     
+    /**
+     *
+     */
     public static final String REST_WEB_CLIENT_TYPE="REST_WEB_CLIENT";
-     public static final String TEST_MOCK_TYPE="TEST_MOCK";
+
+    /**
+     *
+     */
+    public static final String TEST_MOCK_TYPE="TEST_MOCK";
      
-     public static UsuarioInterface createUsuarioManager(String type){
+    /**
+     *
+     * @param type
+     * @return
+     */
+    public static UsuarioInterface createUsuarioManager(String type){
         //The object to be returned.
          UsuarioInterface tipoUsuario=null;
         //Evaluate type parameter.

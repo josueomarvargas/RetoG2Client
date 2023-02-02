@@ -13,6 +13,7 @@ import exceptions.CrearAlimentoException;
 import exceptions.ExisteIdException;
 import exceptions.ExisteNombreException;
 import exceptions.InicionSesionNAcessoYContraseñaException;
+import exceptions.SoloNumerosException;
 import factoria.AlimentoFactoria;
 import java.io.IOException;
 import java.time.Instant;
@@ -22,6 +23,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -99,14 +102,26 @@ public class ControladorDatosAlimento {
     private TextField carbohidratosText;
     AlimentoFactoria alimentoFactoria;
 
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void initStage(Parent root) {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
@@ -122,6 +137,11 @@ public class ControladorDatosAlimento {
 
     }
 
+    /**
+     *
+     * @param root
+     * @param usuario
+     */
     public void initStage(Parent root, Usuario usuario) {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
@@ -145,9 +165,20 @@ public class ControladorDatosAlimento {
             verAlimentos(usuario);
         });
         mnICerrarSesion.setOnAction(this::hadleMenuCerrarSesion);
-
+        mnIVerDietas.setOnAction((event) -> {
+            verDietas(usuario, event);
+        });
+        mnBCrearDietas.setOnAction((event) -> {
+            crearDietas(usuario, event);
+        });
     }
 
+    /**
+     *
+     * @param root
+     * @param alimento
+     * @param usuario
+     */
     public void initStage(Parent root, Alimento alimento, Usuario usuario) {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
@@ -166,7 +197,7 @@ public class ControladorDatosAlimento {
         proteinasText.setText(alimento.getProteinas().toString());
         carbohidratosText.setText(alimento.getCarbohidratos().toString());
         tipoComboBox.getSelectionModel().select(alimento.getTIPO());
-    
+
         stage1.show();
         volverBoton.setOnAction((event) -> {
             volver(usuario, event);
@@ -187,6 +218,12 @@ public class ControladorDatosAlimento {
             crearAlimentos(usuario);
         });
         mnICerrarSesion.setOnAction(this::hadleMenuCerrarSesion);
+        mnIVerDietas.setOnAction((event) -> {
+            verDietas(usuario, event);
+        });
+        mnBCrearDietas.setOnAction((event) -> {
+            crearDietas(usuario, event);
+        });
 
     }
 
@@ -226,6 +263,11 @@ public class ControladorDatosAlimento {
         }
     }
 
+    /**
+     *
+     * @param usuario
+     * @param event
+     */
     public void creacion(Usuario usuario, ActionEvent event) {
 
         try {
@@ -241,9 +283,11 @@ public class ControladorDatosAlimento {
             if (alimento != null) {
                 throw new ExisteNombreException("Error");
             }
-              if (idText.getText().equalsIgnoreCase("")||nombreText.getText().equalsIgnoreCase("") || caloriasText.getText().equalsIgnoreCase("")||grasasText.getText().equalsIgnoreCase("")||
-                      proteinasText.getText().equalsIgnoreCase("")||carbohidratosText.getText().equalsIgnoreCase("")||tipoComboBox.getValue()==null) {
+            if (idText.getText().equalsIgnoreCase("") || nombreText.getText().equalsIgnoreCase("") || caloriasText.getText().equalsIgnoreCase("") || grasasText.getText().equalsIgnoreCase("")
+                    || proteinasText.getText().equalsIgnoreCase("") || carbohidratosText.getText().equalsIgnoreCase("") || tipoComboBox.getValue() == null) {
                 throw new CrearAlimentoException("Llena todos los campos");
+            } else if (!onlyNumbers(caloriasText.getText()) || !onlyNumbers(grasasText.getText()) || !onlyNumbers(proteinasText.getText()) || !onlyNumbers(carbohidratosText.getText())) {
+                throw new SoloNumerosException("Error");
             }
 
             alimento = crearAlimento1();
@@ -268,12 +312,16 @@ public class ControladorDatosAlimento {
             alert.show();
         } catch (CrearAlimentoException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Llena todos los campos con sus Valores Correspondientes", ButtonType.OK);
-            alert.show();        }
+            alert.show();
+        } catch (SoloNumerosException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Calorias, Proteinas, Grasas Totales y Carbohidratos son valores numericos", ButtonType.OK);
+            alert.show();
+        }
 
     }
 
     private Alimento crearAlimento1() throws AlimentoInterfaceException {
-      
+
         Alimento alimento = new Alimento();
         Date fechaAhora = Date.from(Instant.now());
         alimento.setIdAlimento(idText.getText());
@@ -291,6 +339,11 @@ public class ControladorDatosAlimento {
 
     }
 
+    /**
+     *
+     * @param usuario
+     * @param event
+     */
     public void volver(Usuario usuario, ActionEvent event) {
 
         try {
@@ -308,6 +361,11 @@ public class ControladorDatosAlimento {
 
     }
 
+    /**
+     *
+     * @param usuario
+     * @param event
+     */
     public void eliminar(Usuario usuario, ActionEvent event) {
         try {
             AlimentoInterface alimentoInterface;
@@ -340,6 +398,11 @@ public class ControladorDatosAlimento {
 
     }
 
+    /**
+     *
+     * @param usuario
+     * @param event
+     */
     public void modificar(Usuario usuario, ActionEvent event) {
         try {
             Alimento alimento = new Alimento();
@@ -404,6 +467,7 @@ public class ControladorDatosAlimento {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     private void verAlimentos(Usuario usuario) {
         try {
             Stage stage1 = (Stage) MnBAdmin.getScene().getWindow();
@@ -415,6 +479,48 @@ public class ControladorDatosAlimento {
             controlador.initStage(root, usuario);
         } catch (IOException ex) {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     *
+     * @param input
+     * @return
+     */
+    public static boolean onlyNumbers(String input) {
+        Pattern pattern = Pattern.compile("[+-]?([0-9]*[.])?[0-9]+");
+        Matcher matcher = pattern.matcher(input);
+       
+        return matcher.matches();
+    }
+
+    private void verDietas(Usuario usuario, ActionEvent event) {
+        try {
+            Stage stage1 = (Stage) MnBAdmin.getScene().getWindow();
+            stage1.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TablaDietas.fxml"));
+            Parent root = loader.load();
+            Controler_TablaDietas controlador = loader.getController();
+            controlador.setStage(stage);
+            controlador.initStage(root, usuario);
+        } catch (IOException ex) {
+            Logger.getLogger(Controller_MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void crearDietas(Usuario usuario, ActionEvent event) {
+        try {
+            Stage stage1 = (Stage) MnBAdmin.getScene().getWindow();
+            stage1.close();
+            Stage mainstage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CrearModificarDieta.fxml"));
+            Parent root = loader.load();
+            Controller_CrearModificarDieta controlador = loader.getController();
+            controlador.setStage(mainstage);
+            controlador.initStage(root, usuario);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Controler_TablaDietas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

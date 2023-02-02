@@ -18,9 +18,10 @@ import javafx.stage.Stage;
  * @author josue
  */
 public class ControladorTablaDietista {
-        @FXML
+
+    @FXML
     private Stage stage;
-         @FXML
+    @FXML
     MenuBar MnBAdmin;
     @FXML
 
@@ -42,23 +43,33 @@ public class ControladorTablaDietista {
     @FXML
     private MenuItem mnBCrearDietas;
 
- 
-
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void initStage(Parent root) {
-    Stage stage1 = new Stage();
+        Stage stage1 = new Stage();
         Scene scene = new Scene(root);
         stage1.setScene(scene);
         stage1.setResizable(false);
         stage1.initModality(Modality.APPLICATION_MODAL);
-        stage1.showAndWait();   
+        stage1.showAndWait();
     }
-    
+
 }

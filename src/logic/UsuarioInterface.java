@@ -14,24 +14,58 @@ import java.util.Collection;
  * @author josue
  */
 public interface UsuarioInterface {
+
+    /**
+     *
+     * @param usuario
+     * @throws UsuarioInterfaceException
+     */
     public void crearUsuario(Usuario usuario) throws UsuarioInterfaceException;
 
     /**
      *
      * @param usuario
-     * @throws DeleteException
+     * @throws exceptions.UsuarioInterfaceException
      */
     public void eliminarUsuario(Usuario usuario) throws UsuarioInterfaceException ;
 
     /**
      *
      * @param usuario
+     * @throws exceptions.UsuarioInterfaceException
      * @throws UpdateException
      */
     public void modificarUsuario(Usuario usuario) throws UsuarioInterfaceException ;
+
+    /**
+     *
+     * @return
+     * @throws UsuarioInterfaceException
+     */
     public Collection<Usuario> getUsuarioTodos() throws UsuarioInterfaceException;
+
+    /**
+     *
+     * @param nombreAcceso
+     * @param contrasenia
+     * @return
+     * @throws UsuarioInterfaceException
+     */
     public Collection<Usuario> getInicioSesion(String nombreAcceso, String contrasenia) throws UsuarioInterfaceException;
+
+    /**
+     *
+     * @param correo
+     * @throws UsuarioInterfaceException
+     */
     public void getUsuarioPorEmail(String correo) throws UsuarioInterfaceException;
+
+    /**
+     *
+     * @param dni
+     * @return
+     * @throws UsuarioInterfaceException
+     */
     public Usuario getUsuarioPorDni(String dni)throws UsuarioInterfaceException;
     
 

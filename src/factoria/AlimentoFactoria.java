@@ -16,10 +16,22 @@ import logic.AlimentoInterface;
  */
 public interface AlimentoFactoria {
     
+    /**
+     *
+     */
     public static final String REST_WEB_CLIENT_TYPE="REST_WEB_CLIENT";
-     public static final String TEST_MOCK_TYPE="TEST_MOCK";
+
+    /**
+     *
+     */
+    public static final String TEST_MOCK_TYPE="TEST_MOCK";
      
-     public static AlimentoInterface createAlimentoManager(String type){
+    /**
+     *
+     * @param type
+     * @return
+     */
+    public static AlimentoInterface createAlimentoManager(String type){
         //The object to be returned.
          AlimentoInterface tipoAlimento=null;
         //Evaluate type parameter.

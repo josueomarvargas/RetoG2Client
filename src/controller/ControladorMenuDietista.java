@@ -59,14 +59,26 @@ public class ControladorMenuDietista {
     @FXML
     private Menu mnAlimentos;
 
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void initStage(Parent root) {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
@@ -99,6 +111,13 @@ public class ControladorMenuDietista {
         });
         mnBCrearAlimentos.setOnAction((event) -> {
             crearAlimentos(usuario);
+        });
+
+        mnIVerDietas.setOnAction((event) -> {
+            verDietas(usuario, event);
+        });
+        mnBCrearDietas.setOnAction((event) -> {
+            crearDietas(usuario, event);
         });
         mnICerrarSesion.setOnAction(this::hadleMenuCerrarSesion);
 
@@ -142,32 +161,6 @@ public class ControladorMenuDietista {
             }
         }
     }
-
-    @FXML
-    private void hadleMenuVerClientes(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void hadleMenuVerRecetas(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void hadleMenuCrearRecetas(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void hadleMenuVerDietas(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void hadleMenuCrearDietas(ActionEvent event) {
-
-    }
-
     private void misDatos(Usuario usuario) {
         try {
             // lambda expression
@@ -209,6 +202,36 @@ public class ControladorMenuDietista {
             controlador.initStage(root, usuario);
         } catch (IOException ex) {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void verDietas(Usuario usuario, ActionEvent event) {
+        try {
+            Stage stage1 = (Stage) mnBAdmin.getScene().getWindow();
+            stage1.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TablaDietas.fxml"));
+            Parent root = loader.load();
+            Controler_TablaDietas controlador = loader.getController();
+            controlador.setStage(stage);
+            controlador.initStage(root, usuario);
+        } catch (IOException ex) {
+            Logger.getLogger(Controller_MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void crearDietas(Usuario usuario, ActionEvent event) {
+        try {
+            Stage stage1 = (Stage) mnBAdmin.getScene().getWindow();
+            stage1.close();
+            Stage mainstage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CrearModificarDieta.fxml"));
+            Parent root = loader.load();
+            Controller_CrearModificarDieta controlador = loader.getController();
+            controlador.setStage(mainstage);
+            controlador.initStage(root, usuario);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Controler_TablaDietas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

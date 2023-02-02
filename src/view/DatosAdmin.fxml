@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Controller_DatosAdmin">
+   <children>
+      <MenuBar id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;">
+         <menus>
+            <Menu id="MnCuenta" mnemonicParsing="false" text="CUENTA">
+               <items>
+                  <MenuItem id="MnITusDatos" mnemonicParsing="false" text="VER TUS DATOS" />
+                  <MenuItem id="MnICerrarSesion" mnemonicParsing="false" text="CERRAR SESION" />
+               </items>
+            </Menu>
+            <Menu id="SbMnDietistas" mnemonicParsing="false" text="DIETISTAS">
+               <items>
+                  <MenuItem id="MnIVerDietistas" mnemonicParsing="false" text="VER DIETISTAS" />
+                  <MenuItem id="MnBCrearDietistas" mnemonicParsing="false" text="CREAR DIETISTAS" />
+               </items>
+            </Menu>
+            <Menu id="SbMnClientes" mnemonicParsing="false" text="CLIENTES">
+               <items>
+                  <MenuItem id="MnIVerClientes" mnemonicParsing="false" text="VER CLIENTES" />
+                  <MenuItem id="MnICrearClientes" mnemonicParsing="false" text="CREAR CLIENTES" />
+               </items>
+            </Menu>
+            <Menu id="MnReceta" mnemonicParsing="false" text="RECETAS" />
+            <Menu id="MnAlimentos" mnemonicParsing="false" text="ALIMENTOS" />
+            <Menu id="MnDietas" mnemonicParsing="false" text="DIETAS" />
+         </menus>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="GOLD" />
+               </light>
+            </Lighting>
+         </effect>
+      </MenuBar>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #000000;">
+         <children>
+            <AnchorPane layoutX="341.0" layoutY="89.0" prefHeight="576.0" prefWidth="810.0" style="-fx-background-color: #f5d400;" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="GOLD" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <children>
+                  <Label id="LblNombreAccesoAdmin" layoutX="41.0" layoutY="25.0" text="Nombre de Acceso" textFill="#645d00">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label id="LblContraseñaAdmin" layoutX="374.0" layoutY="26.0" text="Contraseña" textFill="#645d00">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label id="LblEmailAdmin" layoutX="670.0" layoutY="24.0" text="Email" textFill="#645d00">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label id="LblNombreAdmin" layoutX="184.0" layoutY="237.0" text="Nombre" textFill="#645d00">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label id="LblApellidoAdmin" layoutX="543.0" layoutY="237.0" text="Apellido" textFill="#645d00">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <TextField id="TxtFNombreAccesoAdmin" disable="true" layoutX="93.0" layoutY="95.0" />
+                  <TextField id="TxtFContraseñaAdmin" disable="true" layoutX="388.0" layoutY="95.0" />
+                  <TextField id="TxtFEmailAdmin" disable="true" layoutX="631.0" layoutY="95.0" />
+                  <TextField id="TxtFNombreAdmin" disable="true" layoutX="165.0" layoutY="312.0" />
+                  <TextField id="TxtFApellidoAdmin" disable="true" layoutX="528.0" layoutY="315.0" />
+                  <Button id="BtnModificarAdmin" layoutX="175.0" layoutY="464.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Modificar">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#e8d888" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Button id="BtnSalirAdminDatos" layoutX="568.0" layoutY="459.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Salir">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#e8d888" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Button id="BtnAplicarModAdmin" layoutX="189.0" layoutY="462.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Aplicar" visible="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#e8d888" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Button id="BtnCancelarModAdmin" layoutX="539.0" layoutY="462.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Cancelar" visible="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#e8d888" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

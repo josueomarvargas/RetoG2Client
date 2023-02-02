@@ -39,21 +39,33 @@ public class ControladorRecupContrasenia {
     @FXML
     private TextField introCorreoText;
 
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void initStage(Parent root) {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
         stage1.setScene(scene);
         stage1.setResizable(false);
         stage1.show();
-        
+
         volverBoton.setOnAction(this::hadleVolverBoton);
         enviarBoton.setOnAction(this::hadleEnviarBoton);
 
@@ -73,9 +85,10 @@ public class ControladorRecupContrasenia {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     private void hadleEnviarBoton(ActionEvent event) {
         try {
-                        UsuarioInterface inter= new UsuarioImplementacion();
+            UsuarioInterface inter = new UsuarioImplementacion();
             inter.getUsuarioPorEmail(introCorreoText.getText());
             Node source = (Node) event.getSource();
             Stage stage1 = (Stage) source.getScene().getWindow();

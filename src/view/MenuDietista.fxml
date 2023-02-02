@@ -19,11 +19,7 @@
                   <MenuItem fx:id="mnICerrarSesion" id="mnICerrarSesion" mnemonicParsing="false" text="CERRAR SESION" />
                </items>
             </Menu>
-            <Menu id="SbMnClientes" mnemonicParsing="false" text="CLIENTES">
-               <items>
-                  <MenuItem id="mnIVerClientes" mnemonicParsing="false" text="VER CLIENTES" />
-               </items>
-            </Menu>
+
             <Menu id="MnReceta" mnemonicParsing="false" text="RECETAS">
                <items>
                   <MenuItem fx:id="mnIVerRecetas" id="mnIVerRecetas" mnemonicParsing="false" text="VER RECETAS" />

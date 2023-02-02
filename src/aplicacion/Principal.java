@@ -29,7 +29,7 @@ public class Principal extends Application {
         ControladorInicioSesion controlador = loader.getController();
         controlador.setStage(primaryStage);
         controlador.initStage(root);
-        
+
     }
 
     /**

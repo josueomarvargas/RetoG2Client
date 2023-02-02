@@ -26,10 +26,18 @@ public class DietistaImplementacion implements DietistaInterface {
 
     private static final Logger LOGGER = Logger.getLogger("javafxapplicationud3example");
 
+    /**
+     *
+     */
     public DietistaImplementacion() {
         this.webClient = new DietistaResfullClient();
     }
 
+    /**
+     *
+     * @param usuario
+     * @throws UsuarioInterfaceException
+     */
     @Override
     public void crearDietista(Usuario usuario) throws UsuarioInterfaceException {
         try {
@@ -70,7 +78,11 @@ public class DietistaImplementacion implements DietistaInterface {
         }
     }
 
-    
+    /**
+     *
+     * @return
+     * @throws UsuarioInterfaceException
+     */
     public Collection<Usuario> getDietistaTodos() throws UsuarioInterfaceException {
         List<Usuario> usuarios = null;
         try {

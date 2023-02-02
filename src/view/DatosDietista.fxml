@@ -17,7 +17,7 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ControladorDatosDietista">
    <children>
-       <MenuBar fx:id="MnBAdmin" id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;" VBox.vgrow="NEVER">
+       <MenuBar fx:id="mnBAdmin" id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;" VBox.vgrow="NEVER">
          <menus>
             <Menu id="MnCuenta" mnemonicParsing="false" text="CUENTA">
                <items>
@@ -25,11 +25,7 @@
                   <MenuItem fx:id="mnICerrarSesion" id="mnICerrarSesion" mnemonicParsing="false" text="CERRAR SESION" />
                </items>
             </Menu>
-            <Menu id="SbMnClientes" mnemonicParsing="false" text="CLIENTES">
-               <items>
-                  <MenuItem id="mnIVerClientes" mnemonicParsing="false" text="VER CLIENTES" />
-               </items>
-            </Menu>
+
             <Menu id="MnReceta" mnemonicParsing="false" text="RECETAS">
                <items>
                   <MenuItem fx:id="mnIVerRecetas" id="mnIVerRecetas" mnemonicParsing="false" text="VER RECETAS" />

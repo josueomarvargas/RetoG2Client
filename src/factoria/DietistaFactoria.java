@@ -20,10 +20,22 @@ import logic.UsuarioInterface;
  */
 public interface DietistaFactoria {
     
+    /**
+     *
+     */
     public static final String REST_WEB_CLIENT_TYPE="REST_WEB_CLIENT";
-     public static final String TEST_MOCK_TYPE="TEST_MOCK";
+
+    /**
+     *
+     */
+    public static final String TEST_MOCK_TYPE="TEST_MOCK";
      
-     public static DietistaInterface createDietistaManager(String type){
+    /**
+     *
+     * @param type
+     * @return
+     */
+    public static DietistaInterface createDietistaManager(String type){
         //The object to be returned.
          DietistaInterface tipoUsuario=null;
         //Evaluate type parameter.

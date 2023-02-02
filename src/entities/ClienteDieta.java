@@ -24,47 +24,89 @@ public class ClienteDieta implements Serializable {
 
     private Date fechaFinal;
     
-    
+    /**
+     *
+     */
     public ClienteDieta() {
         super();
     }
 
+    /**
+     *
+     * @return
+     */
     public CltDietID getIdClienteDieta() {
         return idClienteDieta;
     }
 
+    /**
+     *
+     * @param idClienteDieta
+     */
     public void setIdClienteDieta(CltDietID idClienteDieta) {
         this.idClienteDieta = idClienteDieta;
     }
 
+    /**
+     *
+     * @return
+     */
     public Dieta getDieta() {
         return dieta;
     }
 
+    /**
+     *
+     * @param dieta
+     */
     public void setDieta(Dieta dieta) {
         this.dieta = dieta;
     }
 
+    /**
+     *
+     * @return
+     */
     public Cliente getCliente() {
         return cliente;
     }
 
+    /**
+     *
+     * @param cliente
+     */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getFechaInicio() {
         return fechaInicio;
     }
 
+    /**
+     *
+     * @param fechaInicio
+     */
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getFechaFinal() {
         return fechaFinal;
     }
 
+    /**
+     *
+     * @param fechaFinal
+     */
     public void setFechaFinal(Date fechaFinal) {
         this.fechaFinal = fechaFinal;
     }   
