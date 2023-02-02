@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="TablaDietas" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Controler_TablaDietas">
+<VBox fx:id="TablaDietas" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controler_TablaDietas">
     <children>
         <MenuBar id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;">
             <menus>
@@ -269,6 +269,21 @@
                         </Lighting>
                     </effect>
                 </Button>
+            <Button fx:id="btnAyuda" layoutX="1008.0" layoutY="689.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="AYUDA">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <!--<Light.Distant />-->
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
             </children>
         </AnchorPane>
     </children>

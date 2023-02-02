@@ -13,7 +13,10 @@ import exceptions.SoloNumerosException;
 import exceptions.Sololetrasexception;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -23,6 +26,7 @@ import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -44,6 +48,13 @@ import logic.DietaRestfulCliente;
 import logic.FactoryDieta;
 import logic.InterfaceDietaClie;
 import logic.DietaImplementacion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -67,6 +78,8 @@ public class Controler_TablaDietas {
     private Button btnFiltrar;
     @FXML
     private Button btnResetear;
+    @FXML
+    private Button btnAyuda;
     @FXML
     private TextField txtFieldNombre;
     @FXML
@@ -142,7 +155,9 @@ public class Controler_TablaDietas {
         btnResetear.setOnAction(this::handleButtonResetear);
         btnBorrar.setOnAction(this::handleButtonBorrar);
         btnVolver.setOnAction(this::handleButtonVolver);
-        
+        btnInforme.setOnAction(this::handleButtonInforme);
+        btnAyuda.setOnAction(this::handleButtonAyuda);
+
         stage1.setTitle("Tabla de Dietas");
         interdieta = new DietaImplementacion();
 
@@ -399,6 +414,50 @@ public class Controler_TablaDietas {
         interdieta.eliminarDieta(dieta);
         dietaData = FXCollections.observableArrayList(interdieta.getDietaAll());
         cargarTabla(dietaData);
+    }
+
+    /**
+     * Genera un informe con los datos visualizados en la tabla
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonInforme(ActionEvent event) {
+        try {
+            JasperReport report = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/DietaReport.jrxml"));
+            JRBeanCollectionDataSource dataItems = new JRBeanCollectionDataSource((Collection<Event>) this.tbViewDieta.getItems());
+
+            Map<String, Object> parameters = new HashMap<>();
+            JasperPrint jasperPrint = JasperFillManager.fillReport(report, parameters, dataItems);
+
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint, false);
+            jasperViewer.setVisible(true);
+        } catch (JRException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Tabla Dietas: Error generando el informe", ButtonType.OK);
+            alert.show();
+        }
+    }
+
+    /**
+     * Mostrar la ventana de ayuda
+     *
+     * @param event n
+     */
+    @FXML
+    private void handleButtonAyuda(ActionEvent event) {
+        try {
+            //Load node graph from fxml file
+            FXMLLoader loader
+                    = new FXMLLoader(getClass().getResource("/view/AyudaDieta.fxml"));
+            Parent root = (Parent) loader.load();
+            Controller_AyudaDieta ayuda
+                    = ((Controller_AyudaDieta) loader.getController());
+            //Initializes and shows help stage
+            ayuda.initAndShowStage(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Controler_TablaDietas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

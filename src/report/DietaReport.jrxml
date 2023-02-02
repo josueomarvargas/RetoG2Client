@@ -4,20 +4,20 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<subDataset name="Table Dataset 1" uuid="54a27563-d107-48b6-953a-1abb41825df1"/>
-	<field name="Nombre" class="java.lang.String"/>
-	<field name="Tipo" class="java.lang.String"/>
-	<field name="Tiempo" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.Object"/>
+	<field name="tiempo" class="java.lang.Integer"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
 			<textField>
-				<reportElement x="156" y="0" width="274" height="56" uuid="07a2eff9-53a0-4947-91bd-a4ea5d4f628e"/>
+				<reportElement x="144" y="0" width="286" height="56" uuid="07a2eff9-53a0-4947-91bd-a4ea5d4f628e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="48"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Dieta Report]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Dieta Report"]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -27,32 +27,32 @@
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="43" y="2" width="100" height="20" uuid="2c7c04dd-a7fe-49b2-86c7-811d681ae3b2"/>
-				<text><![CDATA[Nombre]]></text>
+				<reportElement x="113" y="2" width="100" height="20" uuid="39aeb84b-61aa-4db9-b978-aa9155446abe"/>
+				<text><![CDATA["Nombre"]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="131" y="2" width="100" height="20" uuid="d60bbd76-d402-4cce-ad85-95debf3d8b3c"/>
-				<text><![CDATA[Tipo]]></text>
+				<reportElement x="213" y="2" width="100" height="20" uuid="086fa5b8-fd30-40f8-891f-8c428f2397ed"/>
+				<text><![CDATA["Tipo"]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="214" y="2" width="100" height="20" uuid="78794bcc-871d-47da-bedd-74b1914db78a"/>
-				<text><![CDATA[Tiempo]]></text>
+				<reportElement x="313" y="2" width="100" height="20" uuid="9ac25afb-142f-4ca4-bf18-92ec74919c67"/>
+				<text><![CDATA["Tiempo"]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="399" splitType="Stretch">
 			<textField>
-				<reportElement x="43" y="27" width="100" height="20" uuid="90538cf1-c370-46cc-81d9-7e64e99ebdf9"/>
-				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+				<reportElement x="113" y="51" width="100" height="20" uuid="c6adf2e2-053e-4678-8dff-5740a2344439"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="143" y="27" width="100" height="20" uuid="e06c943e-4266-4dd9-bb42-161ba64755ec"/>
-				<textFieldExpression><![CDATA[$F{Tipo}]]></textFieldExpression>
+				<reportElement x="213" y="51" width="100" height="20" uuid="29993437-d2ce-4087-955b-41d54287f18f"/>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="243" y="27" width="100" height="20" uuid="de632615-ec2d-47e3-8531-86c65695fcdd"/>
-				<textFieldExpression><![CDATA[$F{Tiempo}]]></textFieldExpression>
+				<reportElement x="313" y="51" width="100" height="20" uuid="473dec6a-d13b-470e-990d-4f6b619b3d39"/>
+				<textFieldExpression><![CDATA[$F{tiempo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
