@@ -38,6 +38,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta por su objetivo y lo representa
+     * en un XML
      *
      * @param <T>
      * @param responseType
@@ -52,6 +54,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta por su objetivo y lo representa
+     * en un JSON
      *
      * @param <T>
      * @param responseType
@@ -66,6 +70,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que modifica un objeto de Dieta de la base de Datos y lo
+     * representa en un XML
      *
      * @param requestEntity
      * @throws ClientErrorException
@@ -75,6 +81,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que modifica un objeto de Dieta de la base de Datos y lo
+     * representa en un JSON
      *
      * @param requestEntity
      * @throws ClientErrorException
@@ -84,6 +92,7 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee un objeto dieta por su Id y lo representa en un XML
      *
      * @param <T>
      * @param responseType
@@ -98,6 +107,7 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee un objeto dieta por su Id y lo representa en un JSON
      *
      * @param <T>
      * @param responseType
@@ -112,6 +122,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta si esta entre los tiempos dados
+     * y lo representa en un XML
      *
      * @param <T>
      * @param responseType
@@ -127,6 +139,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta si esta entre los tiempos dados
+     * y lo representa en un JSON
      *
      * @param <T>
      * @param responseType
@@ -142,6 +156,7 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que crea un objeto de Dieta y lo representa en un XML
      *
      * @param requestEntity
      * @throws ClientErrorException
@@ -151,6 +166,7 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que crea un objeto de Dieta y lo representa en un JSON
      *
      * @param requestEntity
      * @throws ClientErrorException
@@ -160,6 +176,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta por su tipo y lo representa en
+     * un XML
      *
      * @param <T>
      * @param responseType
@@ -174,6 +192,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta por su tipo y lo representa en
+     * un JSON
      *
      * @param <T>
      * @param responseType
@@ -188,6 +208,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta por su nombre y lo representa
+     * en un XML
      *
      * @param <T>
      * @param responseType
@@ -202,6 +224,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta por su nombre y lo representa
+     * en un JSON
      *
      * @param <T>
      * @param responseType
@@ -216,6 +240,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta si es inferior a el el tiempo
+     * dado y lo representa en un XML
      *
      * @param <T>
      * @param responseType
@@ -230,6 +256,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta si es inferior a el el tiempo
+     * dado y lo representa en un JSON
      *
      * @param <T>
      * @param responseType
@@ -244,6 +272,8 @@ public class DietaRestfulCliente {
     }
 
     /**
+     * Metodo que lee todos los objetos de Dieta y lo representa en un
+     * XML
      *
      * @param <T>
      * @param responseType
@@ -256,7 +286,8 @@ public class DietaRestfulCliente {
     }
 
     /**
-     *
+     * Metodo que lee todos los objetos de Dieta y lo representa en un
+     * JSON
      * @param <T>
      * @param responseType
      * @return
@@ -268,7 +299,8 @@ public class DietaRestfulCliente {
     }
 
     /**
-     *
+     * Metodo que elimina un objeto de la entidad Dieta de la base
+     * de Datos y lo representa en un XML
      * @param id
      * @throws ClientErrorException
      */
@@ -277,7 +309,8 @@ public class DietaRestfulCliente {
     }
 
     /**
-     *
+     * Metodo que lee todos los objetos de Dieta si es superior a el
+     * tiempo dado y lo representa en un XML
      * @param <T>
      * @param responseType
      * @param to
@@ -291,7 +324,8 @@ public class DietaRestfulCliente {
     }
 
     /**
-     *
+     * Metodo que lee todos los objetos de Dieta si es superior a el
+     * tiempo dado y lo representa en un JSON
      * @param <T>
      * @param responseType
      * @param to

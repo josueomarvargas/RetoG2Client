@@ -214,8 +214,8 @@ public class Dieta implements Serializable {
     }
 
     /**
-     *
-     * @param id
+     * Genera la id  en funcion de la enviada
+     * @param id id de la Dieta
      * @return
      */
     public String id(String id) {
