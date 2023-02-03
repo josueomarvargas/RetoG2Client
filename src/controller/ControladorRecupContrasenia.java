@@ -39,7 +39,7 @@ public class ControladorRecupContrasenia {
     /**
      * Getter
      *
-     * @return
+     * @return Stage
      */
     public Stage getStage() {
         return stage;
@@ -48,7 +48,7 @@ public class ControladorRecupContrasenia {
     /**
      * Setter
      *
-     * @param stage
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -57,7 +57,7 @@ public class ControladorRecupContrasenia {
     /**
      * Inicializa los datos a mostrar en la ventana
      *
-     * @param root
+     * @param root Parent
      */
     public void initStage(Parent root) {
         Stage stage1 = new Stage();

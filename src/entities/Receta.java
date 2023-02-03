@@ -25,17 +25,17 @@ public class Receta implements Serializable {
     private TipoDieta TIPO;
 
     /**
-     * @associates <{g2.AlimentoReceta}>
+     * associates {g2.AlimentoReceta}
      */
     private Collection<AlimentoReceta> listaAlimentoReceta;
 
     /**
-     * @associates <{g2.Dieta}>
+     * associates {g2.Dieta}
      */
     private Collection<Dieta> listaDieta;
 
     /**
-     * @associates <{uml.Dietista}>
+     * associates {uml.Dietista}
      */
     private Dietista dietista;
 
@@ -47,8 +47,8 @@ public class Receta implements Serializable {
     }
 
     /**
-     *
-     * @return
+     * 
+     * @return String
      */
     public String getIdReceta() {
         return idReceta;
@@ -56,7 +56,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @param idReceta
+     * @param idReceta String
      */
     public void setIdReceta(String idReceta) {
         this.idReceta = idReceta;
@@ -64,7 +64,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     public String getNombre() {
         return nombre;
@@ -72,7 +72,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @param nombre
+     * @param nombre String
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -80,7 +80,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     public String getPreparacion() {
         return preparacion;
@@ -88,7 +88,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @param preparacion
+     * @param preparacion String
      */
     public void setPreparacion(String preparacion) {
         this.preparacion = preparacion;
@@ -96,7 +96,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Date
      */
     public Date getFechaCreacion() {
         return fechaCreacion;
@@ -104,7 +104,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @param fechaCreacion
+     * @param fechaCreacion Date
      */
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
@@ -112,7 +112,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     public Collection<AlimentoReceta> getListaAlimentoReceta() {
         return listaAlimentoReceta;
@@ -120,7 +120,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @param listaAlimentoReceta
+     * @param listaAlimentoReceta Collection
      */
     public void setListaAlimento(Collection<AlimentoReceta> listaAlimentoReceta) {
         this.listaAlimentoReceta = listaAlimentoReceta;
@@ -128,7 +128,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @return
+     * @return TipoDieta
      */
     public TipoDieta getTIPO() {
         return TIPO;
@@ -136,7 +136,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @param TIPO
+     * @param TIPO TipoDieta
      */
     public void setTIPO(TipoDieta TIPO) {
         this.TIPO = TIPO;
@@ -144,7 +144,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     public Collection<Dieta> getListaDieta() {
         return listaDieta;
@@ -152,7 +152,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @param listaDieta
+     * @param listaDieta Collection
      */
     public void setListaDieta(Collection<Dieta> listaDieta) {
         this.listaDieta = listaDieta;
@@ -160,7 +160,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Dietista
      */
     public Dietista getDietista() {
         return dietista;
@@ -168,7 +168,7 @@ public class Receta implements Serializable {
 
     /**
      *
-     * @param dietista
+     * @param dietista Dietista
      */
     public void setDietista(Dietista dietista) {
         this.dietista = dietista;

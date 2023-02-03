@@ -124,8 +124,8 @@ public class ControladorAlimentoTabla {
 //Getter 
 
     /**
-     *
-     * @return
+     * Getter
+     * @return Stage
      */
     public Stage getStage() {
         return stage;
@@ -134,7 +134,7 @@ public class ControladorAlimentoTabla {
     /**
      * Setter
      *
-     * @param stage
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -143,7 +143,7 @@ public class ControladorAlimentoTabla {
     /**
      * Ejecuta todas las condiciones antes de que se habla la ventana
      *
-     * @param root
+     * @param root Parent
      */
     public void initStage(Parent root) {
         try {
@@ -173,8 +173,8 @@ public class ControladorAlimentoTabla {
     /**
      * Ejecuta todas las condiciones antes de que se habla la ventana
      *
-     * @param root
-     * @param usuario
+     * @param root Parent
+     * @param usuario Usuario
      */
     public void initStage(Parent root, Usuario usuario) {
         try {
@@ -271,7 +271,7 @@ public class ControladorAlimentoTabla {
     /**
      * Vuelve a la ventana Anterior, Ventana Menu Dietista
      *
-     * @param event
+     * @param event ActionEvent
      */
     public void hadleBotonVolver(ActionEvent event) {
         try {
@@ -294,7 +294,7 @@ public class ControladorAlimentoTabla {
     /**
      * Abre el Informe de alimento
      *
-     * @param event
+     * @param event ActionEvent
      */
     public void hadleBotonInforme(ActionEvent event) {
 
@@ -324,7 +324,7 @@ public class ControladorAlimentoTabla {
     /**
      * Te lleva a la ventana de Datos alimento
      *
-     * @param event
+     * @param event ActionEvent
      */
     public void hadleBotonAnadir(ActionEvent event) {
         try {
@@ -371,7 +371,7 @@ public class ControladorAlimentoTabla {
     /**
      * Te filtra los alimentos de la tabla
      *
-     * @param event
+     * @param event ActionEvent
      */
     public void hadleBotonFiltrar(ActionEvent event) {
         try {
@@ -633,8 +633,8 @@ public class ControladorAlimentoTabla {
     /**
      * Controla que solo sea numero
      *
-     * @param input
-     * @return
+     * @param input String
+     * @return boolean
      */
     public static boolean onlyNumbers(String input) {
         Pattern pattern = Pattern.compile("^[0-9]+$");

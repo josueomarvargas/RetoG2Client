@@ -25,18 +25,18 @@ public class Dieta implements Serializable {
     private Objetivo OBJETIVO;
 
     /**
-     * @associates <{uml.Dietista}>
+     * associates {uml.Dietista}
      */
     private Dietista dietista;
 
     /**
-     * @associates <{uml.Receta}>
+     * associates {uml.Receta}
      */
     private Collection<Receta> listaReceta;
     private TipoDieta tipo;
 
     /**
-     * @associates <{uml.ClienteDieta}>
+     * associates {uml.ClienteDieta}
      */
     private Collection<ClienteDieta> listaCliente;
 
@@ -49,14 +49,14 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @param idDieta
-     * @param nombre
-     * @param tiempo
-     * @param OBJETIVO
-     * @param dietista
-     * @param listaReceta
-     * @param tipo
-     * @param listaCliente
+     * @param idDieta String
+     * @param nombre String
+     * @param tiempo Integer
+     * @param OBJETIVO Objetivo
+     * @param dietista Dietista
+     * @param listaReceta Collection
+     * @param tipo TipoDieta
+     * @param listaCliente Collection
      */
     public Dieta(String idDieta, String nombre, Integer tiempo, Objetivo OBJETIVO, Dietista dietista, Collection<Receta> listaReceta, TipoDieta tipo, Collection<ClienteDieta> listaCliente) {
         this.idDieta = idDieta;
@@ -71,7 +71,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     @XmlElement(name = "idDieta")
     public String getIdDieta() {
@@ -80,7 +80,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @param idDieta
+     * @param idDieta String
      */
     public void setIdDieta(String idDieta) {
         this.idDieta = idDieta;
@@ -88,7 +88,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     @XmlElement(name = "nombre")
     public String getNombre() {
@@ -97,7 +97,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @param nombre
+     * @param nombre String
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -105,7 +105,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Integer
      */
     @XmlElement(name = "tiempo")
     public Integer getTiempo() {
@@ -114,7 +114,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @param tiempo
+     * @param tiempo Integer
      */
     public void setTiempo(Integer tiempo) {
         this.tiempo = tiempo;
@@ -122,7 +122,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Objetivo
      */
     @XmlElement(name = "objetivo")
     public Objetivo getObjetivo() {
@@ -131,7 +131,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @param OBJETIVO
+     * @param OBJETIVO Objetivo
      */
     public void setOBJETIVO(Objetivo OBJETIVO) {
         this.OBJETIVO = OBJETIVO;
@@ -139,7 +139,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     @XmlElement(name = "listaReceta")
     public Collection<Receta> getListaReceta() {
@@ -148,7 +148,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @param listaReceta
+     * @param listaReceta Collection
      */
     public void setListaReceta(Collection<Receta> listaReceta) {
         this.listaReceta = listaReceta;
@@ -156,7 +156,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return TipoDieta
      */
     @XmlElement(name = "tipo")
     public TipoDieta getTipo() {
@@ -165,7 +165,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @param tipo
+     * @param tipo TipoDieta
      */
     public void setTipo(TipoDieta tipo) {
         this.tipo = tipo;
@@ -173,7 +173,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     @XmlElement(name = "listaCliente")
     public Collection<ClienteDieta> getListaCliente() {
@@ -182,7 +182,7 @@ public class Dieta implements Serializable {
 
     /**
      *
-     * @param listaCliente
+     * @param listaCliente Collection
      */
     public void setListaCliente(Collection<ClienteDieta> listaCliente) {
         this.listaCliente = listaCliente;
@@ -216,7 +216,7 @@ public class Dieta implements Serializable {
     /**
      * Genera la id  en funcion de la enviada
      * @param id id de la Dieta
-     * @return
+     * @return String
      */
     public String id(String id) {
         String[] separarid = id.split("-");

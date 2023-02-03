@@ -41,7 +41,7 @@ public class Controller_DatosAdmin {
 
     /**
      *
-     * @return
+     * @return Stage
      */
     public Stage getStage() {
         return stage;
@@ -49,7 +49,7 @@ public class Controller_DatosAdmin {
 
     /**
      *
-     * @param stage
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -57,7 +57,7 @@ public class Controller_DatosAdmin {
 
     /**
      *
-     * @param root
+     * @param root Parent
      */
     public void initStage(Parent root) {
 

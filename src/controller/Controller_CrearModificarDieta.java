@@ -71,16 +71,16 @@ public class Controller_CrearModificarDieta {
     private String idModificado;
 
     /**
-     *
-     * @return
+     *Getter
+     * @return Stage
      */
     public Stage getStage() {
         return stage;
     }
 
     /**
-     *
-     * @param stage
+     * Setter
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -90,8 +90,8 @@ public class Controller_CrearModificarDieta {
      * Inicializa la ventana entrando por el boton de crear de la ventana
      * TablaDietas y hace visible y habilita el boton crear
      *
-     * @param root
-     * @param usuario
+     * @param root Parent
+     * @param usuario Usuario
      */
     public void initStage(Parent root, Usuario usuario) {
 
@@ -120,9 +120,9 @@ public class Controller_CrearModificarDieta {
      * datos del objeto que se le pasa de la ventana anterior en los TextField y
      * las ComboBox
      *
-     * @param root
-     * @param dieta
-     * @param usuario
+     * @param root Parent
+     * @param dieta Dieta
+     * @param usuario Usuario
      */
     public void initStage(Parent root, Dieta dieta, Usuario usuario) {
 
@@ -153,8 +153,7 @@ public class Controller_CrearModificarDieta {
      * Inicializa la venta TablaDietas al pulsar el boton Cancelar y cierra la
      * actual
      *
-     * @param usuario
-     * @param event
+     * @param usuario Usuario
      */
     public void handleButtonCancelar(Usuario usuario) {
         try {
@@ -215,8 +214,8 @@ public class Controller_CrearModificarDieta {
      * usuario mediante un mensaje de confirmación y se volverá a la venta de
      * TablaDietas
      *
-     * @param usuario
-     * @param event
+     * @param usuario Usuario
+     * @param event ActionEvent
      */
     @FXML
     public void handleButtonCrear(Usuario usuario, ActionEvent event) {
@@ -336,9 +335,8 @@ public class Controller_CrearModificarDieta {
      * dieta al usuario mediante un mensaje de confirmación y se volverá a la
      * venta de TablaDietas
      *
-     * @param dieta1
-     * @param usuario
-     * @param event
+     * @param dieta1 Dieta
+     * @param usuario Usuario
      */
     public void handleButtonModificar(Dieta dieta1, Usuario usuario) {
         try {
@@ -418,8 +416,8 @@ public class Controller_CrearModificarDieta {
     /**
      * Comprueba que el parametro que se le pase solo contiene letras
      *
-     * @param input
-     * @return
+     * @param input String
+     * @return boolean
      */
     public static boolean onlyLetters(String input) {
         Pattern pattern = Pattern.compile("^[a-zA-Z]+$");
@@ -430,8 +428,8 @@ public class Controller_CrearModificarDieta {
     /**
      * Comprueba que el parametro que se le pase solo contiene numeros
      *
-     * @param input
-     * @return
+     * @param input String
+     * @return boolean
      */
     public static boolean onlyNumbers(String input) {
         Pattern pattern = Pattern.compile("^[0-9]+$");

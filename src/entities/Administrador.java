@@ -26,20 +26,20 @@ public class Administrador extends Usuario {
         super();
     }
     /**
-     * @associates <{g2.Dietista}>
+     * associates {g2.Dietista}
      */
 
     private Collection<Dietista> listaDietistas;
 
     /**
-     * @associates <{g2.Cliente}>
+     * associates {g2.Cliente}
      */
 
     private Collection<Cliente> listaClientes;
 
     /**
      *
-     * @return
+     * @return Collection
      */
     public Collection<Dietista> getListaDietistas() {
         return listaDietistas;
@@ -47,7 +47,7 @@ public class Administrador extends Usuario {
 
     /**
      *
-     * @param listaDietistas
+     * @param listaDietistas Collection
      */
     public void setListaDietistas(Collection<Dietista> listaDietistas) {
         this.listaDietistas = listaDietistas;
@@ -55,7 +55,7 @@ public class Administrador extends Usuario {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     @XmlTransient
     public Collection<Cliente> getListaClientes() {
@@ -64,7 +64,7 @@ public class Administrador extends Usuario {
 
     /**
      *
-     * @param listaClientes
+     * @param listaClientes Collection
      */
     public void setListaClientes(Collection<Cliente> listaClientes) {
         this.listaClientes = listaClientes;

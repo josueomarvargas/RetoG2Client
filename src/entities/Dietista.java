@@ -23,22 +23,22 @@ public class Dietista extends Usuario {
     private Date fechaAlta;
 
     /**
-     * @associates <{g2.Cliente}>
+     * associates {g2.Cliente}
      */
     private Collection<Cliente> listaClientes;
 
     /**
-     * @associates <{g2.Dieta}>
+     * associates {g2.Dieta}
      */
     private Collection<Dieta> listaDietas;
 
     /**
-     * @associates <{g2.Receta}>
+     * associates {g2.Receta}
      */
     private Collection<Receta> listaRecetas;
 
     /**
-     * @associates <{g2.Alimento}>
+     * associates {g2.Alimento}
      */
     private Collection<Alimento> listaAlimentos;
     
@@ -47,15 +47,15 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @return
-     */
+     * @return Date
+     */ 
     public Date getFechaAlta() {
         return fechaAlta;
     }
 
     /**
      *
-     * @param fechaAlta
+     * @param fechaAlta Date
      */
     public void setFechaAlta(Date fechaAlta) {
         this.fechaAlta = fechaAlta;
@@ -63,7 +63,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     public Collection<Cliente> getListaClientes() {
         return listaClientes;
@@ -71,7 +71,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @param listaClientes
+     * @param listaClientes Collection
      */
     public void setListaClientes(Collection<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
@@ -79,7 +79,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     public Collection<Dieta> getListaDietas() {
         return listaDietas;
@@ -87,7 +87,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @param listaDietas
+     * @param listaDietas Collection
      */
     public void setListaDietas(Collection<Dieta> listaDietas) {
         this.listaDietas = listaDietas;
@@ -95,7 +95,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     public Collection<Receta> getListaRecetas() {
         return listaRecetas;
@@ -103,7 +103,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @param listaRecetas
+     * @param listaRecetas Collection
      */
     public void setListaRecetas(Collection<Receta> listaRecetas) {
         this.listaRecetas = listaRecetas;
@@ -111,7 +111,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     public Collection<Alimento> getListaAlimentos() {
         return listaAlimentos;
@@ -119,7 +119,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @param listaAlimentos
+     * @param listaAlimentos Collection
      */
     public void setListaAlimentos(Collection<Alimento> listaAlimentos) {
         this.listaAlimentos = listaAlimentos;
@@ -127,7 +127,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @return
+     * @return Administrador
      */
     public Administrador getAdministrador() {
         return administrador;
@@ -135,7 +135,7 @@ public class Dietista extends Usuario {
 
     /**
      *
-     * @param administrador
+     * @param administrador Administrador
      */
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;

@@ -35,8 +35,8 @@ public class AlimentoImplementacion implements AlimentoInterface {
     /**
      * Busca todos los Alimentos y los guarda en una lista
      *
-     * @return
-     * @throws AlimentoInterfaceException
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAllAlimento() throws AlimentoInterfaceException {
@@ -58,8 +58,8 @@ public class AlimentoImplementacion implements AlimentoInterface {
     /**
      * Crea Un Alimento
      *
-     * @param alimento
-     * @throws AlimentoInterfaceException
+     * @param alimento Alimento
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public void crearAlimento(Alimento alimento) throws AlimentoInterfaceException {
@@ -78,8 +78,8 @@ public class AlimentoImplementacion implements AlimentoInterface {
     /**
      * Actualiza un Alimento
      *
-     * @param alimento
-     * @throws AlimentoInterfaceException
+     * @param alimento Alimento
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public void actualizarAlimento(Alimento alimento) throws AlimentoInterfaceException {
@@ -97,8 +97,8 @@ public class AlimentoImplementacion implements AlimentoInterface {
     /**
      * Elimina un alimento por su IdAlimento
      *
-     * @param idAlimento
-     * @throws AlimentoInterfaceException
+     * @param idAlimento String
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public void eliminarAlimento(String idAlimento) throws AlimentoInterfaceException {
@@ -116,9 +116,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
     /**
      * Busca un Alimento por su IdAlimento
      *
-     * @param idAlimento
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param idAlimento String
+     * @return Alimento
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Alimento getAlimentoPorId(String idAlimento) throws AlimentoInterfaceException {
@@ -138,9 +138,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
     /**
      * Busca un Alimento por su nombre
      *
-     * @param nombreAlimento
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param nombreAlimento String
+     * @return Alimento
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Alimento getAlimentoPorNombre(String nombreAlimento) throws AlimentoInterfaceException {
@@ -163,9 +163,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos por su tipo
-     * @param tipo
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param tipo String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorTipo(String tipo) throws AlimentoInterfaceException {
@@ -185,9 +185,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que sean superior
-     * @param superior
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param superior String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorCarbohidratosSuperior(String superior) throws AlimentoInterfaceException {
@@ -207,9 +207,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que sean superior
-     * @param superior
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param superior String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorCaloriasSuperior(String superior) throws AlimentoInterfaceException {
@@ -229,9 +229,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que sean superior
-     * @param superior
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param superior String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorProteinasSuperior(String superior) throws AlimentoInterfaceException {
@@ -251,9 +251,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que sean superior
-     * @param superior
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param superior String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorGrasasSuperior(String superior) throws AlimentoInterfaceException {
@@ -273,9 +273,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que sean menor
-     * @param menor
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param menor String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorCarbohidratosMinimo(String menor) throws AlimentoInterfaceException {
@@ -295,9 +295,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que sean menor
-     * @param menor
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param menor String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorCaloriasMinimo(String menor) throws AlimentoInterfaceException {
@@ -317,9 +317,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que sean menor
-     * @param menor
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param menor String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorProteinasMinimo(String menor) throws AlimentoInterfaceException {
@@ -339,9 +339,9 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que sean menor
-     * @param menor
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param menor String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorGrasasMinimo(String menor) throws AlimentoInterfaceException {
@@ -361,10 +361,10 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que esten entre el minimo y maximo puesto
-     * @param min
-     * @param max
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param min String
+     * @param max String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorCaloriasEntre(String min, String max) throws AlimentoInterfaceException {
@@ -384,10 +384,10 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que esten entre el minimo y maximo puesto
-     * @param min
-     * @param max
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param min String
+     * @param max String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorProteinasEntre(String min, String max) throws AlimentoInterfaceException {
@@ -407,10 +407,10 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que esten entre el minimo y maximo puesto
-     * @param min
-     * @param max
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param min String
+     * @param max String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorGrasasEntre(String min, String max) throws AlimentoInterfaceException {
@@ -430,10 +430,10 @@ public class AlimentoImplementacion implements AlimentoInterface {
 
     /**
      * Busca Alimentos que esten entre el minimo y maximo puesto
-     * @param min
-     * @param max
-     * @return
-     * @throws AlimentoInterfaceException
+     * @param min String
+     * @param max String
+     * @return Collection
+     * @throws AlimentoInterfaceException Saltara si se da un error en el metodo
      */
     @Override
     public Collection<Alimento> getAlimentoPorCarbohidratosEntre(String min, String max) throws AlimentoInterfaceException {

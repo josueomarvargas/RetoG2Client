@@ -33,7 +33,7 @@ public class AlimentoReceta implements Serializable{
 
     /**
      *
-     * @return
+     * @return AlimRecID
      */
     public AlimRecID getIdAlimentoReceta() {
         return idAlimentoReceta;
@@ -41,7 +41,7 @@ public class AlimentoReceta implements Serializable{
 
     /**
      *
-     * @param idAlimentoReceta
+     * @param idAlimentoReceta AlimRecID
      */
     public void setIdAlimentoReceta(AlimRecID idAlimentoReceta) {
         this.idAlimentoReceta = idAlimentoReceta;
@@ -49,7 +49,7 @@ public class AlimentoReceta implements Serializable{
 
     /**
      *
-     * @return
+     * @return Receta
      */
     public Receta getReceta() {
         return receta;
@@ -57,7 +57,7 @@ public class AlimentoReceta implements Serializable{
 
     /**
      *
-     * @param receta
+     * @param receta Receta
      */
     public void setReceta(Receta receta) {
         this.receta = receta;
@@ -65,7 +65,7 @@ public class AlimentoReceta implements Serializable{
 
     /**
      *
-     * @return
+     * @return Alimento
      */
     public Alimento getAlimento() {
         return alimento;
@@ -73,7 +73,7 @@ public class AlimentoReceta implements Serializable{
 
     /**
      *
-     * @param alimento
+     * @param alimento Alimento
      */
     public void setAlimento(Alimento alimento) {
         this.alimento = alimento;
@@ -81,7 +81,7 @@ public class AlimentoReceta implements Serializable{
 
     /**
      *
-     * @return
+     * @return Integer
      */
     public Integer getCantidad() {
         return cantidad;
@@ -89,7 +89,7 @@ public class AlimentoReceta implements Serializable{
 
     /**
      *
-     * @param cantidad
+     * @param cantidad Integer
      */
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;

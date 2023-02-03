@@ -42,14 +42,14 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @param dni
-     * @param nombreAcceso
-     * @param contraseña
-     * @param nombre
-     * @param apellido
-     * @param email
-     * @param fechaNac
-     * @param tipo
+     * @param dni String
+     * @param nombreAcceso String
+     * @param contraseña String
+     * @param nombre String
+     * @param apellido String
+     * @param email String
+     * @param fechaNac Date
+     * @param tipo Tipo
      */
     public Usuario(String dni, String nombreAcceso, String contraseña, String nombre, String apellido, String email, Date fechaNac, Tipo tipo) {
         this.dni = dni;
@@ -64,7 +64,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     @XmlElement(name = "dni")
     public String getDni() {
@@ -73,7 +73,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @param dni
+     * @param dni String
      */
     public void setDni(String dni) {
         this.dni = dni;
@@ -81,7 +81,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     @XmlElement(name = "nombreAcceso")
     public String getNombreAcceso() {
@@ -90,7 +90,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @param nombreAcceso
+     * @param nombreAcceso String
      */
     public void setNombreAcceso(String nombreAcceso) {
         this.nombreAcceso = nombreAcceso;
@@ -98,7 +98,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     @XmlElement(name = "contrasenia")
     public String getContraseña() {
@@ -107,7 +107,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @param contraseña
+     * @param contraseña String
      */
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
@@ -115,7 +115,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     @XmlElement(name = "nombre")
 
@@ -125,7 +125,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @param nombre
+     * @param nombre String
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -133,7 +133,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     @XmlElement(name = "apellido")
 
@@ -143,7 +143,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @param apellido
+     * @param apellido String
      */
     public void setApellido(String apellido) {
         this.apellido = apellido;
@@ -151,7 +151,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     @XmlElement(name = "email")
     public String getEmail() {
@@ -160,7 +160,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @param email
+     * @param email String
      */
     public void setEmail(String email) {
         this.email = email;
@@ -168,8 +168,8 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @return
-     */
+     * @return Date
+     */ 
     @XmlElement(name = "fechaNac")
     public Date getFechaNac() {
         return fechaNac;
@@ -177,7 +177,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @param fechaNac
+     * @param fechaNac Date
      */
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
@@ -185,7 +185,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @return
+     * @return Tipo
      */
     @XmlElement(name = "tipo")
 
@@ -195,7 +195,7 @@ public class Usuario implements Serializable {
 
     /**
      *
-     * @param tipo
+     * @param tipo Tipo
      */
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;

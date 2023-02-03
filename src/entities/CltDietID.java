@@ -17,8 +17,8 @@ public class CltDietID implements Serializable{
     private String idDiet;
 
     /**
-     *
-     * @return
+     * 
+     * @return String
      */
     public String getIdClte() {
         return idClt;
@@ -26,7 +26,7 @@ public class CltDietID implements Serializable{
 
     /**
      *
-     * @param idClte
+     * @param idClte String
      */
     public void setIdClte(String idClte) {
         this.idClt = idClte;
@@ -34,7 +34,7 @@ public class CltDietID implements Serializable{
 
     /**
      *
-     * @return
+     * @return String
      */
     public String getIdDiet() {
         return idDiet;
@@ -42,7 +42,7 @@ public class CltDietID implements Serializable{
 
     /**
      *
-     * @param idDiet
+     * @param idDiet String
      */
     public void setIdDiet(String idDiet) {
         this.idDiet = idDiet;

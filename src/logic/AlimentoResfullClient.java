@@ -41,11 +41,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su minimo
-     * @param <T>
-     * @param responseType
-     * @param carbohidratos
-     * @return
-     * @throws WebApplicationException
+     * @param <T> class
+     * @param responseType GenericType
+     * @param carbohidratos String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCarbohidratosMinimo_XML(GenericType<T> responseType, String carbohidratos) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -55,11 +55,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su minimo
-     * @param <T>
-     * @param responseType
-     * @param carbohidratos
-     * @return
-     * @throws WebApplicationException
+     * @param <T> class
+     * @param responseType GenericType
+     * @param carbohidratos String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCarbohidratosMinimo_JSON(Class<T> responseType, String carbohidratos) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -69,11 +69,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su superior
-     * @param <T>
-     * @param responseType
-     * @param calorias
-     * @return
-     * @throws WebApplicationException
+     * @param <T> class
+     * @param responseType GenericType
+     * @param calorias String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCaloriasSuperior_XML(GenericType<T> responseType, String calorias) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -83,11 +83,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su superior
-     * @param <T>
-     * @param responseType
-     * @param calorias
-     * @return
-     * @throws WebApplicationException
+     * @param <T> class
+     * @param responseType GenericType
+     * @param calorias String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCaloriasSuperior_JSON(Class<T> responseType, String calorias) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -97,8 +97,8 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Crea Alimento
-     * @param requestEntity
-     * @throws WebApplicationException
+     * @param requestEntity Object
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public void crearAlimento_XML(Object requestEntity) throws WebApplicationException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_XML).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
@@ -106,8 +106,8 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Crea Alimento
-     * @param requestEntity
-     * @throws WebApplicationException
+     * @param requestEntity Object
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public void crearAlimento_JSON(Object requestEntity) throws WebApplicationException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
@@ -115,8 +115,8 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Elimina Alimento por su id 
-     * @param id
-     * @throws WebApplicationException
+     * @param id String
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public void eliminarAlimento(String id) throws WebApplicationException {
         webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id})).request().delete();
@@ -124,12 +124,12 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca entre dos valores
-     * @param <T>
-     * @param responseType
-     * @param grasasMax
-     * @param grasasMin
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class 
+     * @param responseType GenericType
+     * @param grasasMax String
+     * @param grasasMin String 
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorGrasasEntre_XML(GenericType<T> responseType, String grasasMax, String grasasMin) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -139,12 +139,12 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca entre dos valores
-     * @param <T>
-     * @param responseType
-     * @param grasasMax
-     * @param grasasMin
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class 
+     * @param responseType GenericType
+     * @param grasasMax String
+     * @param grasasMin String 
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorGrasasEntre_JSON(Class<T> responseType, String grasasMax, String grasasMin) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -154,11 +154,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su superior
-     * @param <T>
-     * @param responseType
-     * @param carbohidratos
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param carbohidratos String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCarbohidratosSuperior_XML(GenericType<T> responseType, String carbohidratos) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -168,11 +168,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su superior
-     * @param <T>
-     * @param responseType
-     * @param carbohidratos
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param carbohidratos String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCarbohidratosSuperior_JSON(Class<T> responseType, String carbohidratos) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -182,11 +182,11 @@ public class AlimentoResfullClient {
 
     /**
      *Busca Alimento por su id
-     * @param <T>
-     * @param responseType
-     * @param id
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param id String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorId_XML(Class<T> responseType, String id) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -196,11 +196,11 @@ public class AlimentoResfullClient {
 
     /**
      *Busca Alimento por su id
-     * @param <T>
-     * @param responseType
-     * @param id
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param id String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorId_JSON(Class<T> responseType, String id) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -210,12 +210,12 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca entre dos valores
-     * @param <T>
-     * @param responseType
-     * @param proteinasMax
-     * @param proteinasMin
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param proteinasMax String
+     * @param proteinasMin String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorProteinasEntre_XML(GenericType<T> responseType, String proteinasMax, String proteinasMin) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -225,12 +225,12 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca entre dos valores
-     * @param <T>
-     * @param responseType
-     * @param proteinasMax
-     * @param proteinasMin
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param proteinasMax String
+     * @param proteinasMin String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorProteinasEntre_JSON(Class<T> responseType, String proteinasMax, String proteinasMin) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -240,11 +240,11 @@ public class AlimentoResfullClient {
 
     /**
      *Busca Alimento por su nombre
-     * @param <T>
-     * @param responseType
-     * @param nombre
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param nombre String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorNombre_XML(GenericType<T> responseType, String nombre) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -254,11 +254,11 @@ public class AlimentoResfullClient {
 
     /**
      *Busca Alimento por su nombre
-     * @param <T>
-     * @param responseType
-     * @param nombre
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param nombre String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorNombre_JSON(Class<T> responseType, String nombre) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -268,11 +268,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su minimo
-     * @param <T>
-     * @param responseType
-     * @param grasas
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param grasas String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorGrasasMinimo_XML(GenericType<T> responseType, String grasas) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -282,11 +282,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su minimo
-     * @param <T>
-     * @param responseType
-     * @param grasas
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param grasas String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorGrasasMinimo_JSON(Class<T> responseType, String grasas) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -296,11 +296,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Alimento Por su tipo
-     * @param <T>
-     * @param responseType
-     * @param tipo
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param tipo String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorTipo_XML(GenericType<T> responseType, String tipo) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -310,11 +310,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Alimento Por su tipo
-     * @param <T>
-     * @param responseType
-     * @param tipo
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param tipo String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorTipo_JSON(Class<T> responseType, String tipo) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -324,11 +324,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Alimento Por su minimo
-     * @param <T>
-     * @param responseType
-     * @param proteinas
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param proteinas String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorProteinasMinimo_XML(GenericType<T> responseType, String proteinas) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -338,11 +338,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Alimento Por su minimo
-     * @param <T>
-     * @param responseType
-     * @param proteinas
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param proteinas String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorProteinasMinimo_JSON(Class<T> responseType, String proteinas) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -352,11 +352,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su superior
-     * @param <T>
-     * @param responseType
-     * @param grasas
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param grasas String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorGrasasSuperior_XML(GenericType<T> responseType, String grasas) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -366,11 +366,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su superior
-     * @param <T>
-     * @param responseType
-     * @param grasas
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param grasas String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorGrasasSuperior_JSON(Class<T> responseType, String grasas) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -380,12 +380,12 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca entre dos valores
-     * @param <T>
-     * @param responseType
-     * @param carbohidratosMax
-     * @param carbohidratosMin
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param carbohidratosMax String
+     * @param carbohidratosMin String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCarbohidratosEntre_XML(GenericType<T> responseType, String carbohidratosMax, String carbohidratosMin) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -395,12 +395,12 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca entre dos valores
-     * @param <T>
-     * @param responseType
-     * @param carbohidratosMax
-     * @param carbohidratosMin
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param carbohidratosMax String
+     * @param carbohidratosMin String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCarbohidratosEntre_JSON(Class<T> responseType, String carbohidratosMax, String carbohidratosMin) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -410,11 +410,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Alimento Por su minimo
-     * @param <T>
-     * @param responseType
-     * @param calorias
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param calorias String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCaloriasMinimo_XML(GenericType<T> responseType, String calorias) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -424,11 +424,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Alimento Por su minimo
-     * @param <T>
-     * @param responseType
-     * @param calorias
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param calorias String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCaloriasMinimo_JSON(Class<T> responseType, String calorias) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -438,11 +438,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su superior
-     * @param <T>
-     * @param responseType
-     * @param proteinas
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param proteinas String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorProteinasSuperior_XML(GenericType<T> responseType, String proteinas) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -452,11 +452,11 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca Por su superior
-     * @param <T>
-     * @param responseType
-     * @param proteinas
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param proteinas String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorProteinasSuperior_JSON(Class<T> responseType, String proteinas) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -466,8 +466,8 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente actualiza Alimento
-     * @param requestEntity
-     * @throws WebApplicationException
+     * @param requestEntity Object
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public void actualizarAlimento_XML(Object requestEntity) throws WebApplicationException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_XML).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
@@ -475,8 +475,8 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente actualiza Alimento
-     * @param requestEntity
-     * @throws WebApplicationException
+     * @param requestEntity Object
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public void actualizarAlimento_JSON(Object requestEntity) throws WebApplicationException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
@@ -484,10 +484,10 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca todos los  Alimentos
-     * @param <T>
-     * @param responseType
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoTodos_XML(GenericType<T> responseType) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -495,11 +495,10 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *Resfull Cliente Busca todos los  Alimentos
-     * @param <T>
-     * @param responseType
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoTodos_JSON(Class<T> responseType) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -508,12 +507,12 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca entre dos valores
-     * @param <T>
-     * @param responseType
-     * @param caloriasMax
-     * @param caloriasMin
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param caloriasMax String
+     * @param caloriasMin String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCaloriasEntre_XML(GenericType<T> responseType, String caloriasMax, String caloriasMin) throws WebApplicationException {
         WebTarget resource = webTarget;
@@ -523,12 +522,12 @@ public class AlimentoResfullClient {
 
     /**
      *Resfull Cliente Busca entre dos valores
-     * @param <T>
-     * @param responseType
-     * @param caloriasMax
-     * @param caloriasMin
-     * @return
-     * @throws WebApplicationException
+     * @param <T> Class
+     * @param responseType GenericType
+     * @param caloriasMax String
+     * @param caloriasMin String
+     * @return T
+     * @throws WebApplicationException saltara si algo va mal en el metodo
      */
     public <T> T getAlimentoPorCaloriasEntre_JSON(Class<T> responseType, String caloriasMax, String caloriasMin) throws WebApplicationException {
         WebTarget resource = webTarget;

@@ -35,12 +35,12 @@ public class Alimento implements Serializable {
     private Date fechaInsert;
 
     /**
-     * @associates <{uml.Dietista}>
+     * associates {uml.Dietista}
      */
     private SimpleObjectProperty<Dietista> dietista;
 
     /**
-     * @associates <{g2.AlimentoReceta}>
+     * associates {g2.AlimentoReceta}
      */
     private Collection<AlimentoReceta> listaAlimentoReceta;
 //Constructor
@@ -55,16 +55,16 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param idAlimento
-     * @param TIPO
-     * @param nombre
-     * @param calorias
-     * @param grasasTotales
-     * @param proteinas
-     * @param carbohidratos
-     * @param fechaInsert
-     * @param dietista
-     * @param listaAlimentoReceta
+     * @param idAlimento String
+     * @param TIPO TipoAlimento
+     * @param nombre String
+     * @param calorias Float
+     * @param grasasTotales Float
+     * @param proteinas Float
+     * @param carbohidratos Float
+     * @param fechaInsert Date
+     * @param dietista SimpleObjectProperty
+     * @param listaAlimentoReceta Collection
      */
     public Alimento(String idAlimento, TipoAlimento TIPO, String nombre, Float calorias, Float grasasTotales, Float proteinas, Float carbohidratos, Date fechaInsert, SimpleObjectProperty<Dietista> dietista, Collection<AlimentoReceta> listaAlimentoReceta) {
         this.idAlimento = idAlimento;
@@ -83,7 +83,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
+     * @return String
      */
     @XmlElement(name = "idAlimento")
     public String getIdAlimento() {
@@ -92,7 +92,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param idAlimento
+     * @param idAlimento String
      */
     public void setIdAlimento(String idAlimento) {
         this.idAlimento = idAlimento;
@@ -100,7 +100,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
+     * @return TipoAlimento
      */
     @XmlElement(name = "TIPO")
 
@@ -110,7 +110,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param TIPO
+     * @param TIPO TipoAlimento
      */
     public void setTIPO(TipoAlimento TIPO) {
         this.TIPO = TIPO;
@@ -118,8 +118,8 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
-     */
+     * @return String
+     */ 
     @XmlElement(name = "nombre")
 
     public String getNombre() {
@@ -128,7 +128,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param nombre
+     * @param nombre String
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -136,7 +136,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
+     * @return Float
      */
     @XmlElement(name = "calorias")
 
@@ -146,7 +146,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param calorias
+     * @param calorias Float
      */
     public void setCalorias(Float calorias) {
         this.calorias = calorias;
@@ -154,7 +154,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
+     * @return Float
      */
     @XmlElement(name = "grasasTotales")
 
@@ -164,7 +164,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param grasasTotales
+     * @param grasasTotales Float
      */
     public void setGrasasTotales(Float grasasTotales) {
         this.grasasTotales = grasasTotales;
@@ -172,7 +172,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
+     * @return Float
      */
     @XmlElement(name = "proteinas")
 
@@ -182,7 +182,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param proteinas
+     * @param proteinas Float
      */
     public void setProteinas(Float proteinas) {
         this.proteinas = proteinas;
@@ -190,7 +190,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
+     * @return Float
      */
     @XmlElement(name = "carbohidratos")
 
@@ -200,7 +200,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param carbohidratos
+     * @param carbohidratos Float
      */
     public void setCarbohidratos(Float carbohidratos) {
         this.carbohidratos = carbohidratos;
@@ -208,7 +208,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
+     * @return Date
      */
     @XmlElement(name = "FechaInsert")
     public Date getFechaInsert() {
@@ -217,7 +217,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param fechaInsert
+     * @param fechaInsert Date
      */
     public void setFechaInsert(Date fechaInsert) {
         this.fechaInsert = fechaInsert;
@@ -225,7 +225,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
+     * @return SimpleObjectProperty
      */
     @XmlElement(name = "dietista")
 
@@ -235,7 +235,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param dietista
+     * @param dietista SimpleObjectProperty
      */
     public void setDietista(SimpleObjectProperty<Dietista> dietista) {
         this.dietista = dietista;
@@ -243,7 +243,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     public Collection<AlimentoReceta> getListaAlimentoReceta() {
         return listaAlimentoReceta;
@@ -251,7 +251,7 @@ public class Alimento implements Serializable {
 
     /**
      *
-     * @param listaAlimentoReceta
+     * @param listaAlimentoReceta Collection
      */
     public void setListaAlimentoReceta(Collection<AlimentoReceta> listaAlimentoReceta) {
         this.listaAlimentoReceta = listaAlimentoReceta;

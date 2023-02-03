@@ -99,7 +99,7 @@ public class ControladorDatosAlimento {
     /**
      * Getter
      *
-     * @return
+     * @return stage
      */
     public Stage getStage() {
         return stage;
@@ -108,7 +108,7 @@ public class ControladorDatosAlimento {
     /**
      * Setter
      *
-     * @param stage
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -117,7 +117,7 @@ public class ControladorDatosAlimento {
     /**
      * Inicializa los datos a mostrar en la ventana
      *
-     * @param root
+     * @param root Parent
      */
     public void initStage(Parent root) {
         Stage stage1 = new Stage();
@@ -134,8 +134,8 @@ public class ControladorDatosAlimento {
     /**
      * Inicializa los datos a mostrar en la ventana
      *
-     * @param root
-     * @param usuario
+     * @param root Parent
+     * @param usuario Usuario
      */
     public void initStage(Parent root, Usuario usuario) {
         Stage stage1 = new Stage();
@@ -172,7 +172,7 @@ public class ControladorDatosAlimento {
     /**
      * Inicializa los datos a mostrar en la ventana
      *
-     * @param root
+     * @param root Parent
      * @param alimento Objeto Alimento
      * @param usuario Objeto Usuario
      */
@@ -267,8 +267,8 @@ public class ControladorDatosAlimento {
     /**
      * Crea un nuevo alimento y vuelve a la ventana de tabla alimento
      *
-     * @param usuario
-     * @param event
+     * @param usuario Usuario
+     * @param event ActionEvent
      */
     public void creacion(Usuario usuario, ActionEvent event) {
 
@@ -347,8 +347,8 @@ public class ControladorDatosAlimento {
     /**
      * Vuelve a ventana Alimento Tabla
      *
-     * @param usuario
-     * @param event
+     * @param usuario Usuario
+     * @param event ActionEvent
      */
     public void volver(Usuario usuario, ActionEvent event) {
 
@@ -370,8 +370,8 @@ public class ControladorDatosAlimento {
     /**
      * Elimina Alimento que ha sido seleccionado
      *
-     * @param usuario
-     * @param event
+     * @param usuario Usuario
+     * @param event ActionEvent
      */
     public void eliminar(Usuario usuario, ActionEvent event) {
         try {
@@ -408,8 +408,8 @@ public class ControladorDatosAlimento {
     /**
      * Modifica el Alimento que ha sido seleccionado
      *
-     * @param usuario
-     * @param event
+     * @param usuario Usuario
+     * @param event ActionEvent
      */
     public void modificar(Usuario usuario, ActionEvent event) {
         try {
@@ -504,8 +504,8 @@ public class ControladorDatosAlimento {
     /**
      * Controla que sea Float los numeros
      *
-     * @param input
-     * @return
+     * @param input String
+     * @return boolean
      */
     public static boolean onlyNumbers(String input) {
         Pattern pattern = Pattern.compile("[+-]?([0-9]*[.])?[0-9]+");

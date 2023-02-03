@@ -33,7 +33,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return CltDietID
      */
     public CltDietID getIdClienteDieta() {
         return idClienteDieta;
@@ -41,7 +41,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @param idClienteDieta
+     * @param idClienteDieta CltDietID
      */
     public void setIdClienteDieta(CltDietID idClienteDieta) {
         this.idClienteDieta = idClienteDieta;
@@ -49,7 +49,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Dieta
      */
     public Dieta getDieta() {
         return dieta;
@@ -57,7 +57,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @param dieta
+     * @param dieta Dieta
      */
     public void setDieta(Dieta dieta) {
         this.dieta = dieta;
@@ -65,7 +65,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Cliente
      */
     public Cliente getCliente() {
         return cliente;
@@ -73,7 +73,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @param cliente
+     * @param cliente Cliente
      */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
@@ -81,7 +81,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Date
      */
     public Date getFechaInicio() {
         return fechaInicio;
@@ -89,7 +89,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @param fechaInicio
+     * @param fechaInicio Date
      */
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
@@ -97,7 +97,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @return
+     * @return Date
      */
     public Date getFechaFinal() {
         return fechaFinal;
@@ -105,7 +105,7 @@ public class ClienteDieta implements Serializable {
 
     /**
      *
-     * @param fechaFinal
+     * @param fechaFinal Date
      */
     public void setFechaFinal(Date fechaFinal) {
         this.fechaFinal = fechaFinal;

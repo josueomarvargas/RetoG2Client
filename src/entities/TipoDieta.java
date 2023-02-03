@@ -27,9 +27,9 @@ public enum TipoDieta {
     OMNIVORO;
 
     /**
-     *
-     * @param text
-     * @return
+     * 
+     * @param text String
+     * @return TipoDieta
      */
     public static TipoDieta parse(String text) {
         TipoDieta tip = null;

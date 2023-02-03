@@ -23,8 +23,8 @@ public enum Objetivo {
 
     /**
      *
-     * @param text
-     * @return
+     * @param text String
+     * @return Objetivo
      */
     public static Objetivo parse(String text) {
         if(SUBIR_PESO.name().equals(text)){

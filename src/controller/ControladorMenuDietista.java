@@ -57,7 +57,7 @@ public class ControladorMenuDietista {
     /**
      * Getter
      *
-     * @return
+     * @return Stage
      */
     public Stage getStage() {
         return stage;
@@ -66,7 +66,7 @@ public class ControladorMenuDietista {
     /**
      * Setter
      *
-     * @param stage
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -75,7 +75,7 @@ public class ControladorMenuDietista {
     /**
      * Inicializa los datos a mostrar en la ventana
      *
-     * @param root
+     * @param root Parent
      */
     public void initStage(Parent root) {
         Stage stage1 = new Stage();
@@ -89,8 +89,8 @@ public class ControladorMenuDietista {
     /**
      * Inicializa los datos a mostrar en la ventana
      *
-     * @param root
-     * @param usuario
+     * @param root Parent
+     * @param usuario Usuario
      */
     public void initStage(Parent root, Usuario usuario) {
         Stage stage1 = new Stage();

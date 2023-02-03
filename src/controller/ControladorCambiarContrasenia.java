@@ -71,7 +71,7 @@ public class ControladorCambiarContrasenia {
     /**
      * Getter
      *
-     * @return
+     * @return stage
      */
     public Stage getStage() {
         return stage;
@@ -80,7 +80,7 @@ public class ControladorCambiarContrasenia {
     /**
      * Setter
      *
-     * @param stage
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -89,7 +89,7 @@ public class ControladorCambiarContrasenia {
     /**
      * Inicializa los datos a mostrar en la ventana
      *
-     * @param root
+     * @param root Parent
      */
     public void initStage(Parent root) {
         Stage stage1 = new Stage();
@@ -102,7 +102,7 @@ public class ControladorCambiarContrasenia {
     /**
      * Inicializa los datos a mostrar en la ventana
      *
-     * @param root
+     * @param root Parent
      * @param usuario Objeto Usuario
      */
     public void initStage(Parent root, Usuario usuario) {
@@ -132,8 +132,8 @@ public class ControladorCambiarContrasenia {
     /**
      * Vuelve a la Ventana Anterior(DatosDietista)
      *
-     * @param usuario
-     * @param event
+     * @param usuario Usuario
+     * @param event ActionEvent
      */
     public void volver(Usuario usuario, ActionEvent event) {
 

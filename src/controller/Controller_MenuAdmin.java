@@ -50,7 +50,7 @@ public class Controller_MenuAdmin {
 
     /**
      *
-     * @return
+     * @return Stage
      */
     public Stage getStage() {
         return stage;
@@ -58,7 +58,7 @@ public class Controller_MenuAdmin {
 
     /**
      *
-     * @param stage
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -66,8 +66,8 @@ public class Controller_MenuAdmin {
 
     /**
      *
-     * @param root
-     * @param usuario
+     * @param root Parent
+     * @param usuario Usuario
      */
     public void initStage(Parent root, Usuario usuario) {
 

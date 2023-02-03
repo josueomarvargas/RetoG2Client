@@ -108,7 +108,7 @@ public class ControladorDatosDietista {
 
     /**
      *Getter
-     * @return
+     * @return Stage
      */
     public Stage getStage() {
         return stage;
@@ -116,7 +116,7 @@ public class ControladorDatosDietista {
 
     /**
      *Setter
-     * @param stage
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -124,7 +124,7 @@ public class ControladorDatosDietista {
 
     /**
      * Inicializa los datos a mostrar en la ventana
-     * @param root
+     * @param root Parent
      */
     public void initStage(Parent root) {
         Stage stage1 = new Stage();
@@ -146,8 +146,8 @@ public class ControladorDatosDietista {
 
     /**
      * Inicializa los datos a mostrar en la ventana
-     * @param root
-     * @param usuario
+     * @param root Parent
+     * @param usuario Usuario
      */
     public void initStage(Parent root, Usuario usuario) {
         Stage stage1 = new Stage();
@@ -258,7 +258,7 @@ public class ControladorDatosDietista {
 
     /**
      *Ventana para Crear Alimento
-     * @param event
+     * @param event ActionEvent
      */
     public void hadleCrearUsuario(ActionEvent event) {
 

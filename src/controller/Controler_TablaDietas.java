@@ -116,16 +116,16 @@ public class Controler_TablaDietas {
     private ToggleGroup groupObjetivo = new ToggleGroup();
 
     /**
-     *
-     * @return
+     *Getter
+     * @return Stage 
      */
     public Stage getStage() {
         return stage;
     }
 
     /**
-     *
-     * @param stage
+     *Setter
+     * @param stage Stage
      */
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -140,8 +140,8 @@ public class Controler_TablaDietas {
      * deshabilitados En la tabla se mostrarán los datos de las Dietas
      * existentes.
      *
-     * @param root
-     * @param usuario
+     * @param root Parent
+     * @param usuario Usuario
      */
     public void initStage(Parent root, Usuario usuario) {
 
@@ -200,7 +200,7 @@ public class Controler_TablaDietas {
      * logueado sea un cliente o la venta MenuDietista en caso de que el usuario
      * sea dietista Cierra la ventana actua
      *
-     * @param event
+     * @param event ActionEvent
      */
     @FXML
     public void handleButtonVolver(ActionEvent event) {
@@ -225,7 +225,7 @@ public class Controler_TablaDietas {
      * TextField y se desmarcara en caso de los RadioButton ademas recargala
      * tabla y habilitara los textfield y radio buttons desabilitadosx
      *
-     * @param event
+     * @param event ActionEvent
      */
     @FXML
     private void handleButtonResetear(ActionEvent event) {
@@ -269,7 +269,7 @@ public class Controler_TablaDietas {
      * método. Si los campos introducidos están validados correctamente se
      * ejecutará el método filtrarDietas(Dieta) enviando el objeto (Dieta)
      *
-     * @param event
+     * @param event ActionEvent
      */
     @FXML
     private void handleButtonFiltrar(ActionEvent event) {
@@ -371,7 +371,7 @@ public class Controler_TablaDietas {
     /**
      * Abre la venta CrearModifcarDietas Cierra la ventana actual
      *
-     * @param event
+     * @param event Usuario
      */
     @FXML
     private void handleButtonCrear(Usuario usuario) {
@@ -394,7 +394,7 @@ public class Controler_TablaDietas {
      * Abre la ventana CrearModificarDietas y carga en ella los datos de la
      * dieta seleccionada de la tabla Cierra la venta actual
      *
-     * @param event
+     * @param event Usuario
      */
     private void handleButtonModificar(Usuario usuario) {
         try {
@@ -417,7 +417,7 @@ public class Controler_TablaDietas {
     /**
      * Se eliminará de la base de datos y de la tabla la dieta seleccionada.
      *
-     * @param event
+     * @param event ActionEvent
      */
     @FXML
     private void handleButtonBorrar(ActionEvent event) {
@@ -432,7 +432,7 @@ public class Controler_TablaDietas {
     /**
      * Genera un informe con los datos visualizados en la tabla
      *
-     * @param event
+     * @param event ActionEvent
      */
     @FXML
     private void handleButtonInforme(ActionEvent event) {
@@ -454,7 +454,7 @@ public class Controler_TablaDietas {
     /**
      * Mostrar la ventana de ayuda
      *
-     * @param event n
+     * @param event ActionEvent
      */
     @FXML
     private void handleButtonAyuda(ActionEvent event) {
@@ -476,7 +476,7 @@ public class Controler_TablaDietas {
     /**
      * Carga la tabla con todos los datos de la base de datos
      *
-     * @param dietaData
+     * @param dietaData ObservableLists
      */
     private void cargarTabla(ObservableList<Dieta> dietaData) {
         interdieta = new DietaImplementacion();
@@ -544,8 +544,8 @@ public class Controler_TablaDietas {
     /**
      * Comprueba que el parametro que se le pase solo contiene letras
      *
-     * @param input
-     * @return
+     * @param input String
+     * @return booleans
      */
     public static boolean onlyLetters(String input) {
         Pattern pattern = Pattern.compile("^[a-zA-Z]+$");
@@ -556,8 +556,8 @@ public class Controler_TablaDietas {
     /**
      * Comprueba que el parametro que se le pase solo contiene numeros
      *
-     * @param input
-     * @return
+     * @param input String
+     * @return boolean
      */
     public static boolean onlyNumbers(String input) {
         Pattern pattern = Pattern.compile("^[0-9]+$");

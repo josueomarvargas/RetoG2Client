@@ -37,9 +37,9 @@ public class Cifrado {
      * Retorna el contenido de un fichero
      *
      * @return El texto del fichero
-     * @throws java.io.IOException
-     * @throws java.security.NoSuchAlgorithmException
-     * @throws java.security.spec.InvalidKeySpecException
+     * @throws java.io.IOException Saltara la excepcion si acorre algun error
+     * @throws java.security.NoSuchAlgorithmException Saltara la excepcion si acorre algun error
+     * @throws java.security.spec.InvalidKeySpecException Saltara la excepcion si acorre algun error
      */
     public static PublicKey leerClavePublica() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
         byte[] clavePu = hexStringToByteArray(CLAVEPUBLICA);
@@ -50,8 +50,8 @@ public class Cifrado {
 
     /**
      *Pasa un String a byte[]
-     * @param s
-     * @return
+     * @param s String
+     * @return byte
      */
     public static byte[] hexStringToByteArray(String s) {
         int len = s.length();
@@ -79,8 +79,8 @@ public class Cifrado {
 
     /**
      * Cifra el mensaje por clave asimetrica(clave publica)
-     * @param mensaje
-     * @return
+     * @param mensaje String
+     * @return String
      */
     public String cifrarTexto1(String mensaje) {
         byte[] encodedMessage = null;
@@ -100,8 +100,8 @@ public class Cifrado {
 
     /**
      * Pasa un byte a String
-     * @param bytes
-     * @return
+     * @param bytes byte
+     * @return String
      */
     public static String byteArrayToHexString(byte[] bytes) {
         StringBuilder sb = new StringBuilder();

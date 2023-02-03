@@ -25,7 +25,7 @@ public class Cliente extends Usuario {
     private Float peso;
 
     /**
-     * @associates <{uml.ClienteDieta}>
+     * associates {uml.ClienteDieta}
      */
     private Collection<ClienteDieta> listaDieta;
 
@@ -35,7 +35,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @return
+     * @return Float
      */
     public Float getAltura() {
         return altura;
@@ -43,7 +43,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @param altura
+     * @param altura Float
      */
     public void setAltura(Float altura) {
         this.altura = altura;
@@ -51,7 +51,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @return
+     * @return String
      */
     public String getGenero() {
         return genero;
@@ -59,7 +59,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @param genero
+     * @param genero String
      */
     public void setGenero(String genero) {
         this.genero = genero;
@@ -67,7 +67,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @return
+     * @return Float
      */
     public Float getImc() {
         return imc;
@@ -75,7 +75,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @param imc
+     * @param imc Float
      */
     public void setImc(Float imc) {
         this.imc = imc;
@@ -83,7 +83,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @return
+     * @return EstadoFisico
      */
     public EstadoFisico getESTADOFISICO() {
         return ESTADOFISICO;
@@ -91,7 +91,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @param ESTADOFISICO
+     * @param ESTADOFISICO EstadoFisico
      */
     public void setESTADOFISICO(EstadoFisico ESTADOFISICO) {
         this.ESTADOFISICO = ESTADOFISICO;
@@ -99,7 +99,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @return
+     * @return Collection
      */
     public Collection<ClienteDieta> getListaDieta() {
         return listaDieta;
@@ -107,7 +107,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @param listaDieta
+     * @param listaDieta Collection
      */
     public void setListaDieta(Collection<ClienteDieta> listaDieta) {
         this.listaDieta = listaDieta;
@@ -115,7 +115,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @return
+     * @return Dietista
      */
     public Dietista getDietista() {
         return dietista;
@@ -123,7 +123,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @param dietista
+     * @param dietista Dietista
      */
     public void setDietista(Dietista dietista) {
         this.dietista = dietista;
@@ -131,7 +131,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @return
+     * @return Float 
      */
     public Float getPeso() {
         return peso;
@@ -139,7 +139,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @param peso
+     * @param peso Float
      */
     public void setPeso(Float peso) {
         this.peso = peso;
@@ -147,7 +147,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @return
+     * @return Administrador
      */
     public Administrador getAdministrador() {
         return administrador;
@@ -155,7 +155,7 @@ public class Cliente extends Usuario {
 
     /**
      *
-     * @param administrador
+     * @param administrador Administrador
      */
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;

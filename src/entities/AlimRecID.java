@@ -18,7 +18,7 @@ public class AlimRecID implements Serializable{
 
     /**
      *
-     * @return
+     * @return String
      */
     public String getIdAlim() {
         return idAlim;
@@ -26,7 +26,7 @@ public class AlimRecID implements Serializable{
 
     /**
      *
-     * @param idAlim
+     * @param idAlim String
      */
     public void setIdAlim(String idAlim) {
         this.idAlim = idAlim;
@@ -34,7 +34,7 @@ public class AlimRecID implements Serializable{
 
     /**
      *
-     * @return
+     * @return String
      */
     public String getIdRec() {
         return idRec;
@@ -42,7 +42,7 @@ public class AlimRecID implements Serializable{
 
     /**
      *
-     * @param idRec
+     * @param idRec String
      */
     public void setIdRec(String idRec) {
         this.idRec = idRec;

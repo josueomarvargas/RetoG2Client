@@ -18,22 +18,21 @@ public interface DietistaInterface {
     /**
      * Crea Un dietista
      * @param usuario
-     * @throws UsuarioInterfaceException
+     * @throws UsuarioInterfaceException Saltara si ocurre algun error durante el metodo
      */
     public void crearDietista(Usuario usuario) throws UsuarioInterfaceException;
 
     /**
      * Elimina un Dietista
      * @param usuario
-     * @throws DeleteException
+     * @throws UsuarioInterfaceException Saltara si ocurre algun error durante el metodo
      */
     public void eliminarDietista(Usuario usuario) throws UsuarioInterfaceException ;
 
     /**
      * Actualiza un Usuario
      * @param usuario
-     * @throws exceptions.UsuarioInterfaceException
-     * @throws UpdateException
+     * @throws UsuarioInterfaceException Saltara si ocurre algun error durante el metodo
      */
     public void modificarDietista(Usuario usuario) throws UsuarioInterfaceException ;
 
