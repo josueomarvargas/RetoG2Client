@@ -33,7 +33,7 @@ public class UsuarioResfullClient {
     private static final String BASE_URI = "http://localhost:8080/RetoG2Serv/webresources";
 
     /**
-     *
+     *Constructor
      */
     public UsuarioResfullClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
@@ -41,7 +41,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Crea Usuario
      * @param requestEntity
      * @throws AlimentoInterfaceException
      */
@@ -50,7 +50,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Crea Usuario
      * @param requestEntity
      * @throws AlimentoInterfaceException
      */
@@ -59,7 +59,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Usuario por su nombre acceso y contraseña
      * @param <T>
      * @param responseType
      * @param nombreAcceso
@@ -69,12 +69,13 @@ public class UsuarioResfullClient {
      */
     public <T> T getInicioSesion_XML(GenericType<T> responseType, String nombreAcceso, String contrasenia) throws AlimentoInterfaceException{
         WebTarget resource = webTarget;
+        
         resource = resource.path(java.text.MessageFormat.format("{0}/{1}", new Object[]{nombreAcceso, contrasenia}));
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
 
     /**
-     *
+     *Resfull Cliente Busca Usuario por su nombre acceso y contraseña
      * @param <T>
      * @param responseType
      * @param nombreAcceso
@@ -89,7 +90,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente busca todos los  Usuarios  
      * @param <T>
      * @param responseType
      * @return
@@ -101,7 +102,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente busca todos los  Usuarios  
      * @param <T>
      * @param responseType
      * @return
@@ -113,7 +114,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente busca  Usuario por su correo 
      * @param requestEntity
      * @param correo
      * @throws AlimentoInterfaceException
@@ -123,7 +124,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente busca  Usuario por su correo 
      * @param requestEntity
      * @param correo
      * @throws AlimentoInterfaceException
@@ -133,7 +134,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente actualiza usuario
      * @param requestEntity
      * @throws AlimentoInterfaceException
      */
@@ -142,7 +143,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente actualiza usuario
      * @param requestEntity
      * @throws AlimentoInterfaceException
      */
@@ -151,7 +152,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Elimina usuario
      * @param dni
      * @throws AlimentoInterfaceException
      */
@@ -160,7 +161,7 @@ public class UsuarioResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente busca  Usuario por su dni 
      * @param <T>
      * @param responseType
      * @param dni

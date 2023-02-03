@@ -12,20 +12,16 @@ import exceptions.AlimentoInterfaceException;
 import exceptions.CrearAlimentoException;
 import exceptions.ExisteIdException;
 import exceptions.ExisteNombreException;
-import exceptions.InicionSesionNAcessoYContraseñaException;
 import exceptions.SoloNumerosException;
 import factoria.AlimentoFactoria;
 import java.io.IOException;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,13 +36,11 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import logic.AlimentoImplementacion;
 import logic.AlimentoInterface;
 
 /**
- *
+ * Controla los datos de Alimento tanto como crear y modificar
  * @author josue
  */
 public class ControladorDatosAlimento {
@@ -103,6 +97,7 @@ public class ControladorDatosAlimento {
     AlimentoFactoria alimentoFactoria;
 
     /**
+     * Getter
      *
      * @return
      */
@@ -111,6 +106,7 @@ public class ControladorDatosAlimento {
     }
 
     /**
+     * Setter
      *
      * @param stage
      */
@@ -119,6 +115,7 @@ public class ControladorDatosAlimento {
     }
 
     /**
+     * Inicializa los datos a mostrar en la ventana
      *
      * @param root
      */
@@ -132,12 +129,10 @@ public class ControladorDatosAlimento {
         crearPanel.setVisible(true);
         anadirComboBoxTipo();
         stage1.show();
-        //crearBoton.setOnAction(this::hadleBotonCreacion);
-        //volverBoton.setOnAction(this::hadleBotonVolver);
-
     }
 
     /**
+     * Inicializa los datos a mostrar en la ventana
      *
      * @param root
      * @param usuario
@@ -152,6 +147,7 @@ public class ControladorDatosAlimento {
         crearPanel.setVisible(true);
         anadirComboBoxTipo();
         stage1.show();
+        //Acciones de los botones
         crearBoton.setOnAction((event) -> {
             creacion(usuario, event);
         });
@@ -174,10 +170,11 @@ public class ControladorDatosAlimento {
     }
 
     /**
+     * Inicializa los datos a mostrar en la ventana
      *
      * @param root
-     * @param alimento
-     * @param usuario
+     * @param alimento Objeto Alimento
+     * @param usuario Objeto Usuario
      */
     public void initStage(Parent root, Alimento alimento, Usuario usuario) {
         Stage stage1 = new Stage();
@@ -199,6 +196,8 @@ public class ControladorDatosAlimento {
         tipoComboBox.getSelectionModel().select(alimento.getTIPO());
 
         stage1.show();
+        //Acciones de los botones
+
         volverBoton.setOnAction((event) -> {
             volver(usuario, event);
         });
@@ -226,6 +225,7 @@ public class ControladorDatosAlimento {
         });
 
     }
+//Añade Datos al ComboBox
 
     private void anadirComboBoxTipo() {
         tipoComboBox.getItems().add(TipoAlimento.CEREAL);
@@ -237,13 +237,14 @@ public class ControladorDatosAlimento {
         tipoComboBox.getItems().add(TipoAlimento.MANTECA_ACEITE);
 
     }
+//Cierra Sesion del usuario vuelve a la ventana de Inicio de Sesión 
 
     @FXML
     private void hadleMenuCerrarSesion(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
         alert.setHeaderText(null);
-        alert.setContentText("Are you sure?");
+        alert.setContentText("¿Estas Seguro?");
         Optional opc = alert.showAndWait();
         if (opc.isPresent()) {
             if (opc.get() == ButtonType.OK) {
@@ -264,6 +265,7 @@ public class ControladorDatosAlimento {
     }
 
     /**
+     * Crea un nuevo alimento y vuelve a la ventana de tabla alimento
      *
      * @param usuario
      * @param event
@@ -280,9 +282,11 @@ public class ControladorDatosAlimento {
                 throw new ExisteIdException("Error");
             }
             alimento = alimentoInterface.getAlimentoPorNombre(nombreText.getText());
+            //Controla que alimento no sea null
             if (alimento != null) {
                 throw new ExisteNombreException("Error");
             }
+            //controla que no haya campos vacios
             if (idText.getText().equalsIgnoreCase("") || nombreText.getText().equalsIgnoreCase("") || caloriasText.getText().equalsIgnoreCase("") || grasasText.getText().equalsIgnoreCase("")
                     || proteinasText.getText().equalsIgnoreCase("") || carbohidratosText.getText().equalsIgnoreCase("") || tipoComboBox.getValue() == null) {
                 throw new CrearAlimentoException("Llena todos los campos");
@@ -319,6 +323,7 @@ public class ControladorDatosAlimento {
         }
 
     }
+    // Crea el Alimento Objeto 
 
     private Alimento crearAlimento1() throws AlimentoInterfaceException {
 
@@ -340,6 +345,7 @@ public class ControladorDatosAlimento {
     }
 
     /**
+     * Vuelve a ventana Alimento Tabla
      *
      * @param usuario
      * @param event
@@ -362,6 +368,7 @@ public class ControladorDatosAlimento {
     }
 
     /**
+     * Elimina Alimento que ha sido seleccionado
      *
      * @param usuario
      * @param event
@@ -399,6 +406,7 @@ public class ControladorDatosAlimento {
     }
 
     /**
+     * Modifica el Alimento que ha sido seleccionado
      *
      * @param usuario
      * @param event
@@ -422,21 +430,30 @@ public class ControladorDatosAlimento {
             Logger.getLogger(ControladorDatosAlimento.class.getName()).log(Level.SEVERE, null, ex);
         } catch (AlimentoInterfaceException ex) {
             Logger.getLogger(ControladorDatosAlimento.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SoloNumerosException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Calorias, Proteinas, Grasas Totales y Carbohidratos son valores numericos", ButtonType.OK);
+            alert.show();
         }
 
     }
 
-    private Alimento modificarAlimento(Alimento alimento) {
-        alimento.setIdAlimento(idText.getText());
-        alimento.setNombre(nombreText.getText());
-        alimento.setCalorias(Float.valueOf(caloriasText.getText()));
-        alimento.setGrasasTotales(Float.valueOf(grasasText.getText()));
-        alimento.setProteinas(Float.valueOf(proteinasText.getText()));
-        alimento.setCarbohidratos(Float.valueOf(carbohidratosText.getText()));
-        TipoAlimento tipo = (TipoAlimento) tipoComboBox.getValue();
-        alimento.setTIPO(tipo);
-        return alimento;
+    //Modifica los Datos alimento que ha sido seleccionado
+    private Alimento modificarAlimento(Alimento alimento) throws SoloNumerosException {
+        if (!onlyNumbers(caloriasText.getText()) || !onlyNumbers(grasasText.getText()) || !onlyNumbers(proteinasText.getText()) || !onlyNumbers(carbohidratosText.getText())) {
+            throw new SoloNumerosException("Error");
+        } else {
+            alimento.setIdAlimento(idText.getText());
+            alimento.setNombre(nombreText.getText());
+            alimento.setCalorias(Float.valueOf(caloriasText.getText()));
+            alimento.setGrasasTotales(Float.valueOf(grasasText.getText()));
+            alimento.setProteinas(Float.valueOf(proteinasText.getText()));
+            alimento.setCarbohidratos(Float.valueOf(carbohidratosText.getText()));
+            TipoAlimento tipo = (TipoAlimento) tipoComboBox.getValue();
+            alimento.setTIPO(tipo);
+            return alimento;
+        }
     }
+//Muestra los Datos del usuario conectado en la ventana Datos Dietista
 
     private void misDatos(Usuario usuario) {
         try {
@@ -452,6 +469,7 @@ public class ControladorDatosAlimento {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+// Crea alimento y tella a la otra ventana (Datos Alimento)
 
     private void crearAlimentos(Usuario usuario) {
         try {
@@ -467,6 +485,7 @@ public class ControladorDatosAlimento {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Ve los alimentos de la Tabla
 
     private void verAlimentos(Usuario usuario) {
         try {
@@ -483,6 +502,7 @@ public class ControladorDatosAlimento {
     }
 
     /**
+     * Controla que sea Float los numeros
      *
      * @param input
      * @return
@@ -490,9 +510,10 @@ public class ControladorDatosAlimento {
     public static boolean onlyNumbers(String input) {
         Pattern pattern = Pattern.compile("[+-]?([0-9]*[.])?[0-9]+");
         Matcher matcher = pattern.matcher(input);
-       
+
         return matcher.matches();
     }
+//Muestra la Ventana de la tabla dietas
 
     private void verDietas(Usuario usuario, ActionEvent event) {
         try {
@@ -507,6 +528,7 @@ public class ControladorDatosAlimento {
             Logger.getLogger(Controller_MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Muestra la ventana de crear dietas
 
     private void crearDietas(Usuario usuario, ActionEvent event) {
         try {

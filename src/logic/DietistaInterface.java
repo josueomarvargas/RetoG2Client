@@ -16,21 +16,21 @@ import java.util.Collection;
 public interface DietistaInterface {
 
     /**
-     *
+     * Crea Un dietista
      * @param usuario
      * @throws UsuarioInterfaceException
      */
     public void crearDietista(Usuario usuario) throws UsuarioInterfaceException;
 
     /**
-     *
+     * Elimina un Dietista
      * @param usuario
      * @throws DeleteException
      */
     public void eliminarDietista(Usuario usuario) throws UsuarioInterfaceException ;
 
     /**
-     *
+     * Actualiza un Usuario
      * @param usuario
      * @throws exceptions.UsuarioInterfaceException
      * @throws UpdateException

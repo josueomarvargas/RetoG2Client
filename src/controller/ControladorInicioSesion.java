@@ -1,22 +1,14 @@
 package controller;
 
 import cifrado.Cifrado;
-import entities.Alimento;
-import entities.Dietista;
 import entities.Tipo;
-import entities.TipoAlimento;
 import entities.Usuario;
 import exceptions.InicionSesionNAcessoYContraseñaException;
 import exceptions.UsuarioInterfaceException;
 import factoria.UsuarioFactoria;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.Optional;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -24,7 +16,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,8 +26,6 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import logic.AlimentoInterface;
-import logic.UsuarioImplementacion;
 import logic.UsuarioInterface;
 
 /**
@@ -63,6 +52,7 @@ public class ControladorInicioSesion {
     private Usuario usuario;
 
     /**
+     * Getter
      *
      * @return
      */
@@ -71,6 +61,7 @@ public class ControladorInicioSesion {
     }
 
     /**
+     * Setter
      *
      * @param stage
      */
@@ -79,6 +70,7 @@ public class ControladorInicioSesion {
     }
 
     /**
+     * Inicializa los datos a mostrar en la ventana
      *
      * @param root
      */
@@ -109,6 +101,7 @@ public class ControladorInicioSesion {
         limitPasswordUser();
 
     }
+//Ventana para iniciar sesión y te lleva a la ventana de menu dietista
 
     @FXML
     private void hadleButtonEntrar(ActionEvent event) {
@@ -154,6 +147,7 @@ public class ControladorInicioSesion {
             alert.show();
         }
     }
+//Te lleva a la ventana de crear Dietista
 
     @FXML
     private void hadleButtonRegistrar(ActionEvent event) {
@@ -171,6 +165,7 @@ public class ControladorInicioSesion {
             Logger.getLogger(ControladorInicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Te lleva a la ventana de Recuperar Contraseña
 
     @FXML
     private void hadleButtonRecuContrasenia(ActionEvent event) {
@@ -188,6 +183,7 @@ public class ControladorInicioSesion {
             Logger.getLogger(ControladorInicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//limita password  y usuario 
 
     private void limitPasswordUser() {
         nombreAccesoText.lengthProperty().addListener(new ChangeListener<Number>() {

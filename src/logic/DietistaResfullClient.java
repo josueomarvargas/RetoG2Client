@@ -30,7 +30,7 @@ public class DietistaResfullClient {
     private static final String BASE_URI = "http://localhost:8080/RetoG2Serv/webresources";
 
     /**
-     *
+     *Constructor
      */
     public DietistaResfullClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
@@ -38,7 +38,7 @@ public class DietistaResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente actualiza Dietista
      * @param requestEntity
      * @throws ClientErrorException
      */
@@ -47,7 +47,7 @@ public class DietistaResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente actualiza Dietista
      * @param requestEntity
      * @throws ClientErrorException
      */
@@ -56,7 +56,7 @@ public class DietistaResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Elimina Dietista por su dni 
      * @param dni
      * @throws ClientErrorException
      */
@@ -65,7 +65,7 @@ public class DietistaResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Crea Dietista
      * @param requestEntity
      * @throws ClientErrorException
      */
@@ -74,7 +74,7 @@ public class DietistaResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Crea Dietista
      * @param requestEntity
      * @throws ClientErrorException
      */
@@ -83,7 +83,7 @@ public class DietistaResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente busca Dietista por su dni 
      * @param <T>
      * @param responseType
      * @param dni
@@ -97,7 +97,7 @@ public class DietistaResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente busca Dietista por su dni 
      * @param <T>
      * @param responseType
      * @param dni
@@ -111,7 +111,7 @@ public class DietistaResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente busca todos los  Dietistas  
      * @param <T>
      * @param responseType
      * @return
@@ -123,7 +123,7 @@ public class DietistaResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente busca todos los  Dietistas  
      * @param <T>
      * @param responseType
      * @return

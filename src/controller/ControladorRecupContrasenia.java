@@ -5,27 +5,24 @@
  */
 package controller;
 
-import entities.Usuario;
 import exceptions.UsuarioInterfaceException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logic.UsuarioImplementacion;
 import logic.UsuarioInterface;
 
 /**
+ * Recupera Contraseña
  *
  * @author josue
  */
@@ -40,6 +37,7 @@ public class ControladorRecupContrasenia {
     private TextField introCorreoText;
 
     /**
+     * Getter
      *
      * @return
      */
@@ -48,6 +46,7 @@ public class ControladorRecupContrasenia {
     }
 
     /**
+     * Setter
      *
      * @param stage
      */
@@ -56,6 +55,7 @@ public class ControladorRecupContrasenia {
     }
 
     /**
+     * Inicializa los datos a mostrar en la ventana
      *
      * @param root
      */
@@ -70,6 +70,7 @@ public class ControladorRecupContrasenia {
         enviarBoton.setOnAction(this::hadleEnviarBoton);
 
     }
+// vuelve a la ventana Anterior
 
     private void hadleVolverBoton(ActionEvent event) {
         try {
@@ -85,6 +86,7 @@ public class ControladorRecupContrasenia {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Hace la acción y vuelve a la ventana anterior
 
     private void hadleEnviarBoton(ActionEvent event) {
         try {

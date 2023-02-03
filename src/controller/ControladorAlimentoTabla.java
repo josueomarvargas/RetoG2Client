@@ -5,7 +5,6 @@
  */
 package controller;
 
-import com.lowagie.text.pdf.AcroFields.Item;
 import entities.Alimento;
 import entities.TipoAlimento;
 import entities.Usuario;
@@ -24,11 +23,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -60,6 +57,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author josue
  */
 public class ControladorAlimentoTabla {
+//Atributos FXML
 
     private Stage stage;
     @FXML
@@ -123,6 +121,7 @@ public class ControladorAlimentoTabla {
     private AlimentoInterface alimentosInter;
     @FXML
     private Button ayudaBoton;
+//Getter 
 
     /**
      *
@@ -133,6 +132,7 @@ public class ControladorAlimentoTabla {
     }
 
     /**
+     * Setter
      *
      * @param stage
      */
@@ -141,6 +141,7 @@ public class ControladorAlimentoTabla {
     }
 
     /**
+     * Ejecuta todas las condiciones antes de que se habla la ventana
      *
      * @param root
      */
@@ -161,13 +162,7 @@ public class ControladorAlimentoTabla {
             tablaAlimento.setItems(datosAlimento);
             anadirComboBoxTipo();
             anadirComboBoxTipo2();
-
             stage1.show();
-            // volverBoton.setOnAction(this::hadleBotonVolver);
-            //anadirBoton.setOnAction(this::hadleBotonAnadir);
-            //modificarBoton.setOnAction(this::hadleBotonModificar);
-            //filtrarBoton.setOnAction(this::hadleBotonFiltrar);
-            // informeBoton.setOnAction(this::hadleBotonInforme);
 
         } catch (AlimentoInterfaceException ex) {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
@@ -176,6 +171,7 @@ public class ControladorAlimentoTabla {
     }
 
     /**
+     * Ejecuta todas las condiciones antes de que se habla la ventana
      *
      * @param root
      * @param usuario
@@ -186,8 +182,9 @@ public class ControladorAlimentoTabla {
             Scene scene = new Scene(root);
             stage1.setScene(scene);
             stage1.setResizable(false);
-            //
+            //Ejecucion de la factoria
             alimentosInter = AlimentoFactoria.createAlimentoManager(AlimentoFactoria.REST_WEB_CLIENT_TYPE);
+            //Creacion de las filas
             colum1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
             colum2.setCellValueFactory(new PropertyValueFactory<>("calorias"));
             colum3.setCellValueFactory(new PropertyValueFactory<>("grasasTotales"));
@@ -199,7 +196,7 @@ public class ControladorAlimentoTabla {
             anadirComboBoxTipo2();
 
             stage1.show();
-
+//Botones y mas Menus
             mnITusDatos.setOnAction((event) -> {
                 misDatos(usuario);
             });
@@ -233,6 +230,7 @@ public class ControladorAlimentoTabla {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Mete Datos a la Combo box
 
     private void anadirComboBoxTipo() {
         tipoComboBox.getItems().add(TipoAlimento.CEREAL);
@@ -244,6 +242,7 @@ public class ControladorAlimentoTabla {
         tipoComboBox.getItems().add(TipoAlimento.MANTECA_ACEITE);
 
     }
+//Inicia Sesion del Usuario
 
     private void hadleMenuCerrarSesion(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -254,7 +253,7 @@ public class ControladorAlimentoTabla {
         if (opc.isPresent()) {
             if (opc.get() == ButtonType.OK) {
                 try {
-
+//Cierra la ventana actual
                     Stage stage1 = (Stage) MnBAdmin.getScene().getWindow();
                     stage1.close();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/InicioSesion.fxml"));
@@ -270,11 +269,13 @@ public class ControladorAlimentoTabla {
     }
 
     /**
+     * Vuelve a la ventana Anterior, Ventana Menu Dietista
      *
      * @param event
      */
     public void hadleBotonVolver(ActionEvent event) {
         try {
+            //Cierra la ventana actual
             Node source = (Node) event.getSource();
             Stage stage1 = (Stage) source.getScene().getWindow();
             stage1.close();
@@ -291,6 +292,7 @@ public class ControladorAlimentoTabla {
     }
 
     /**
+     * Abre el Informe de alimento
      *
      * @param event
      */
@@ -320,6 +322,7 @@ public class ControladorAlimentoTabla {
     }
 
     /**
+     * Te lleva a la ventana de Datos alimento
      *
      * @param event
      */
@@ -336,6 +339,7 @@ public class ControladorAlimentoTabla {
         }
 
     }
+//Te modifica el Alimento Seleccionado
 
     private void botonModificar(Usuario usuario, ActionEvent event) {
         try {
@@ -365,13 +369,16 @@ public class ControladorAlimentoTabla {
     }
 
     /**
+     * Te filtra los alimentos de la tabla
      *
      * @param event
      */
     public void hadleBotonFiltrar(ActionEvent event) {
         try {
             AlimentoInterface alimentoInterface;
+            //ejecuta una factoria
             alimentoInterface = AlimentoFactoria.createAlimentoManager(AlimentoFactoria.REST_WEB_CLIENT_TYPE);
+            //Muestra todos los datos de la tabla
             if (nombreText.getText().equalsIgnoreCase("") && menorText.getText().equalsIgnoreCase("") && mayorText.getText().equalsIgnoreCase("") && minText.getText().equalsIgnoreCase("") && maxText.getText().equalsIgnoreCase("") && tipoComboBox.getValue() == null) {
                 colum1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
                 colum2.setCellValueFactory(new PropertyValueFactory<>("calorias"));
@@ -389,7 +396,7 @@ public class ControladorAlimentoTabla {
                 colum3.setCellValueFactory(new PropertyValueFactory<>("grasasTotales"));
                 colum4.setCellValueFactory(new PropertyValueFactory<>("proteinas"));
                 colum5.setCellValueFactory(new PropertyValueFactory<>("carbohidratos"));
-
+                //Elige el tipo de caracteristica para filtrar y el atributo que quieres filtrar
                 if (filtrarCBox.getValue().toString().equalsIgnoreCase("Proteinas")) {
                     if (!nombreText.getText().equalsIgnoreCase("")) {
                         alimento = alimentoInterface.getAlimentoPorNombre(nombreText.getText());
@@ -487,18 +494,20 @@ public class ControladorAlimentoTabla {
 
                     }
                 }
-
+//Muestra los datos en la tabla
                 tablaAlimento.setItems(datosAlimento);
             }
+            //Actualiza la tabla
             tablaAlimento.refresh();
 
         } catch (AlimentoInterfaceException ex) {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SoloNumerosException ex) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Mayor, menor  y entre valores numericos", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Mayor, menor y entre valores numericos", ButtonType.OK);
             alert.show();
         }
     }
+// añade los tipos de caracteristica en el combo box
 
     private void anadirComboBoxTipo2() {
         filtrarCBox.getItems().add("Proteinas");
@@ -507,6 +516,7 @@ public class ControladorAlimentoTabla {
         filtrarCBox.getItems().add("Carbohidratos");
         filtrarCBox.getSelectionModel().select("Proteinas");
     }
+//vuelve a la Ventana anterior
 
     private void volver(Usuario usuario, ActionEvent event) {
         try {
@@ -523,6 +533,7 @@ public class ControladorAlimentoTabla {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Crear un Alimento
 
     private void anadir(Usuario usuario, ActionEvent event) {
         try {
@@ -538,6 +549,7 @@ public class ControladorAlimentoTabla {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+// te lleva a los datos de Usuario
 
     private void misDatos(Usuario usuario) {
         try {
@@ -553,6 +565,7 @@ public class ControladorAlimentoTabla {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Te lleva a la ventana de Crear Alimento
 
     private void crearAlimentos(Usuario usuario) {
         try {
@@ -568,6 +581,7 @@ public class ControladorAlimentoTabla {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Te muestra un guia de Ayuda de como funciona la tabla y los datos alimento
 
     private void ayuda(Usuario usuario, ActionEvent event) {
         try {
@@ -582,6 +596,7 @@ public class ControladorAlimentoTabla {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//muestra la tabla de dietas
 
     private void verDietas(Usuario usuario, ActionEvent event) {
         try {
@@ -596,6 +611,7 @@ public class ControladorAlimentoTabla {
             Logger.getLogger(Controller_MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Te lleva a la ventana datos Dieta para crear la Dieta 
 
     private void crearDietas(Usuario usuario, ActionEvent event) {
         try {
@@ -615,6 +631,7 @@ public class ControladorAlimentoTabla {
     }
 
     /**
+     * Controla que solo sea numero
      *
      * @param input
      * @return

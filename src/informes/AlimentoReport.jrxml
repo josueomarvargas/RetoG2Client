@@ -42,7 +42,7 @@
 			</textField>
 			<textField>
 				<reportElement x="400" y="41" width="100" height="20" uuid="2fd98efc-910c-4215-a042-64ffe12313be"/>
-				<textFieldExpression><![CDATA["'Carbohidratos"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Carbohidratos"]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>

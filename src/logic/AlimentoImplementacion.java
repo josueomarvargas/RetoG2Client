@@ -20,19 +20,20 @@ import javax.ws.rs.core.GenericType;
  * @author josue
  */
 public class AlimentoImplementacion implements AlimentoInterface {
-    //REST users web client
+    //REST Alimento web client
 
     private final AlimentoResfullClient webClient;
     private static final Logger LOGGER = Logger.getLogger("javafxapplicationud3example");
 
     /**
-     *
+     * Constructor
      */
     public AlimentoImplementacion() {
         this.webClient = new AlimentoResfullClient();
     }
 
     /**
+     * Busca todos los Alimentos y los guarda en una lista
      *
      * @return
      * @throws AlimentoInterfaceException
@@ -55,6 +56,7 @@ public class AlimentoImplementacion implements AlimentoInterface {
     }
 
     /**
+     * Crea Un Alimento
      *
      * @param alimento
      * @throws AlimentoInterfaceException
@@ -74,6 +76,7 @@ public class AlimentoImplementacion implements AlimentoInterface {
     }
 
     /**
+     * Actualiza un Alimento
      *
      * @param alimento
      * @throws AlimentoInterfaceException
@@ -92,6 +95,7 @@ public class AlimentoImplementacion implements AlimentoInterface {
     }
 
     /**
+     * Elimina un alimento por su IdAlimento
      *
      * @param idAlimento
      * @throws AlimentoInterfaceException
@@ -110,6 +114,7 @@ public class AlimentoImplementacion implements AlimentoInterface {
     }
 
     /**
+     * Busca un Alimento por su IdAlimento
      *
      * @param idAlimento
      * @return
@@ -131,6 +136,7 @@ public class AlimentoImplementacion implements AlimentoInterface {
     }
 
     /**
+     * Busca un Alimento por su nombre
      *
      * @param nombreAlimento
      * @return
@@ -156,7 +162,7 @@ public class AlimentoImplementacion implements AlimentoInterface {
     }
 
     /**
-     *
+     * Busca Alimentos por su tipo
      * @param tipo
      * @return
      * @throws AlimentoInterfaceException
@@ -167,18 +173,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorTipo_XML(new GenericType<List<Alimento>>() {
-            },tipo);
+            }, tipo);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;  
+        return alimentos;
     }
 
     /**
-     *
+     * Busca Alimentos que sean superior
      * @param superior
      * @return
      * @throws AlimentoInterfaceException
@@ -189,17 +195,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorCarbohidratosSuperior_XML(new GenericType<List<Alimento>>() {
-            },superior);
+            }, superior);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que sean superior
      * @param superior
      * @return
      * @throws AlimentoInterfaceException
@@ -210,17 +217,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorCaloriasSuperior_XML(new GenericType<List<Alimento>>() {
-            },superior);
+            }, superior);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que sean superior
      * @param superior
      * @return
      * @throws AlimentoInterfaceException
@@ -231,17 +239,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorProteinasSuperior_XML(new GenericType<List<Alimento>>() {
-            },superior);
+            }, superior);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que sean superior
      * @param superior
      * @return
      * @throws AlimentoInterfaceException
@@ -252,17 +261,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorGrasasSuperior_XML(new GenericType<List<Alimento>>() {
-            },superior);
+            }, superior);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que sean menor
      * @param menor
      * @return
      * @throws AlimentoInterfaceException
@@ -273,17 +283,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorCarbohidratosMinimo_XML(new GenericType<List<Alimento>>() {
-            },menor);
+            }, menor);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que sean menor
      * @param menor
      * @return
      * @throws AlimentoInterfaceException
@@ -294,17 +305,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorCaloriasMinimo_XML(new GenericType<List<Alimento>>() {
-            },menor);
+            }, menor);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que sean menor
      * @param menor
      * @return
      * @throws AlimentoInterfaceException
@@ -315,17 +327,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorProteinasMinimo_XML(new GenericType<List<Alimento>>() {
-            },menor);
+            }, menor);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que sean menor
      * @param menor
      * @return
      * @throws AlimentoInterfaceException
@@ -336,17 +349,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorGrasasMinimo_XML(new GenericType<List<Alimento>>() {
-            },menor);
+            }, menor);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que esten entre el minimo y maximo puesto
      * @param min
      * @param max
      * @return
@@ -358,17 +372,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorCaloriasEntre_XML(new GenericType<List<Alimento>>() {
-            },min,max);
+            }, min, max);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que esten entre el minimo y maximo puesto
      * @param min
      * @param max
      * @return
@@ -380,17 +395,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorCaloriasEntre_XML(new GenericType<List<Alimento>>() {
-            },min,max);
+            }, min, max);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que esten entre el minimo y maximo puesto
      * @param min
      * @param max
      * @return
@@ -402,17 +418,18 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorGrasasEntre_XML(new GenericType<List<Alimento>>() {
-            },min,max);
+            }, min, max);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    }
+        return alimentos;
+    }
 
     /**
-     *
+     * Busca Alimentos que esten entre el minimo y maximo puesto
      * @param min
      * @param max
      * @return
@@ -424,14 +441,14 @@ public class AlimentoImplementacion implements AlimentoInterface {
         try {
             LOGGER.info("AlimentoInterface: Finding all alimentos from REST service (XML).");
             alimentos = webClient.getAlimentoPorCarbohidratosEntre_XML(new GenericType<List<Alimento>>() {
-            },min,max);
+            }, min, max);
         } catch (WebApplicationException ex) {
             LOGGER.log(Level.SEVERE,
                     "Alimento: Exception finding all alimentos, {0}",
                     ex.getMessage());
             throw new AlimentoInterfaceException("Error finding all Alimentos:\n" + ex.getMessage());
         }
-        return alimentos;    
+        return alimentos;
     }
 
 }

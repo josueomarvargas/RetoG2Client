@@ -44,6 +44,7 @@ public class ControladorTablaDietista {
     private MenuItem mnBCrearDietas;
 
     /**
+     * Getter
      *
      * @return
      */
@@ -52,6 +53,7 @@ public class ControladorTablaDietista {
     }
 
     /**
+     * Setter
      *
      * @param stage
      */
@@ -60,6 +62,7 @@ public class ControladorTablaDietista {
     }
 
     /**
+     * Inicializa los datos a mostrar en la ventana
      *
      * @param root
      */

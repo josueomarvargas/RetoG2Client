@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  */
 public class Principal extends Application {
 
-//Creation of the Main window
+//Creacion de la ventana principal
     @Override
     public void start(Stage primaryStage) throws AlimentoInterfaceException, IOException {
         //Link the fxml file to the loader and upload it to root 
@@ -33,6 +33,7 @@ public class Principal extends Application {
     }
 
     /**
+     * Principal
      * @param args the command line arguments
      */
     public static void main(String[] args) {

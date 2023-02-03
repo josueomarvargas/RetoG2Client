@@ -6,7 +6,6 @@
 package controller;
 
 import cifrado.Cifrado;
-import entities.Dietista;
 import entities.Tipo;
 import entities.Usuario;
 import exceptions.ContraseniaDesigualException;
@@ -18,7 +17,6 @@ import exceptions.UsuarioInterfaceException;
 import factoria.DietistaFactoria;
 import factoria.UsuarioFactoria;
 import java.io.IOException;
-
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,7 +24,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,7 +45,7 @@ import javafx.stage.Stage;
 import logic.UsuarioInterface;
 
 /**
- *
+ * Controla los datos de Dietista, tanto modificar como crear 
  * @author josue
  */
 public class ControladorDatosDietista {
@@ -110,7 +107,7 @@ public class ControladorDatosDietista {
     private Label fechAltaLabel;
 
     /**
-     *
+     *Getter
      * @return
      */
     public Stage getStage() {
@@ -118,7 +115,7 @@ public class ControladorDatosDietista {
     }
 
     /**
-     *
+     *Setter
      * @param stage
      */
     public void setStage(Stage stage) {
@@ -126,7 +123,7 @@ public class ControladorDatosDietista {
     }
 
     /**
-     *
+     * Inicializa los datos a mostrar en la ventana
      * @param root
      */
     public void initStage(Parent root) {
@@ -147,7 +144,12 @@ public class ControladorDatosDietista {
 
     }
 
-    void initStage(Parent root, Usuario usuario) {
+    /**
+     * Inicializa los datos a mostrar en la ventana
+     * @param root
+     * @param usuario
+     */
+    public void initStage(Parent root, Usuario usuario) {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
         stage1.setScene(scene);
@@ -195,6 +197,8 @@ public class ControladorDatosDietista {
         mnICerrarSesion.setOnAction(this::hadleMenuCerrarSesion);
 
     }
+   
+    //Cierra Sesion del Usuaurio y vuelve a la ventana de inicio de sesión
     @FXML
     private void hadleMenuCerrarSesion(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -219,6 +223,7 @@ public class ControladorDatosDietista {
             }
         }
     }
+    //Vuelve a la ventana Anterior
     private void volver(Usuario usuario, ActionEvent event) {
         try {
             Node source = (Node) event.getSource();
@@ -234,7 +239,7 @@ public class ControladorDatosDietista {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+//Te lleva  a la ventana para modificar la contraseña
     private void cambiarContrasenia(Usuario usuario, ActionEvent event) {
         try {
             // lambda expression
@@ -252,7 +257,7 @@ public class ControladorDatosDietista {
     }
 
     /**
-     *
+     *Ventana para Crear Alimento
      * @param event
      */
     public void hadleCrearUsuario(ActionEvent event) {
@@ -301,7 +306,7 @@ public class ControladorDatosDietista {
             controlador.setStage(stage);
             controlador.initStage(root);
 
-        } catch (UsuarioInterfaceException ex) {
+        } catch (UsuarioInterfaceException | IOException ex) {
             Logger.getLogger(ControladorDatosDietista.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ExisteIdException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "El dni ya Existe", ButtonType.OK);
@@ -318,12 +323,10 @@ public class ControladorDatosDietista {
         } catch (ExisteEmailException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Email ya Existe", ButtonType.OK);
             alert.show();
-        } catch (IOException ex) {
-            Logger.getLogger(ControladorDatosDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
-
+//Crea Dietista
     private Usuario crearDietista() {
         Usuario dietista = new Usuario();
         Cifrado cifrado = new Cifrado();
@@ -339,7 +342,7 @@ public class ControladorDatosDietista {
         return dietista;
 
     }
-
+//Vuelve a la ventana Anterior 
     private void hadleVolverBoton(ActionEvent event) {
         try {
             Node source = (Node) event.getSource();
@@ -354,6 +357,7 @@ public class ControladorDatosDietista {
             Logger.getLogger(ControladorAlimentoTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    //te lleva a la ventana tabla alimento
         private void verAlimentos(Usuario usuario) {
         try {
             Stage stage1 = (Stage) mnBAdmin.getScene().getWindow();
@@ -367,7 +371,7 @@ public class ControladorDatosDietista {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+//Te lleva a la ventana crear alimento
     private void crearAlimentos(Usuario usuario) {
         try {
 
@@ -382,7 +386,7 @@ public class ControladorDatosDietista {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+//Te lleva a la tabla De dieta
     private void verDietas(Usuario usuario, ActionEvent event) {
         try {
             Stage stage1 = (Stage) mnBAdmin.getScene().getWindow();
@@ -396,7 +400,7 @@ public class ControladorDatosDietista {
             Logger.getLogger(Controller_MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+//Te lleva a la ventana donde creas dieta
     private void crearDietas(Usuario usuario, ActionEvent event) {
         try {
             Stage stage1 = (Stage) mnBAdmin.getScene().getWindow();

@@ -32,7 +32,7 @@ public class AlimentoResfullClient {
     private static final String BASE_URI = "http://localhost:8080/RetoG2Serv/webresources";
 
     /**
-     *
+     *Constructor
      */
     public AlimentoResfullClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
@@ -40,7 +40,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su minimo
      * @param <T>
      * @param responseType
      * @param carbohidratos
@@ -54,7 +54,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su minimo
      * @param <T>
      * @param responseType
      * @param carbohidratos
@@ -68,7 +68,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su superior
      * @param <T>
      * @param responseType
      * @param calorias
@@ -82,7 +82,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su superior
      * @param <T>
      * @param responseType
      * @param calorias
@@ -96,7 +96,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Crea Alimento
      * @param requestEntity
      * @throws WebApplicationException
      */
@@ -105,7 +105,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Crea Alimento
      * @param requestEntity
      * @throws WebApplicationException
      */
@@ -114,7 +114,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Elimina Alimento por su id 
      * @param id
      * @throws WebApplicationException
      */
@@ -123,7 +123,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca entre dos valores
      * @param <T>
      * @param responseType
      * @param grasasMax
@@ -138,7 +138,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca entre dos valores
      * @param <T>
      * @param responseType
      * @param grasasMax
@@ -153,7 +153,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su superior
      * @param <T>
      * @param responseType
      * @param carbohidratos
@@ -167,7 +167,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su superior
      * @param <T>
      * @param responseType
      * @param carbohidratos
@@ -181,7 +181,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Busca Alimento por su id
      * @param <T>
      * @param responseType
      * @param id
@@ -195,7 +195,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Busca Alimento por su id
      * @param <T>
      * @param responseType
      * @param id
@@ -209,7 +209,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca entre dos valores
      * @param <T>
      * @param responseType
      * @param proteinasMax
@@ -224,7 +224,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca entre dos valores
      * @param <T>
      * @param responseType
      * @param proteinasMax
@@ -239,7 +239,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Busca Alimento por su nombre
      * @param <T>
      * @param responseType
      * @param nombre
@@ -253,7 +253,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Busca Alimento por su nombre
      * @param <T>
      * @param responseType
      * @param nombre
@@ -267,7 +267,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su minimo
      * @param <T>
      * @param responseType
      * @param grasas
@@ -281,7 +281,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su minimo
      * @param <T>
      * @param responseType
      * @param grasas
@@ -295,7 +295,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Alimento Por su tipo
      * @param <T>
      * @param responseType
      * @param tipo
@@ -309,7 +309,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Alimento Por su tipo
      * @param <T>
      * @param responseType
      * @param tipo
@@ -323,7 +323,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Alimento Por su minimo
      * @param <T>
      * @param responseType
      * @param proteinas
@@ -337,7 +337,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Alimento Por su minimo
      * @param <T>
      * @param responseType
      * @param proteinas
@@ -351,7 +351,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su superior
      * @param <T>
      * @param responseType
      * @param grasas
@@ -365,7 +365,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su superior
      * @param <T>
      * @param responseType
      * @param grasas
@@ -379,7 +379,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca entre dos valores
      * @param <T>
      * @param responseType
      * @param carbohidratosMax
@@ -394,7 +394,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca entre dos valores
      * @param <T>
      * @param responseType
      * @param carbohidratosMax
@@ -409,7 +409,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Alimento Por su minimo
      * @param <T>
      * @param responseType
      * @param calorias
@@ -423,7 +423,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Alimento Por su minimo
      * @param <T>
      * @param responseType
      * @param calorias
@@ -437,7 +437,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su superior
      * @param <T>
      * @param responseType
      * @param proteinas
@@ -451,7 +451,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca Por su superior
      * @param <T>
      * @param responseType
      * @param proteinas
@@ -465,7 +465,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente actualiza Alimento
      * @param requestEntity
      * @throws WebApplicationException
      */
@@ -474,7 +474,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente actualiza Alimento
      * @param requestEntity
      * @throws WebApplicationException
      */
@@ -483,7 +483,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca todos los  Alimentos
      * @param <T>
      * @param responseType
      * @return
@@ -495,7 +495,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca todos los  Alimentos
      * @param <T>
      * @param responseType
      * @return
@@ -507,7 +507,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca entre dos valores
      * @param <T>
      * @param responseType
      * @param caloriasMax
@@ -522,7 +522,7 @@ public class AlimentoResfullClient {
     }
 
     /**
-     *
+     *Resfull Cliente Busca entre dos valores
      * @param <T>
      * @param responseType
      * @param caloriasMax

@@ -16,36 +16,35 @@ import java.util.Collection;
 public interface UsuarioInterface {
 
     /**
-     *
+     * Crea Un usuario
      * @param usuario
      * @throws UsuarioInterfaceException
      */
     public void crearUsuario(Usuario usuario) throws UsuarioInterfaceException;
 
     /**
-     *
+     * Elimina un usuario
      * @param usuario
      * @throws exceptions.UsuarioInterfaceException
      */
     public void eliminarUsuario(Usuario usuario) throws UsuarioInterfaceException ;
 
     /**
-     *
+     * Actualiza un Usuario
      * @param usuario
      * @throws exceptions.UsuarioInterfaceException
-     * @throws UpdateException
      */
     public void modificarUsuario(Usuario usuario) throws UsuarioInterfaceException ;
 
     /**
-     *
+     *Busca Todos los usuario
      * @return
      * @throws UsuarioInterfaceException
      */
     public Collection<Usuario> getUsuarioTodos() throws UsuarioInterfaceException;
 
     /**
-     *
+     *Busca Usuarios por nombre de acceso y contraseña
      * @param nombreAcceso
      * @param contrasenia
      * @return
@@ -54,14 +53,14 @@ public interface UsuarioInterface {
     public Collection<Usuario> getInicioSesion(String nombreAcceso, String contrasenia) throws UsuarioInterfaceException;
 
     /**
-     *
+     *Busca Usuario por su correo
      * @param correo
      * @throws UsuarioInterfaceException
      */
     public void getUsuarioPorEmail(String correo) throws UsuarioInterfaceException;
 
     /**
-     *
+     *Busca usuario por su dni
      * @param dni
      * @return
      * @throws UsuarioInterfaceException

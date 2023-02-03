@@ -29,14 +29,14 @@ public class UsuarioImplementacion implements UsuarioInterface {
     private static final Logger LOGGER = Logger.getLogger("javafxapplicationud3example");
 
     /**
-     *
+     * constructor
      */
     public UsuarioImplementacion() {
         this.webClient = new UsuarioResfullClient();
     }
 
     /**
-     *
+     * Crea Un usuario
      * @param usuario
      * @throws UsuarioInterfaceException
      */
@@ -55,7 +55,10 @@ public class UsuarioImplementacion implements UsuarioInterface {
             Logger.getLogger(UsuarioImplementacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+/**
+     * Elimina un usuario
+     * @throws exceptions.UsuarioInterfaceException
+     */
     @Override
     public void eliminarUsuario(Usuario usuario) throws UsuarioInterfaceException {
         try {
@@ -70,7 +73,10 @@ public class UsuarioImplementacion implements UsuarioInterface {
             Logger.getLogger(UsuarioImplementacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+  /**
+     * Actualiza un Usuario
+     * @param usuario
+     */
     @Override
     public void modificarUsuario(Usuario usuario) throws UsuarioInterfaceException {
         try {
@@ -87,7 +93,7 @@ public class UsuarioImplementacion implements UsuarioInterface {
     }
 
     /**
-     *
+     *Busca Todos los usuario
      * @return
      * @throws UsuarioInterfaceException
      */
@@ -110,7 +116,7 @@ public class UsuarioImplementacion implements UsuarioInterface {
     }
 
     /**
-     *
+     *Busca Usuarios por nombre de acceso y contraseña
      * @param nombreAcceso
      * @param contrasenia
      * @return
@@ -133,7 +139,7 @@ public class UsuarioImplementacion implements UsuarioInterface {
     }
 
     /**
-     *
+     *Busca Usuario por su correo
      * @param correo
      * @throws UsuarioInterfaceException
      */
@@ -153,7 +159,7 @@ public class UsuarioImplementacion implements UsuarioInterface {
     }
 
     /**
-     *
+     *Busca usuario por su dni
      * @param dni
      * @return
      * @throws UsuarioInterfaceException

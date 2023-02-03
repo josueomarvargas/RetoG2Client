@@ -5,17 +5,14 @@
  */
 package controller;
 
-import entities.Dietista;
 import entities.Usuario;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -23,8 +20,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableView;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -60,6 +55,7 @@ public class ControladorMenuDietista {
     private Menu mnAlimentos;
 
     /**
+     * Getter
      *
      * @return
      */
@@ -68,6 +64,7 @@ public class ControladorMenuDietista {
     }
 
     /**
+     * Setter
      *
      * @param stage
      */
@@ -76,6 +73,7 @@ public class ControladorMenuDietista {
     }
 
     /**
+     * Inicializa los datos a mostrar en la ventana
      *
      * @param root
      */
@@ -85,19 +83,16 @@ public class ControladorMenuDietista {
         stage1.setScene(scene);
         stage1.setResizable(false);
         stage1.show();
-//        mnITusDatos.setOnAction(this::hadleMenuTusDatos);
-        // mnICerrarSesion.setOnAction(this::hadleMenuCerrarSesion);
-        //mnIVerClientes.setOnAction(this::hadleMenuVerClientes);
-        //mnIVerRecetas.setOnAction(this::hadleMenuVerRecetas);
-        //mnBCrearRecetas.setOnAction(this::hadleMenuCrearRecetas);
-        // mnIVerAlimentos.setOnAction(this::hadleMenuVerAlimentos);
-        // mnBCrearAlimentos.setOnAction(this::hadleMenuCrearAlimentos);
-        //mnIVerDietas.setOnAction(this::hadleMenuVerDietas);
-        //mnBCrearDietas.setOnAction(this::hadleMenuCrearDietas);
 
     }
 
-    void initStage(Parent root, Usuario usuario) {
+    /**
+     * Inicializa los datos a mostrar en la ventana
+     *
+     * @param root
+     * @param usuario
+     */
+    public void initStage(Parent root, Usuario usuario) {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
         stage1.setScene(scene);
@@ -122,6 +117,7 @@ public class ControladorMenuDietista {
         mnICerrarSesion.setOnAction(this::hadleMenuCerrarSesion);
 
     }
+//Muestra los datos del usuario conectado y te lleva a la ventana Datos dietista
 
     @FXML
     private void hadleMenuTusDatos(ActionEvent event) {
@@ -137,12 +133,13 @@ public class ControladorMenuDietista {
 
     }
 
+    //Cierra sesión y te lleva a la ventana de inicion Sesión
     @FXML
     private void hadleMenuCerrarSesion(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
         alert.setHeaderText(null);
-        alert.setContentText("Are you sure?");
+        alert.setContentText("¿Estas Seguro?");
         Optional opc = alert.showAndWait();
         if (opc.isPresent()) {
             if (opc.get() == ButtonType.OK) {
@@ -161,6 +158,8 @@ public class ControladorMenuDietista {
             }
         }
     }
+
+    // muestra los Datos del Usuario en la ventana Datos Dietista
     private void misDatos(Usuario usuario) {
         try {
             // lambda expression
@@ -175,6 +174,7 @@ public class ControladorMenuDietista {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Muestra la tabla de alimento 
 
     private void verAlimentos(Usuario usuario) {
         try {
@@ -189,6 +189,7 @@ public class ControladorMenuDietista {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Muestra la ventana de Datos Alimento
 
     private void crearAlimentos(Usuario usuario) {
         try {
@@ -204,6 +205,7 @@ public class ControladorMenuDietista {
             Logger.getLogger(ControladorMenuDietista.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Muestra la ventana de Datos Dietista
 
     private void verDietas(Usuario usuario, ActionEvent event) {
         try {
@@ -218,6 +220,7 @@ public class ControladorMenuDietista {
             Logger.getLogger(Controller_MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//Muestra la Ventana de Datos Dieta
 
     private void crearDietas(Usuario usuario, ActionEvent event) {
         try {

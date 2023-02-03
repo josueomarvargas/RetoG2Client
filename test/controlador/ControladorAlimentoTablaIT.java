@@ -6,38 +6,14 @@
 package controlador;
 
 import aplicacion.Principal;
-import com.sun.management.jmx.Trace;
-import entities.Alimento;
-import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import logic.AlimentoInterface;
-import org.junit.After;
-import org.junit.AfterClass;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
-import org.junit.runners.Suite;
 import static org.testfx.api.FxAssert.verifyThat;
-import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
-import static org.testfx.matcher.base.NodeMatchers.isEnabled;
 import static org.testfx.util.NodeQueryUtils.isVisible;
 
 /**
@@ -266,7 +242,7 @@ write("JON987");
          write("12");
         clickOn("#filtrarBoton");
 
-    } */
+    } 
     @Test
     public void test13_FiltrarSinValores() {
         clickOn("#nombreAccesoText");
@@ -278,6 +254,38 @@ write("JON987");
         clickOn("VER ALIMENTOS");
         clickOn("#filtrarBoton");
 
+    }
+    @Test
+    public void test14_ErrorNoEsNumero() {
+        clickOn("#nombreAccesoText");
+        write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        clickOn("#mayorText");
+        write("s");
+        clickOn("#filtrarBoton");
+        verifyThat("Mayor, menor y entre valores numericos",isVisible());
+
+        Node row = lookup(".table-row-cell").nth(0).query();
+        assertNotNull("Row is null: table has not that row. ", row);
+        clickOn(row);
+    }*/
+        @Test
+    public void test14_idAlimentoisDisable() {
+        clickOn("#nombreAccesoText");
+        write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("VER ALIMENTOS");
+        Node row = lookup(".table-row-cell").nth(0).query();
+        assertNotNull("Row is null: table has not that row. ", row);
+        clickOn(row);
+        clickOn("#modificarBoton");
     }
 
 }

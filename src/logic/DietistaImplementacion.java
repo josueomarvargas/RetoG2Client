@@ -17,7 +17,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.GenericType;
 
 /**
- *
+    //REST Dietista web client
  * @author josue
  */
 public class DietistaImplementacion implements DietistaInterface {
@@ -27,14 +27,14 @@ public class DietistaImplementacion implements DietistaInterface {
     private static final Logger LOGGER = Logger.getLogger("javafxapplicationud3example");
 
     /**
-     *
+     * Constructor
      */
     public DietistaImplementacion() {
         this.webClient = new DietistaResfullClient();
     }
 
     /**
-     *
+     * Crea Un dietista
      * @param usuario
      * @throws UsuarioInterfaceException
      */
@@ -51,7 +51,10 @@ public class DietistaImplementacion implements DietistaInterface {
             throw new UsuarioInterfaceException("Error creating user:\n" + ex.getMessage());
         }
     }
-
+    /**
+     * Elimina un Dietista
+     * @throws exceptions.UsuarioInterfaceException
+     */
     @Override
     public void eliminarDietista(Usuario usuario) throws UsuarioInterfaceException {
         try {
@@ -64,7 +67,10 @@ public class DietistaImplementacion implements DietistaInterface {
             throw new UsuarioInterfaceException("Error deleting user:\n" + ex.getMessage());
         }
     }
-
+    /**
+     * Actualiza un Usuario
+     * @param usuario
+     */
     @Override
     public void modificarDietista(Usuario usuario) throws UsuarioInterfaceException {
         try {
@@ -79,7 +85,7 @@ public class DietistaImplementacion implements DietistaInterface {
     }
 
     /**
-     *
+     *Busca Todos los dietista
      * @return
      * @throws UsuarioInterfaceException
      */

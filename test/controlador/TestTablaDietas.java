@@ -5,6 +5,7 @@
  */
 package testDietas;
 
+import aplicacion.Principal;
 import entities.Dieta;
 import java.util.concurrent.TimeoutException;
 import javafx.scene.control.TableView;
@@ -36,7 +37,7 @@ public class TestTablaDietas extends ApplicationTest {
     @BeforeClass
     public static void setUpClass() throws TimeoutException {
         FxToolkit.registerPrimaryStage();
-        FxToolkit.setupApplication(RetoG2Client.class);
+        FxToolkit.setupApplication(Principal.class);
     }
 
     @Test

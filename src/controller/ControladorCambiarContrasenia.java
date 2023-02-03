@@ -9,7 +9,6 @@ import cifrado.Cifrado;
 import entities.Usuario;
 import exceptions.ContraseniaDesigualException;
 import exceptions.ContraseniaDesigualException1;
-import exceptions.ExisteNombreException;
 import exceptions.UsuarioInterfaceException;
 import factoria.DietistaFactoria;
 import factoria.UsuarioFactoria;
@@ -17,7 +16,6 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,8 +28,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logic.UsuarioInterface;
 
@@ -73,6 +69,7 @@ public class ControladorCambiarContrasenia {
     private Button volverBoton;
 
     /**
+     * Getter
      *
      * @return
      */
@@ -81,6 +78,7 @@ public class ControladorCambiarContrasenia {
     }
 
     /**
+     * Setter
      *
      * @param stage
      */
@@ -89,6 +87,7 @@ public class ControladorCambiarContrasenia {
     }
 
     /**
+     * Inicializa los datos a mostrar en la ventana
      *
      * @param root
      */
@@ -100,13 +99,19 @@ public class ControladorCambiarContrasenia {
         stage1.show();
     }
 
-    void initStage(Parent root, Usuario usuario) {
+    /**
+     * Inicializa los datos a mostrar en la ventana
+     *
+     * @param root
+     * @param usuario Objeto Usuario
+     */
+    public void initStage(Parent root, Usuario usuario) {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
         stage1.setScene(scene);
         stage1.setResizable(false);
         stage1.show();
-
+//Acciones de los botones
         volverBoton.setOnAction((event) -> {
             volver(usuario, event);
         });
@@ -125,6 +130,7 @@ public class ControladorCambiarContrasenia {
     }
 
     /**
+     * Vuelve a la Ventana Anterior(DatosDietista)
      *
      * @param usuario
      * @param event
@@ -146,14 +152,17 @@ public class ControladorCambiarContrasenia {
 
     }
 
+    //Ejecuta el metodo de cambiar contraseña y vuelve a la ventana de Datos alimento
     private void cambiarContrasenia(Usuario usuario, ActionEvent event) throws ContraseniaDesigualException, ContraseniaDesigualException1 {
 
         UsuarioInterface usuarioInterface = UsuarioFactoria.createUsuarioManager(DietistaFactoria.REST_WEB_CLIENT_TYPE);
+        //Controla que la contraseña del usuario coincida con la puesta
         if (usuario.getContraseña().equalsIgnoreCase(antiguaContraseñaText.getText())) {
+            //Controla que sean iguales la contraseña nueva con confirmar
             if (nuevaContraseñaText.getText().equalsIgnoreCase(confNuevaContraseñaText.getText())) {
                 try {
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Go out");
+                    alert.setTitle("Nutrivago");
                     alert.setHeaderText(null);
                     alert.setContentText("¿Estas Seguro que quieres Cambiar la Contraseña?");
                     Optional opc = alert.showAndWait();

@@ -7,19 +7,14 @@ package controlador;
 
 import aplicacion.Principal;
 import javafx.stage.Stage;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
-import org.junit.runners.Suite;
 import static org.testfx.api.FxAssert.verifyThat;
 import org.testfx.framework.junit.ApplicationTest;
-import static org.testfx.matcher.base.NodeMatchers.isEnabled;
 import static org.testfx.matcher.base.NodeMatchers.isVisible;
+
 
 /**
  *
@@ -134,9 +129,9 @@ public class ControladorDatosAlimentoIT extends ApplicationTest {
         verifyThat("Nombre Alimento ya Existe",isVisible());
         clickOn("Aceptar");
     }
-    */
+  
             @Test
-    public void test4_ErrorNombreExiste() {
+    public void test5_ErrorNombreExiste() {
         clickOn("#nombreAccesoText");
         write("JON987");
         clickOn("#passText");
@@ -159,6 +154,62 @@ public class ControladorDatosAlimentoIT extends ApplicationTest {
         clickOn("#tipoComboBox");
         clickOn("FRUTA");
         clickOn("#crearBoton");
+
+    } 
+                @Test
+    public void test6_ErrorNombreExiste() {
+        clickOn("#nombreAccesoText");
+        write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("CREAR ALIMENTOS");
+        clickOn("#idText");
+        write("A-015");
+        clickOn("#nombreText");
+        write("melocoton");
+        clickOn("#caloriasText");
+        write("s");
+        clickOn("#grasasText");
+        write("5");
+        clickOn("#proteinasText");
+        write("4");
+        clickOn("#carbohidratosText");
+        write("5");
+        clickOn("#tipoComboBox");
+        clickOn("FRUTA");
+        clickOn("#crearBoton");
+        verifyThat("Calorias, Proteinas, Grasas Totales y Carbohidratos son valores numericos",isVisible());
+
+
+    }  */
+                    @Test
+    public void test7_CreacionAlimento() {
+        clickOn("#nombreAccesoText");
+        write("JON987");
+        clickOn("#passText");
+        write("abcd*1234");
+        clickOn("#entrarBoton");
+        clickOn("ALIMENTOS");
+        clickOn("CREAR ALIMENTOS");
+        clickOn("#idText");
+        write("A-015");
+        clickOn("#nombreText");
+        write("tomate");
+        clickOn("#caloriasText");
+        write("4.5");
+        clickOn("#grasasText");
+        write("5");
+        clickOn("#proteinasText");
+        write("4");
+        clickOn("#carbohidratosText");
+        write("5");
+        clickOn("#tipoComboBox");
+        clickOn("FRUTA");
+        clickOn("#crearBoton");
+        verifyThat("Calorias, Proteinas, Grasas Totales y Carbohidratos son valores numericos",isVisible());
+
 
     }
 }

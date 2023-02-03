@@ -10,10 +10,7 @@ package cifrado;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
@@ -32,8 +29,6 @@ import javax.crypto.Cipher;
 public class Cifrado {
 
     private static final String CLAVEPUBLICA = ResourceBundle.getBundle("cifrado.clavePublica").getString("clave");
-
-    //private static final ResourceBundle configFile = ResourceBundle.getBundle("clave.properties");
     private static byte[] salt = "esta es la salt!".getBytes();
     private byte[] iv;
     private static String clave = "abcd1234";
@@ -54,18 +49,9 @@ public class Cifrado {
     }
 
     /**
-     * public static PrivateKey leerClavePrivada() throws IOException,
-     * NoSuchAlgorithmException, InvalidKeySpecException { PrivateKey pvKey =
-     * null; try { // Obtener los bytes del archivo donde este guardado la llave
-     * publica byte[] pvKeyBytes =
-     * hexStringToByteArray(configFile.getString("PRIVATEKEY")); //
-     * PKCS8EncodedKeySpec encPvKeySpec = new PKCS8EncodedKeySpec(pvKeyBytes);
-     * // pvKey = KeyFactory.getInstance("RSA").generatePrivate(encPvKeySpec); }
-     * catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
-     * Logger.getLogger(Cifrado.class.getName()).log(Level.SEVERE, null, ex); }
-     * return pvKey; }
+     *Pasa un String a byte[]
      * @param s
-     * @return 
+     * @return
      */
     public static byte[] hexStringToByteArray(String s) {
         int len = s.length();
@@ -92,7 +78,7 @@ public class Cifrado {
     }
 
     /**
-     *
+     * Cifra el mensaje por clave asimetrica(clave publica)
      * @param mensaje
      * @return
      */
@@ -113,7 +99,7 @@ public class Cifrado {
     }
 
     /**
-     *
+     * Pasa un byte a String
      * @param bytes
      * @return
      */
