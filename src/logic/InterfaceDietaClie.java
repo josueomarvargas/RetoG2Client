@@ -37,7 +37,7 @@ public interface InterfaceDietaClie {
     /**
      * Este metodo Actualiza o cambia los datos de alimentos creados en la base de datos
      * @param dieta es un Objeto de la entidad alimento que contiene los datos
-     * para actualizarlo  de la base de datos     * 
+     * para actualizarlo  de la base de datos
      * @throws excepciones.UpdateException se lanza cuando ocurre un error en la actualización del objeto Dieta
      * en la base de datos
      */
@@ -102,7 +102,7 @@ public interface InterfaceDietaClie {
     /**
      * Este metodo busca por el Objetivo de la Dieta
      * @param OBJETIVO es una Enumeation
-     * @return
+     * @return Decuelve una lista de dietas
      * @throws excepciones.ReadException se lanza cuando ocurre un error en la busqueda de las Dietas
      * en la base de datos
      */
@@ -110,7 +110,7 @@ public interface InterfaceDietaClie {
     
     /**
      * Este metodo muestra todas las Dietas existentes
-     * @return
+     * @return Decuelve una lista de dietas
      * @throws ReadException 
      */
     public Collection<Dieta> getDietaAll();
