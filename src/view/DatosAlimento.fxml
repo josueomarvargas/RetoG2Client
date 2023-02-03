@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ControladorDatosAlimento">
+   <children>
+       <MenuBar fx:id="MnBAdmin" id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;" VBox.vgrow="NEVER">
+         <menus>
+            <Menu id="MnCuenta" mnemonicParsing="false" text="CUENTA">
+               <items>
+                  <MenuItem fx:id="mnITusDatos" id="mnITusDatos" mnemonicParsing="false" text="VER TUS DATOS" />
+                  <MenuItem fx:id="mnICerrarSesion" id="mnICerrarSesion" mnemonicParsing="false" text="CERRAR SESION" />
+               </items>
+            </Menu>
+
+            <Menu id="MnReceta" mnemonicParsing="false" text="RECETAS">
+               <items>
+                  <MenuItem fx:id="mnIVerRecetas" id="mnIVerRecetas" mnemonicParsing="false" text="VER RECETAS" />
+                  <MenuItem fx:id="mnBCrearRecetas" id="mnBCrearRecetas" mnemonicParsing="false" text="CREAR RECETAS" />
+               </items>
+            </Menu>
+            <Menu id="MnAlimentos" mnemonicParsing="false" text="ALIMENTOS">
+               <items>
+                  <MenuItem fx:id="mnIVerAlimentos" id="mnIVerAlimentos" mnemonicParsing="false" text="VER ALIMENTOS" />
+                  <MenuItem fx:id="mnBCrearAlimentos" id="mnBCrearAlimentos" mnemonicParsing="false" text="CREAR ALIMENTOS" />
+               </items>
+            </Menu>
+            <Menu id="MnDietas" mnemonicParsing="false" text="DIETAS">
+               <items>
+                  <MenuItem fx:id="mnIVerDietas" id="mnIVerDietas" mnemonicParsing="false" text="VER DIETAS" />
+                  <MenuItem fx:id="mnBCrearDietas" id="mnBCrearDietas" mnemonicParsing="false" text="CREAR DIETAS" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane id="principalPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #000000;">
+         <children>
+            <ImageView fitHeight="512.0" fitWidth="520.0" layoutX="163.0" layoutY="128.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imagenSignIn.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="512.0" fitWidth="520.0" layoutX="650.0" layoutY="128.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imagenSignIn.jpg" />
+               </image>
+            </ImageView>
+            <Label id="titNutri" layoutX="232.0" layoutY="135.0" text="Alimento" textFill="#645d00">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <Label id="descNutri" layoutX="381.0" layoutY="382.0" prefHeight="46.0" prefWidth="258.0" textFill="WHITE" />
+            <AnchorPane id="filtroPanel" layoutX="423.0" layoutY="199.0" prefHeight="370.0" prefWidth="520.0" style="-fx-background-color: #f5d400;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label id="idLabel" layoutX="114.0" layoutY="55.0" text="id:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="idText" id="idText" layoutX="103.0" layoutY="85.0" prefHeight="26.0" prefWidth="138.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label id="nombreLabel" layoutX="114.0" layoutY="115.0" text="Nombre:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nombreText" id="nombreText" layoutX="103.0" layoutY="145.0" prefHeight="26.0" prefWidth="138.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label id="caloriasLabel" layoutX="114.0" layoutY="175.0" text="Calorias:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="caloriasText" id="caloriasText" layoutX="103.0" layoutY="205.0" prefHeight="26.0" prefWidth="138.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label id="grasasLabel" layoutX="114.0" layoutY="235.0" text="Grasas:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="grasasText" id="grasasText" layoutX="103.0" layoutY="265.0" prefHeight="26.0" prefWidth="138.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label id="proteinasLabel" layoutX="297.0" layoutY="55.0" text="Proteinas:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="proteinasText" id="proteinasText" layoutX="286.0" layoutY="85.0" prefHeight="26.0" prefWidth="138.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label id="carbohidratosLabel" layoutX="297.0" layoutY="115.0" text="Carbohidratos">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="carbohidratosText" id="carbohidratosText" layoutX="286.0" layoutY="145.0" prefHeight="26.0" prefWidth="138.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label id="tipoLabel" layoutX="297.0" layoutY="175.0" text="Tipo:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="tipoComboBox" id="tipoComboBox" layoutX="286.0" layoutY="205.0" prefWidth="150.0" />
+                  <AnchorPane fx:id="crearPanel" id="crearPanel" layoutY="307.0" prefHeight="60.0" prefWidth="520.0">
+                     <children>
+                        <Button fx:id="crearBoton" id="crearBoton" layoutX="208.0" layoutY="3.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #b0850e;" text="Crear">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="modificarPanel" id="modificarPanel" layoutY="307.0" prefHeight="60.0" prefWidth="520.0">
+                     <children>
+                        <Button fx:id="modificarBoton" id="modificarBoton" layoutX="78.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #b0850e;" text="Modificar">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="eliminarBoton" id="eliminarBoton" layoutX="338.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #b0850e;" text="Eliminar">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button fx:id="volverBoton" id="volverBoton" layoutX="1086.0" layoutY="551.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #f5d400;" text="Volver">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

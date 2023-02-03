@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorAlimentoTabla">
+    <children>
+        <MenuBar id="MnBAdmin" fx:id="MnBAdmin" prefHeight="615.0" prefWidth="1366.0" style="-fx-background-color: #f5d400;" VBox.vgrow="NEVER">
+            <menus>
+                <Menu id="MnCuenta" mnemonicParsing="false" text="CUENTA">
+                    <items>
+                        <MenuItem id="mnITusDatos" fx:id="mnITusDatos" mnemonicParsing="false" text="VER TUS DATOS" />
+                        <MenuItem id="mnICerrarSesion" fx:id="mnICerrarSesion" mnemonicParsing="false" text="CERRAR SESION" />
+                    </items>
+                </Menu>
+
+                <Menu id="MnReceta" mnemonicParsing="false" text="RECETAS">
+                    <items>
+                        <MenuItem id="mnIVerRecetas" fx:id="mnIVerRecetas" mnemonicParsing="false" text="VER RECETAS" />
+                        <MenuItem id="mnBCrearRecetas" fx:id="mnBCrearRecetas" mnemonicParsing="false" text="CREAR RECETAS" />
+                    </items>
+                </Menu>
+                <Menu id="MnAlimentos" mnemonicParsing="false" text="ALIMENTOS">
+                    <items>
+                        <MenuItem id="mnIVerAlimentos" fx:id="mnIVerAlimentos" mnemonicParsing="false" text="VER ALIMENTOS" />
+                        <MenuItem id="mnBCrearAlimentos" fx:id="mnBCrearAlimentos" mnemonicParsing="false" text="CREAR ALIMENTOS" />
+                    </items>
+                </Menu>
+                <Menu id="MnDietas" mnemonicParsing="false" text="DIETAS">
+                    <items>
+                        <MenuItem id="mnIVerDietas" fx:id="mnIVerDietas" mnemonicParsing="false" text="VER DIETAS" />
+                        <MenuItem id="mnBCrearDietas" fx:id="mnBCrearDietas" mnemonicParsing="false" text="CREAR DIETAS" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane id="principalPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #000000;">
+            <children>
+                <ImageView fitHeight="512.0" fitWidth="520.0" layoutX="173.0" layoutY="138.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/imagenSignIn.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="512.0" fitWidth="520.0" layoutX="660.0" layoutY="138.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/imagenSignIn.jpg" />
+                    </image>
+                </ImageView>
+                <Label id="titNutri" layoutX="232.0" layoutY="135.0" text="Alimento" textFill="#645d00">
+                    <font>
+                        <Font size="48.0" />
+                    </font>
+                </Label>
+                <Label id="descNutri" layoutX="27.0" layoutY="200.0" prefHeight="46.0" prefWidth="258.0" textFill="WHITE" />
+                <TableView id="tablaAlimento" fx:id="tablaAlimento" layoutX="218.0" layoutY="209.0" opacity="0.99" prefHeight="384.0" prefWidth="618.0">
+                    <columns>
+                        <TableColumn id="colum1" fx:id="colum1" prefWidth="85.0" text="Nombre" />
+                        <TableColumn id="colum2" fx:id="colum2" prefWidth="100.79998779296875" text="Calorias" />
+                        <TableColumn id="colum3" fx:id="colum3" prefWidth="91.20001220703125" text="Grasas" />
+                        <TableColumn id="colum4" fx:id="colum4" minWidth="8.79998779296875" prefWidth="99.20010375976562" text="Proteinas" />
+                        <TableColumn id="colum5" fx:id="colum5" prefWidth="110.39996337890625" text="Carbohidratos" />
+                    </columns>
+                </TableView>
+                <AnchorPane id="filtroPanel2" fx:id="filtroPanel2" layoutX="850.0" layoutY="250.0" prefHeight="270.0" prefWidth="300.0" style="-fx-background-color: #f5d400;">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <children>
+                        <Label id="nombreLabel" layoutX="8.0" layoutY="11.0" prefHeight="27.0" prefWidth="86.0" text="Nombre:">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField id="nombreText" fx:id="nombreText" layoutX="82.0" layoutY="8.0" prefHeight="30.0" prefWidth="208.0">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </TextField>
+                        <Label id="menorLabel" layoutX="8.0" layoutY="50.0" prefHeight="27.0" prefWidth="75.0" text="Menor:">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField id="menorText" fx:id="menorText" layoutX="82.0" layoutY="45.0" prefHeight="20.0" prefWidth="60.0">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </TextField>
+                        <Label id="mayorLabel" layoutX="8.0" layoutY="87.0" prefHeight="27.0" prefWidth="69.0" text="Mayor:">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField id="mayorText" fx:id="mayorText" layoutX="82.0" layoutY="82.0" prefHeight="20.0" prefWidth="60.0">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </TextField>
+                        <Label id="entreLabel" layoutX="8.0" layoutY="126.0" prefHeight="27.0" prefWidth="59.0" text="Entre:">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField id="minText" fx:id="minText" layoutX="82.0" layoutY="121.0" prefHeight="20.0" prefWidth="60.0" promptText="min">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </TextField>
+                        <TextField id="maxText" fx:id="maxText" layoutX="178.0" layoutY="121.0" prefHeight="20.0" prefWidth="60.0" promptText="max">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </TextField>
+
+                        <Label id="guionLabel" layoutX="157.0" layoutY="120.0" text="-">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+
+                        <Label id="tipoLabel" layoutX="8.0" layoutY="163.0" prefHeight="18.0" prefWidth="40.0" text="Tipo:">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+
+                        <ComboBox id="tipoComboBox" fx:id="tipoComboBox" layoutX="65.0" layoutY="162.0" prefHeight="35.0" prefWidth="205.0" />
+                        <Button id="filtrarBoton" fx:id="filtrarBoton" layoutX="126.0" layoutY="210.0" mnemonicParsing="false" text="Filtrar">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <Button id="anadirBoton" fx:id="anadirBoton" layoutX="986.0" layoutY="551.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Añadir">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Button id="volverBoton" fx:id="volverBoton" layoutX="1086.0" layoutY="551.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Volver">
+
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Button id="informeBoton" fx:id="informeBoton" layoutX="1070.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Informe">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Button id="modificarBoton" fx:id="modificarBoton" layoutX="859.0" layoutY="551.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Modificar">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <ComboBox id="filtrarCBox" fx:id="filtrarCBox" layoutX="859.0" layoutY="211.0" prefWidth="150.0" style="-fx-background-color: #f5d400;" />
+            <Button id="ayudaBoton" fx:id="ayudaBoton" layoutX="950.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: #f5d400;" text="Ayuda">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
